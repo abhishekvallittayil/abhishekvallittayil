@@ -1,226 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Abhishek Vallittayill | IT & Cybersecurity Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f6f9;
-            color: #333;
-        }
-
-        header {
-            background-color: #0a192f;
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-        }
-
-        header p {
-            margin-top: 10px;
-            font-size: 18px;
-            color: #ccd6f6;
-        }
-
-        nav {
-            background-color: #112240;
-            text-align: center;
-            padding: 10px;
-        }
-
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            color: #64ffda;
-        }
-
-        section {
-            padding: 40px 20px;
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        h2 {
-            border-bottom: 2px solid #0a192f;
-            padding-bottom: 10px;
-        }
-
-        .card {
-            background: white;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        ul {
-            padding-left: 20px;
-        }
-
-        footer {
-            background-color: #0a192f;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #0a192f;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        .btn:hover {
-            background-color: #64ffda;
-            color: black;
-        }
-    </style>
+  <title>My Personal Website</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-<header>
-    <h1>Abhishek Vallittayill</h1>
-    <p>IT Professional | Cybersecurity | System Administration | Health Informatics</p>
-    <p>
-        📍 Sault Ste Marie, ON |
-        📞 +1 (437)-860-6581 |
-        📧 abhishek.127001@gmail.com
-    </p>
-    <a class="btn" href="https://www.linkedin.com/in/abhishek-v-6935362a2" target="_blank">LinkedIn</a>
+<header class="nav">
+  <h2>My Name</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about-me.html">About Me</a>
+  </nav>
 </header>
 
-<nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-</nav>
-
-<section id="about">
-    <h2>About Me</h2>
-    <div class="card">
-        <p>
-            Innovative and detail-oriented IT professional with experience in technical support,
-            cybersecurity, and system administration. Skilled in Linux, Windows Server,
-            networking, and security tools. Certified in CEH and CompTIA Security+.
-        </p>
-        <p>
-            Currently pursuing Health Informatics at Sault College with a strong focus on
-            system efficiency, data security, and healthcare technology integration.
-        </p>
-    </div>
+<section class="hero">
+  <div>
+    <h1>Hello, I’m Abhishek</h1>
+    <p>I design and build clean websites.</p>
+  </div>
+  <img src="assets/images/profile.jpg" alt="Profile">
 </section>
-
-<section id="skills">
-    <h2>Technical Skills</h2>
-    <div class="card">
-        <ul>
-            <li>Linux & Windows Server Administration</li>
-            <li>TCP/IP Networking, Firewall Configuration</li>
-            <li>Wireshark, Metasploit, Nmap, Nessus</li>
-            <li>Python, Bash, SQL, HTML/CSS</li>
-            <li>Active Directory, DNS, RBAC</li>
-            <li>Technical Documentation & Reporting</li>
-        </ul>
-    </div>
-</section>
-
-<section id="projects">
-    <h2>Academic & Technical Projects</h2>
-
-    <div class="card">
-        <h3>Predictive Health Analytics Website (2025)</h3>
-        <p>
-            Developed a web-based predictive analytics platform integrating BMI calculation
-            and an AI chatbot for health insights.
-        </p>
-        <ul>
-            <li>Implemented front-end design and data collection</li>
-            <li>Integrated WHO-based health data APIs</li>
-            <li>Focused on usability and data security</li>
-        </ul>
-        <a class="btn" href="#">View Project</a>
-    </div>
-
-    <div class="card">
-        <h3>Windows Server Environment & Protection Project (2024)</h3>
-        <p>
-            Designed and secured a simulated enterprise Windows Server environment.
-        </p>
-        <ul>
-            <li>Configured Active Directory, DNS, and user management</li>
-            <li>Implemented firewall rules and group policies</li>
-            <li>Applied RBAC and backup mechanisms</li>
-            <li>Documented full system configuration</li>
-        </ul>
-        <a class="btn" href="#">View Documentation</a>
-    </div>
-
-</section>
-
-<section id="experience">
-    <h2>Professional Experience</h2>
-
-    <div class="card">
-        <h3>Information Help Desk Assistant</h3>
-        <p><strong>Graphics World, India (2021 – 2023)</strong></p>
-        <ul>
-            <li>Provided technical support for hardware, software, and networks</li>
-            <li>Installed OS, printers, and applications</li>
-            <li>Maintained IT documentation and backups</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h3>Volunteer – Sault Area Hospital</h3>
-        <p><strong>2025 – Present</strong></p>
-        <ul>
-            <li>Supported digital record management</li>
-            <li>Ensured patient data confidentiality</li>
-        </ul>
-    </div>
-
-</section>
-
-<section id="education">
-    <h2>Education & Certifications</h2>
-    <div class="card">
-        <p><strong>Graduate Certificate – Health Informatics</strong> (2025 – Present)</p>
-        <p><strong>Graduate Certificate – Cybersecurity</strong> (2024 – 2025)</p>
-        <p><strong>Bachelor of Computer Application</strong> (2017 – 2020)</p>
-        <br>
-        <p><strong>Certifications:</strong></p>
-        <ul>
-            <li>Certified Ethical Hacker (CEH)</li>
-            <li>Certified Penetration Tester (CPT)</li>
-            <li>CompTIA Security+</li>
-        </ul>
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 Abhishek Vallittayill | IT & Cybersecurity Portfolio</p>
-</footer>
 
 </body>
 </html>
