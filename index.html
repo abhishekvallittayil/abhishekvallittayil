@@ -14,6 +14,7 @@
 
 <canvas id="matrixCanvas"></canvas>
 
+<!-- BOOT SCREEN -->
 <div id="bootScreen">
   <div class="boot-terminal">
     <div id="bootOutput"></div>
@@ -24,10 +25,17 @@
 
 <header class="nav">
   <div class="logo">
-    <img src="assets/images/cyber.png">
+    <img src="assets/images/cyber.png" alt="Cyber Logo">
     <span>Abhishek Vallittayil</span>
   </div>
-  <nav>
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="navMenu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="portfolio.html">Works</a>
@@ -37,10 +45,8 @@
 <section class="hero">
   <h1><span class="typing"></span></h1>
   <p>
-    Certified in Network+, Security+, CEH, and Penetration Testing, I focus on securing network 
-    infrastructures, identifying vulnerabilities, and strengthening system defenses.
-    With a strong passion for Linux systems and cybersecurity, I am committed to continuous learning
-    and protecting digital environments against evolving threats.
+    Certified in Network+, Security+, CEH, and Penetration Testing,
+    I focus on securing infrastructures and identifying vulnerabilities.
   </p>
   <a href="portfolio.html" class="btn">Explore My Works</a>
 </section>
@@ -49,22 +55,19 @@
   <div class="footer-container">
     <div class="footer-left">
       <h2>Contact</h2>
-      <p>Email: abhishek.127001@gmail.com</p>
+      <p>Email: abhishek127001@gmail.com</p>
       <p>Phone: +1 (437)860-6581</p>
-
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/in/abhishek-v-6935362a2/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://www.instagram.com/abhi.127001/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@AbhishekV-001" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="https://discord.com/invite/DvZeUdcB" target="_blank"><i class="fab fa-discord"></i></a>
-      </div>
-
-      <p class="copyright">© 2026 Abhishek. All rights reserved.</p>
     </div>
   </div>
 </footer>
 
 </div>
+
+<script>
+function toggleMenu() {
+  document.getElementById("navMenu").classList.toggle("active");
+}
+</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -74,9 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const bootOutput = document.getElementById("bootOutput");
 
   const bootLines = [
-    "> Initializing Abhishek Portfolio...",
+    "> Initializing Portfolio...",
     "> Loading Security Modules...",
-    "> Verifying Credentials...",
     "> Access Granted."
   ];
 
@@ -112,8 +114,8 @@ document.addEventListener("DOMContentLoaded", function () {
           sessionStorage.setItem("booted", "true");
           startHeroTyping();
           startMatrix();
-        }, 1000);
-      }, 800);
+        }, 800);
+      }, 500);
     }
   }
 
@@ -121,7 +123,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const text = "Cybersecurity Researcher";
     const typingElement = document.querySelector(".typing");
     let index = 0;
-    typingElement.innerHTML = "";
 
     function typeEffect() {
       if (index < text.length) {
@@ -130,6 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(typeEffect, 60);
       }
     }
+
     typeEffect();
   }
 
@@ -141,10 +143,8 @@ document.addEventListener("DOMContentLoaded", function () {
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
 const letters = "01";
-const fontSize = window.innerWidth < 768 ? 10 : 14;
-
-let columns;
-let drops;
+const fontSize = 14;
+let columns, drops;
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
@@ -154,18 +154,20 @@ function resizeCanvas() {
 }
 
 function draw() {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+  ctx.fillStyle = "rgba(0,0,0,0.05)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   ctx.fillStyle = "#00ff9f";
   ctx.font = fontSize + "px monospace";
 
   for (let i = 0; i < drops.length; i++) {
-    const text = letters.charAt(Math.floor(Math.random() * letters.length));
+    const text = letters[Math.floor(Math.random() * letters.length)];
     ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
     if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
       drops[i] = 0;
     }
+
     drops[i]++;
   }
 }
@@ -173,10 +175,12 @@ function draw() {
 function startMatrix() {
   resizeCanvas();
   window.addEventListener("resize", resizeCanvas);
+
   function animate() {
     draw();
     requestAnimationFrame(animate);
   }
+
   animate();
 }
 </script>
