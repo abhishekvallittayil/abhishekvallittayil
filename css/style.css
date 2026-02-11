@@ -173,3 +173,19 @@ body {
   color: #64748b;
 }
 
+/* SOCIAL ICONS */
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  margin-right: 15px;
+  font-size: 22px;
+  color: #94a3b8;
+  transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #38bdf8;
+  text-shadow: 0 0 10px rgba(56,189,248,0.7);
+}
