@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-
+<canvas id="matrixCanvas"></canvas>
 <header class="nav">
   <div class="logo">
     <img src="assets/images/cyber.png" alt="Cyber Logo">
@@ -75,38 +75,40 @@ and protecting digital environments against evolving threats.</p>
   </div>
 </footer>
 <script>
-const text = "Cybersecurity Researcher";
-let index = 0;
-const speed = 80;
-const typingElement = document.querySelector(".typing");
+document.addEventListener("DOMContentLoaded", function() {
+  const text = "Cybersecurity Researcher";
+  let index = 0;
+  const speed = 80;
+  const typingElement = document.querySelector(".typing");
 
-function typeEffect() {
-  if (index < text.length) {
-    typingElement.innerHTML += text.charAt(index);
-    index++;
-    setTimeout(typeEffect, speed);
+  function typeEffect() {
+    if (index < text.length) {
+      typingElement.innerHTML += text.charAt(index);
+      index++;
+      setTimeout(typeEffect, speed);
+    }
   }
-}
 
-window.onload = typeEffect;
+  typeEffect();
+});
 </script>
-<canvas id="matrixCanvas"></canvas>
 
 <script>
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
 
 const letters = "01";
 const fontSize = 14;
-const columns = canvas.width / fontSize;
-const drops = [];
-
-for (let x = 0; x < columns; x++) {
-  drops[x] = 1;
-}
+let columns = canvas.width / fontSize;
+let drops = Array(Math.floor(columns)).fill(1);
 
 function draw() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
@@ -132,6 +134,7 @@ setInterval(draw, 35);
 
 </body>
 </html>
+
 
 
 
