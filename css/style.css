@@ -313,3 +313,8 @@ body {
   color: #00ff9f;
   line-height: 1.6;
 }
+
+.terminal-content::after {
+  content: "_";
+  animation: blink 1s infinite;
+}
