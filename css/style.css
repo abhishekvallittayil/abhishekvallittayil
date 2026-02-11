@@ -380,3 +380,50 @@ body::before {
   position: relative;
   z-index: 2;
 }
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: #00ff9f;
+}
+
+@media (max-width: 768px) {
+
+  .nav {
+    padding: 20px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  #navMenu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: black;
+    width: 100%;
+    flex-direction: column;
+    display: none;
+    text-align: center;
+  }
+
+  #navMenu a {
+    padding: 15px 0;
+    display: block;
+  }
+
+  #navMenu.active {
+    display: flex;
+  }
+
+}
+
