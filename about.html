@@ -4,16 +4,20 @@
   <title>About</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/png" href="assets/images/cyber.png">
 </head>
+
 <body>
 
 <header class="nav">
   <div class="logo">
     <img src="assets/images/cyber.png">
-    <span>Abhishek Vallittayil</span>
   </div>
-  <nav>
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <nav id="navMenu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="portfolio.html">Works</a>
@@ -22,9 +26,14 @@
 
 <section class="page">
   <h1>About Me</h1>
-  <p>I am a cybersecurity student with hands-on experience in Active Directory, SIEM monitoring, vulnerability assessment, and network security.</p>
-  <p>I enjoy building lab environments, analyzing threats, and designing secure systems. My goal is to work as a Security Analyst and protect digital infrastructure.</p>
+  <p>I am a cybersecurity student with hands-on lab experience.</p>
 </section>
+
+<script>
+function toggleMenu() {
+  document.getElementById("navMenu").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
