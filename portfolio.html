@@ -4,16 +4,20 @@
   <title>Works</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/png" href="assets/images/cyber.png">
 </head>
+
 <body>
 
 <header class="nav">
   <div class="logo">
     <img src="assets/images/cyber.png">
-    <span>Abhishek Vallittayil</span>
   </div>
-  <nav>
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+
+  <nav id="navMenu">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="portfolio.html">Works</a>
@@ -22,24 +26,18 @@
 
 <section class="page">
   <h1>My Projects</h1>
-
   <div class="grid">
-    <div class="card">
-      <h3>Network Design Project</h3>
-      <p>Designed secure networks using VLANs, ACLs and firewall configurations.</p>
-    </div>
-
-    <div class="card">
-      <h3>Azure SIEM Monitoring</h3>
-      <p>Configured Microsoft Sentinel to monitor logs and detect threats.</p>
-    </div>
-
-    <div class="card">
-      <h3>Honeypot Lab</h3>
-      <p>Built a honeypot to capture attacker behavior and analyze threats.</p>
-    </div>
+    <div class="card"><h3>Network Lab</h3></div>
+    <div class="card"><h3>SIEM Monitoring</h3></div>
+    <div class="card"><h3>Honeypot</h3></div>
   </div>
 </section>
+
+<script>
+function toggleMenu() {
+  document.getElementById("navMenu").classList.toggle("active");
+}
+</script>
 
 </body>
 </html>
