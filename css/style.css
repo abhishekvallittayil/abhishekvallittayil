@@ -232,3 +232,27 @@ body {
   }
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: 35px;
+  width: auto;
+  filter: drop-shadow(0 0 8px #00ff9f);
+  transition: 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 15px #00ff9f);
+}
+
+.logo span {
+  color: #00ff9f;
+  font-weight: 600;
+  font-size: 18px;
+}
+
