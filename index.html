@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Abhishek Vallittayil</title>
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" type="image/png" href="assets/images/cyber.png">
@@ -19,7 +20,7 @@
   </div>
 </div>
 
-<!-- MAIN CONTENT (HIDDEN INITIALLY) -->
+<!-- MAIN CONTENT -->
 <div id="mainContent" style="display:none;">
 
 <header class="nav">
@@ -40,10 +41,11 @@
     <h1><span class="typing"></span></h1>
     <p>
       Certified in Network+, Security+, CEH, and Penetration Testing, I focus on securing network 
-      infrastructures, identifying vulnerabilities, and strengthening system defenses. 
-      With a strong passion for Linux systems and cybersecurity, I am committed to continuous learning 
+      infrastructures, identifying vulnerabilities, and strengthening system defenses.
+      With a strong passion for Linux systems and cybersecurity, I am committed to continuous learning
       and protecting digital environments against evolving threats.
     </p>
+
     <a href="portfolio.html" class="btn">Explore My Works</a>
   </div>
 </section>
@@ -53,9 +55,8 @@
 
     <div class="footer-left">
       <h2>Contact</h2>
-      <p>Get in touch</p>
-      <p><strong>Email:</strong> abhishek127001@gmail.com</p>
-      <p><strong>Phone:</strong> +1 (437)860-6581</p>
+      <p>Email: abhishek127001@gmail.com</p>
+      <p>Phone: +1 (437)860-6581</p>
 
       <div class="social-icons">
         <a href="https://www.linkedin.com/in/abhishek-v-6935362a2/" target="_blank">
@@ -75,22 +76,18 @@
       <p class="copyright">© 2026 Abhishek. All rights reserved.</p>
     </div>
 
-    <div class="footer-right">
-      <form>
-        <label>Name</label>
-        <input type="text" placeholder="Enter your name">
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-
   </div>
 </footer>
 
 </div>
 
-<!-- BOOT + HERO CONTROL SCRIPT -->
+<!-- ===================== BOOT + HERO SCRIPT ===================== -->
 <script>
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+
+  const bootScreen = document.getElementById("bootScreen");
+  const mainContent = document.getElementById("mainContent");
+  const bootOutput = document.getElementById("bootOutput");
 
   const bootLines = [
     "> Initializing Abhishek Portfolio...",
@@ -99,9 +96,14 @@ document.addEventListener("DOMContentLoaded", function() {
     "> Access Granted."
   ];
 
-  const bootOutput = document.getElementById("bootOutput");
-  const bootScreen = document.getElementById("bootScreen");
-  const mainContent = document.getElementById("mainContent");
+  // 🔥 If already booted, skip animation
+  if (sessionStorage.getItem("booted")) {
+    bootScreen.style.display = "none";
+    mainContent.style.display = "block";
+    startHeroTyping();
+    startMatrix();
+    return;
+  }
 
   let lineIndex = 0;
   let charIndex = 0;
@@ -120,13 +122,13 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     } else {
       setTimeout(() => {
-        bootScreen.style.transition = "opacity 1s ease";
         bootScreen.style.opacity = "0";
         setTimeout(() => {
           bootScreen.style.display = "none";
           mainContent.style.display = "block";
+          sessionStorage.setItem("booted", "true");
           startHeroTyping();
-          startMatrix();   // start matrix AFTER boot
+          startMatrix();
         }, 1000);
       }, 800);
     }
@@ -134,8 +136,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function startHeroTyping() {
     const text = "Cybersecurity Researcher";
-    let index = 0;
     const typingElement = document.querySelector(".typing");
+    let index = 0;
+
+    typingElement.innerHTML = "";
 
     function typeEffect() {
       if (index < text.length) {
@@ -152,7 +156,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<!-- MATRIX SCRIPT -->
+<!-- ===================== MATRIX SCRIPT ===================== -->
 <script>
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
@@ -204,4 +208,3 @@ function startMatrix() {
 
 </body>
 </html>
-
