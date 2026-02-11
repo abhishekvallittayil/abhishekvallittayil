@@ -23,7 +23,9 @@
 
 <section class="hero">
   <div>
-    <h1>Cybersecurity Researcher </h1>
+    <h1>
+  <span class="typing"></span>
+</h1>
     <p>Certified in Network+, Security+, CEH, and Penetration Testing, I focus on securing network 
 infrastructures, identifying vulnerabilities, and strengthening system defenses. 
 With a strong passion for Linux systems and cybersecurity, I am committed to continuous learning 
@@ -72,9 +74,26 @@ and protecting digital environments against evolving threats.</p>
 
   </div>
 </footer>
+<script>
+const text = "Cybersecurity Researcher";
+let index = 0;
+const speed = 80;
+const typingElement = document.querySelector(".typing");
+
+function typeEffect() {
+  if (index < text.length) {
+    typingElement.innerHTML += text.charAt(index);
+    index++;
+    setTimeout(typeEffect, speed);
+  }
+}
+
+window.onload = typeEffect;
+</script>
 
 </body>
 </html>
+
 
 
 
