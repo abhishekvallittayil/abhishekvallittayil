@@ -342,12 +342,10 @@ body {
   width: 80%;
   max-width: 800px;
   background: black;
-  border: 1px solid #003d2e;
   padding: 30px;
   font-family: monospace;
   font-size: 16px;
   color: #00ff9f;
-  box-shadow: 0 0 30px rgba(0,255,159,0.2);
 }
 
 #bootOutput::after {
