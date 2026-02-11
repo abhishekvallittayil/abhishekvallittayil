@@ -143,8 +143,41 @@ function draw() {
 setInterval(draw, 35);
 </script>
 
+<script>
+const terminalLines = [
+  "> Initializing Abhishek Portfolio...",
+  "> Loading Cybersecurity Modules...",
+  "> Verifying Credentials...",
+  "> Access Granted."
+];
+
+const terminal = document.getElementById("terminalOutput");
+
+let lineIndex = 0;
+let charIndex = 0;
+
+function typeTerminal() {
+  if (lineIndex < terminalLines.length) {
+    if (charIndex < terminalLines[lineIndex].length) {
+      terminal.innerHTML += terminalLines[lineIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(typeTerminal, 30);
+    } else {
+      terminal.innerHTML += "<br/>";
+      lineIndex++;
+      charIndex = 0;
+      setTimeout(typeTerminal, 400);
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", typeTerminal);
+</script>
+
+  
 </body>
 </html>
+
 
 
 
