@@ -1,27 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Personal Website</title>
+  <title>Portfolio</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="nav">
-  <h2>My Name</h2>
+  <h2>Your Name</h2>
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="portfolio.html">Portfolio</a>
-    <a href="about-me.html">About Me</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<section class="hero">
-  <div>
-    <h1>Hello, I’m Abhishek</h1>
-    <p>I design and build clean websites.</p>
+<section class="portfolio-section">
+  <div class="container">
+    <h1>My Portfolio</h1>
+    <p>Here’s some of my recent work 👇</p>
+
+    <div class="portfolio-grid">
+
+      <!-- ITEM 1 -->
+      <div class="portfolio-card">
+        <img src="assets/images/project1.jpg" alt="Project 1">
+        <div class="portfolio-info">
+          <h3>Network Design Project</h3>
+          <p>Designed a secure network environment using Cisco Packet Tracer.</p>
+        </div>
+      </div>
+
+      <!-- ITEM 2 -->
+      <div class="portfolio-card">
+        <img src="assets/images/project2.jpg" alt="Project 2">
+        <div class="portfolio-info">
+          <h3>SIEM Monitoring Setup</h3>
+          <p>Configured Azure Sentinel to monitor resources and security logs.</p>
+        </div>
+      </div>
+
+      <!-- ITEM 3 -->
+      <div class="portfolio-card">
+        <img src="assets/images/project3.jpg" alt="Project 3">
+        <div class="portfolio-info">
+          <h3>Honeypot Lab Setup</h3>
+          <p>Created a honeypot to capture attacker behavior and analyze threats.</p>
+        </div>
+      </div>
+
+      <!-- ADD MORE CARDS HERE -->
+
+    </div>
   </div>
-  <img src="assets/images/profile.jpg" alt="Profile">
 </section>
 
 </body>
