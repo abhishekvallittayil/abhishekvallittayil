@@ -3,6 +3,8 @@
 <head>
   <title>Abhishek Vallittayil</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" type="image/png" href="assets/images/cyber.png">
@@ -10,25 +12,21 @@
 
 <body>
 
-<!-- MATRIX BACKGROUND -->
 <canvas id="matrixCanvas"></canvas>
 
-<!-- BOOT SCREEN -->
 <div id="bootScreen">
   <div class="boot-terminal">
     <div id="bootOutput"></div>
   </div>
 </div>
 
-<!-- MAIN CONTENT -->
 <div id="mainContent" style="display:none;">
 
 <header class="nav">
   <div class="logo">
-    <img src="assets/images/cyber.png" alt="Cyber Logo">
+    <img src="assets/images/cyber.png">
     <span>Abhishek Vallittayil</span>
   </div>
-
   <nav>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -37,51 +35,37 @@
 </header>
 
 <section class="hero">
-  <div>
-    <h1><span class="typing"></span></h1>
-    <p>
-      Certified in Network+, Security+, CEH, and Penetration Testing, I focus on securing network 
-      infrastructures, identifying vulnerabilities, and strengthening system defenses.
-      With a strong passion for Linux systems and cybersecurity, I am committed to continuous learning
-      and protecting digital environments against evolving threats.
-    </p>
-
-    <a href="portfolio.html" class="btn">Explore My Works</a>
-  </div>
+  <h1><span class="typing"></span></h1>
+  <p>
+    Certified in Network+, Security+, CEH, and Penetration Testing, I focus on securing network 
+    infrastructures, identifying vulnerabilities, and strengthening system defenses.
+    With a strong passion for Linux systems and cybersecurity, I am committed to continuous learning
+    and protecting digital environments against evolving threats.
+  </p>
+  <a href="portfolio.html" class="btn">Explore My Works</a>
 </section>
 
 <footer class="footer">
   <div class="footer-container">
-
     <div class="footer-left">
       <h2>Contact</h2>
       <p>Email: abhishek.127001@gmail.com</p>
       <p>Phone: +1 (437)860-6581</p>
 
       <div class="social-icons">
-        <a href="https://www.linkedin.com/in/abhishek-v-6935362a2/" target="_blank">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://www.instagram.com/abhi.127001/" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.youtube.com/@AbhishekV-001" target="_blank">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://discord.com/invite/DvZeUdcB" target="_blank">
-          <i class="fab fa-discord"></i>
-        </a>
+        <a href="https://www.linkedin.com/in/abhishek-v-6935362a2/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/abhi.127001/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@AbhishekV-001" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://discord.com/invite/DvZeUdcB" target="_blank"><i class="fab fa-discord"></i></a>
       </div>
 
       <p class="copyright">© 2026 Abhishek. All rights reserved.</p>
     </div>
-
   </div>
 </footer>
 
 </div>
 
-<!-- ===================== BOOT + HERO SCRIPT ===================== -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -96,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "> Access Granted."
   ];
 
-  // 🔥 If already booted, skip animation
   if (sessionStorage.getItem("booted")) {
     bootScreen.style.display = "none";
     mainContent.style.display = "block";
@@ -138,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const text = "Cybersecurity Researcher";
     const typingElement = document.querySelector(".typing");
     let index = 0;
-
     typingElement.innerHTML = "";
 
     function typeEffect() {
@@ -148,7 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(typeEffect, 60);
       }
     }
-
     typeEffect();
   }
 
@@ -156,13 +137,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-<!-- ===================== MATRIX SCRIPT ===================== -->
 <script>
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
-
 const letters = "01";
-const fontSize = 14;
+const fontSize = window.innerWidth < 768 ? 10 : 14;
 
 let columns;
 let drops;
@@ -184,11 +163,9 @@ function draw() {
   for (let i = 0; i < drops.length; i++) {
     const text = letters.charAt(Math.floor(Math.random() * letters.length));
     ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
     if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
       drops[i] = 0;
     }
-
     drops[i]++;
   }
 }
@@ -196,16 +173,13 @@ function draw() {
 function startMatrix() {
   resizeCanvas();
   window.addEventListener("resize", resizeCanvas);
-
   function animate() {
     draw();
     requestAnimationFrame(animate);
   }
-
   animate();
 }
 </script>
 
 </body>
 </html>
-
