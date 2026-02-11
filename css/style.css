@@ -5,10 +5,10 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: #000000;
   background: radial-gradient(circle at top right, #00110f 0%, #000000 60%);
   color: #d1fae5;
   overflow-x: hidden;
+  animation: pageFade 1s ease-in-out;
 }
 
 /* NAVBAR */
@@ -217,9 +217,6 @@ body {
     0 0 30px rgba(0,255,159,0.4);
 }
 
-body {
-  animation: pageFade 1s ease-in-out;
-}
 
 @keyframes pageFade {
   from {
