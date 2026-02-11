@@ -1,5 +1,3 @@
-
-/* RESET */
 * {
   box-sizing: border-box;
 }
@@ -23,7 +21,6 @@ body {
 
 .nav h2 {
   font-weight: 600;
-  letter-spacing: 1px;
 }
 
 .nav a {
@@ -31,20 +28,15 @@ body {
   text-decoration: none;
   color: #444;
   font-weight: 500;
-  transition: 0.3s ease;
 }
 
 .nav a:hover {
   color: #000;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 120px 80px;
-  gap: 40px;
 }
 
 .hero h1 {
@@ -55,12 +47,17 @@ body {
 .hero p {
   font-size: 18px;
   color: #555;
+  max-width: 600px;
 }
 
-.hero img {
-  width: 350px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
 }
 
 /* PAGE SECTION */
@@ -70,18 +67,17 @@ body {
 
 .page h1 {
   font-size: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-/* PORTFOLIO GRID */
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  margin-top: 40px;
 }
 
-/* CARD STYLE */
+/* CARD */
 .card {
   background: white;
   padding: 30px;
@@ -97,21 +93,12 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero img {
-    margin-top: 30px;
-  }
-
   .nav {
     padding: 20px 30px;
   }
 
+  .hero,
   .page {
     padding: 60px 30px;
   }
 }
-
