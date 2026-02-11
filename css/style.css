@@ -48,7 +48,7 @@ body {
   margin-bottom: 20px;
   color: #00ff9f;
   text-shadow: 0 0 8px #00ff9f;
-  animation: hackerGlow 2s infinite alternate;
+  animation: hackerGlow 2s ease-in-out infinite alternate;
 }
 
 @keyframes hackerGlow {
@@ -269,8 +269,12 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
   z-index: -1;
+  pointer-events: none;
 }
+
 
 /* TERMINAL SECTION */
 .terminal-section {
@@ -321,6 +325,7 @@ body {
 
 /* FULLSCREEN BOOT */
 #bootScreen {
+  transition: opacity 1s ease;
   position: fixed;
   top: 0;
   left: 0;
@@ -350,3 +355,29 @@ body {
   animation: blink 1s infinite;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 159, 0.03),
+    rgba(0, 255, 159, 0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* CONTENT ABOVE SCANLINES */
+.nav,
+.hero,
+.footer,
+#mainContent {
+  position: relative;
+  z-index: 2;
+}
