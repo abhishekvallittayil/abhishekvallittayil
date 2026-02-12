@@ -11,7 +11,7 @@ body {
   overflow-x: hidden;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
 .nav {
   display: flex;
@@ -51,7 +51,7 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* HERO CENTERED */
+/* ================= HERO ================= */
 
 .hero {
   min-height: 100vh;
@@ -90,11 +90,11 @@ nav a:hover {
 }
 
 @keyframes blink {
-  0%,100% { opacity: 1; }
+  0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
 
-/* BUTTON */
+/* ================= BUTTON ================= */
 
 .btn {
   display: inline-block;
@@ -111,7 +111,7 @@ nav a:hover {
   background: #00cc7a;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 .footer {
   background: #000;
@@ -155,7 +155,7 @@ nav a:hover {
   transform: translateY(-3px);
 }
 
-/* MATRIX */
+/* ================= MATRIX ================= */
 
 #matrixCanvas {
   position: fixed;
@@ -167,7 +167,7 @@ nav a:hover {
   pointer-events: none;
 }
 
-/* BOOT SCREEN CENTERED */
+/* ================= BOOT SCREEN ================= */
 
 #bootScreen {
   position: fixed;
@@ -188,7 +188,35 @@ nav a:hover {
   text-align: center;
 }
 
-/* RESPONSIVE */
+/* ================= ABOUT PAGE ================= */
+
+.about-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 120px 60px;
+}
+
+.about-section h1 {
+  font-size: 48px;
+  color: #00ff9f;
+  margin-bottom: 30px;
+  text-shadow: 0 0 6px rgba(0,255,159,0.6);
+}
+
+.about-content {
+  max-width: 800px;
+}
+
+.about-content p {
+  font-size: 18px;
+  color: #cbd5e1;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+/* ================= RESPONSIVE ================= */
 
 @media (max-width: 900px) {
 
@@ -216,7 +244,8 @@ nav a:hover {
     display: block;
   }
 
-  .hero {
+  .hero,
+  .about-section {
     padding: 0 20px;
   }
 
@@ -225,5 +254,12 @@ nav a:hover {
     font-size: 36px;
   }
 
-  .hero p {
-    font
+  .hero p,
+  .about-content p {
+    font-size: 16px;
+  }
+
+  .footer {
+    padding: 20px;
+  }
+}
