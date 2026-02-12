@@ -108,14 +108,14 @@ nav a:hover {
 /* ================= QUICK ABOUT SECTION ================= */
 
 .quick-section {
-  padding: 120px 60px;
-  text-align: center;
+  padding: 100px 60px 60px 60px; /* less bottom space */
 }
 
 .section-title {
   font-size: 48px;
-  color: #2f6bff;
-  margin-bottom: 40px;
+  color: #00ff9f; /* hacker green */
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px rgba(0,255,159,0.6);
 }
 
 .quick-text {
@@ -128,9 +128,11 @@ nav a:hover {
 
 .about-image {
   width: 100%;
-  max-width: 700px;
+  max-width: 450px;      /* smaller image */
   border-radius: 20px;
-  margin-bottom: 40px;
+  margin: 30px auto;
+  display: block;
+  box-shadow: 0 0 25px rgba(0,255,159,0.2);  /* hacker glow */
 }
 
 .about-buttons {
@@ -143,9 +145,10 @@ nav a:hover {
 /* BLUE BUTTON (ABOUT PAGE) */
 
 .btn-blue {
-  padding: 14px 28px;
-  background: #2f6bff;
-  color: white;
+  padding: 14px 30px;
+  background: #001a14;
+  color: #00ff9f;
+  border: 1px solid #00ff9f;
   border-radius: 30px;
   text-decoration: none;
   font-weight: 500;
@@ -153,13 +156,15 @@ nav a:hover {
 }
 
 .btn-blue:hover {
-  background: #1e4dcc;
+  background: #00ff9f;
+  color: #000;
+  box-shadow: 0 0 15px rgba(0,255,159,0.7);
 }
 
 /* ================= FAQ ================= */
 
 .faq-section {
-  padding: 120px 60px;
+  padding: 60px 60px 100px 60px; /* less top gap */
   text-align: center;
 }
 
