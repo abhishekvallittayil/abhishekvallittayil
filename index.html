@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Abhishek Vallittayil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" type="image/png" href="assets/images/cyber.png">
@@ -36,7 +37,7 @@
 </header>
 
 <section class="hero">
-  <div class="hero-content">
+  <div>
 
     <h2 class="hero-name">
       <span class="typing-name"></span>
@@ -44,11 +45,12 @@
 
     <h1>
       <span class="typing"></span>
-      <span class="cursor">|</span>
     </h1>
 
     <p>
-      Certified in Network+, Security+, CEH, and Penetration Testing, I focus on securing infrastructures and identifying vulnerabilities. With a strong passion for Linux systems and cybersecurity, I am committed to protecting digital environments.
+      Certified in Network+, Security+, CEH, and Penetration Testing,
+      I focus on securing infrastructures and identifying vulnerabilities.
+      Passionate about Linux systems and cybersecurity.
     </p>
 
     <a href="portfolio.html" class="btn">Explore My Works</a>
@@ -63,21 +65,13 @@
     <p>Phone: +1 (437) 860-6581</p>
 
     <div class="social-icons">
-      <a href="https://www.linkedin.com/in/abhishek-v-6935362a2/" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-linkedin-in"></i>
-      </a>
-      <a href="https://www.instagram.com/abhi.127001/" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.youtube.com/@AbhishekV-001" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a href="https://discord.com/invite/DvZeUdcB" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-discord"></i>
-      </a>
+      <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-discord"></i></a>
     </div>
 
-    <p style="margin-top:15px; font-size:12px; color:#64748b;">
+    <p style="margin-top:15px;font-size:12px;">
       © 2026 Abhishek. All rights reserved.
     </p>
   </div>
@@ -99,19 +93,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const bootOutput = document.getElementById("bootOutput");
 
   const bootLines = [
-    "> Initializing Abhishek Vallittayil Portfolio...",
+    "> Initializing Portfolio...",
     "> Loading Security Modules...",
-    "> Verifying Credentials...",
-    "> Access Granted!!"
+    "> Access Granted!"
   ];
-
-  if (sessionStorage.getItem("booted")) {
-    bootScreen.style.display = "none";
-    mainContent.style.display = "block";
-    startHeroTyping();
-    startMatrix();
-    return;
-  }
 
   let lineIndex = 0;
   let charIndex = 0;
@@ -130,15 +115,11 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     } else {
       setTimeout(() => {
-        bootScreen.style.opacity = "0";
-        setTimeout(() => {
-          bootScreen.style.display = "none";
-          mainContent.style.display = "block";
-          sessionStorage.setItem("booted", "true");
-          startHeroTyping();
-          startMatrix();
-        }, 800);
-      }, 500);
+        bootScreen.style.display = "none";
+        mainContent.style.display = "block";
+        startHeroTyping();
+        startMatrix();
+      }, 800);
     }
   }
 
@@ -152,9 +133,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let nameIndex = 0;
     let roleIndex = 0;
-
-    nameElement.innerHTML = "";
-    roleElement.innerHTML = "";
 
     function typeName() {
       if (nameIndex < nameText.length) {
@@ -187,7 +165,6 @@ const ctx = canvas.getContext("2d");
 
 const letters = "01";
 const fontSize = 14;
-
 let columns;
 let drops;
 
@@ -199,14 +176,14 @@ function resizeCanvas() {
 }
 
 function draw() {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+  ctx.fillStyle = "rgba(0,0,0,0.2)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = "rgba(0, 255, 159, 0.5)";
+  ctx.fillStyle = "rgba(0,255,159,0.5)";
   ctx.font = fontSize + "px monospace";
 
   for (let i = 0; i < drops.length; i++) {
-    const text = letters.charAt(Math.floor(Math.random() * letters.length));
+    const text = letters[Math.floor(Math.random() * letters.length)];
     ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
     if (drops[i] * fontSize > canvas.height && Math.random() > 0.98) {
@@ -220,16 +197,13 @@ function draw() {
 function startMatrix() {
   resizeCanvas();
   window.addEventListener("resize", resizeCanvas);
-
   function animate() {
     draw();
     requestAnimationFrame(animate);
   }
-
   animate();
 }
 </script>
 
 </body>
 </html>
-
