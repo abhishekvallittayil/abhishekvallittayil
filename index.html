@@ -14,6 +14,7 @@
 
 <canvas id="matrixCanvas"></canvas>
 
+<!-- BOOT SCREEN -->
 <div id="bootScreen">
   <div class="boot-terminal">
     <div id="bootOutput"></div>
@@ -24,7 +25,7 @@
 
 <header class="nav">
   <div class="logo">
-    <img src="assets/images/cyber.png" alt="Cyber Logo">
+    <img src="assets/images/cyber.png" alt="Logo">
   </div>
 
   <div class="hamburger" onclick="toggleMenu()">☰</div>
@@ -38,23 +39,21 @@
 
 <section class="hero">
   <div>
-
     <h2 class="hero-name">
       <span class="typing-name"></span>
     </h2>
 
     <h1>
       <span class="typing"></span>
+      <span class="cursor">|</span>
     </h1>
 
     <p>
-      Certified in Network+, Security+, CEH, and Penetration Testing,
-      I focus on securing infrastructures and identifying vulnerabilities.
+      Certified in Network+, Security+, CEH, and Penetration Testing.
       Passionate about Linux systems and cybersecurity.
     </p>
 
     <a href="portfolio.html" class="btn">Explore My Works</a>
-
   </div>
 </section>
 
@@ -70,14 +69,12 @@
       <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
       <a href="#"><i class="fab fa-discord"></i></a>
     </div>
-
-    <p style="margin-top:15px;font-size:12px;">
-      © 2026 Abhishek. All rights reserved.
-    </p>
   </div>
 </footer>
 
 </div>
+
+<!-- ================= SCRIPTS ================= -->
 
 <script>
 function toggleMenu() {
@@ -92,52 +89,55 @@ document.addEventListener("DOMContentLoaded", function () {
   const mainContent = document.getElementById("mainContent");
   const bootOutput = document.getElementById("bootOutput");
 
-  const bootLines = [
+  if (sessionStorage.getItem("booted")) {
+    bootScreen.style.display = "none";
+    mainContent.style.display = "block";
+    startTyping();
+    startMatrix();
+    return;
+  }
+
+  const lines = [
     "> Initializing Portfolio...",
     "> Loading Security Modules...",
     "> Access Granted!"
   ];
 
-  let lineIndex = 0;
-  let charIndex = 0;
+  let i = 0, j = 0;
 
   function typeBoot() {
-    if (lineIndex < bootLines.length) {
-      if (charIndex < bootLines[lineIndex].length) {
-        bootOutput.innerHTML += bootLines[lineIndex].charAt(charIndex);
-        charIndex++;
+    if (i < lines.length) {
+      if (j < lines[i].length) {
+        bootOutput.innerHTML += lines[i][j++];
         setTimeout(typeBoot, 30);
       } else {
         bootOutput.innerHTML += "<br/>";
-        lineIndex++;
-        charIndex = 0;
+        i++; j = 0;
         setTimeout(typeBoot, 400);
       }
     } else {
       setTimeout(() => {
         bootScreen.style.display = "none";
         mainContent.style.display = "block";
-        startHeroTyping();
+        sessionStorage.setItem("booted", "true");
+        startTyping();
         startMatrix();
-      }, 800);
+      }, 500);
     }
   }
 
-  function startHeroTyping() {
+  function startTyping() {
+    const name = "ABHISHEK VALLITTAYIL";
+    const role = "Cybersecurity Researcher";
 
-    const nameText = "ABHISHEK VALLITTAYIL";
-    const roleText = "Cybersecurity Researcher";
+    const nameEl = document.querySelector(".typing-name");
+    const roleEl = document.querySelector(".typing");
 
-    const nameElement = document.querySelector(".typing-name");
-    const roleElement = document.querySelector(".typing");
-
-    let nameIndex = 0;
-    let roleIndex = 0;
+    let n = 0, r = 0;
 
     function typeName() {
-      if (nameIndex < nameText.length) {
-        nameElement.innerHTML += nameText.charAt(nameIndex);
-        nameIndex++;
+      if (n < name.length) {
+        nameEl.innerHTML += name[n++];
         setTimeout(typeName, 40);
       } else {
         setTimeout(typeRole, 400);
@@ -145,9 +145,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function typeRole() {
-      if (roleIndex < roleText.length) {
-        roleElement.innerHTML += roleText.charAt(roleIndex);
-        roleIndex++;
+      if (r < role.length) {
+        roleEl.innerHTML += role[r++];
         setTimeout(typeRole, 60);
       }
     }
@@ -162,11 +161,9 @@ document.addEventListener("DOMContentLoaded", function () {
 <script>
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
-
 const letters = "01";
 const fontSize = 14;
-let columns;
-let drops;
+let columns, drops;
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
@@ -176,20 +173,17 @@ function resizeCanvas() {
 }
 
 function draw() {
-  ctx.fillStyle = "rgba(0,0,0,0.2)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "rgba(0,0,0,0.15)";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
 
-  ctx.fillStyle = "rgba(0,255,159,0.5)";
+  ctx.fillStyle = "#00ff9f";
   ctx.font = fontSize + "px monospace";
 
   for (let i = 0; i < drops.length; i++) {
-    const text = letters[Math.floor(Math.random() * letters.length)];
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.98) {
+    const text = letters[Math.floor(Math.random()*letters.length)];
+    ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+    if (drops[i]*fontSize > canvas.height && Math.random() > 0.975)
       drops[i] = 0;
-    }
-
     drops[i]++;
   }
 }
@@ -197,11 +191,7 @@ function draw() {
 function startMatrix() {
   resizeCanvas();
   window.addEventListener("resize", resizeCanvas);
-  function animate() {
-    draw();
-    requestAnimationFrame(animate);
-  }
-  animate();
+  setInterval(draw, 50);
 }
 </script>
 
