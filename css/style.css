@@ -67,24 +67,48 @@ nav a:hover {
 }
 
 .hero-name {
-  font-size: 55px;
+  font-size: 50px;
   color: #00ff9f;
-  text-shadow: 0 0 8px rgba(0,255,159,0.7);
+  text-shadow: 0 0 15px rgba(0,255,159,0.8);
 }
 
 .hero h1 {
-  font-size: 50px;
+  font-size: 45px;
   color: #00ff9f;
+  text-shadow: 0 0 12px rgba(0,255,159,0.7);
   margin-bottom: 20px;
 }
 
 .hero p {
   font-size: 18px;
   max-width: 700px;
+  color: #cbd5e1;
   margin-bottom: 30px;
 }
 
-/* ================= BUTTONS ================= */
+/* Typing Glow */
+
+.typing-name {
+  color: #00ff9f;
+  text-shadow: 0 0 15px rgba(0,255,159,0.8);
+}
+
+.typing {
+  color: #00ff9f;
+  text-shadow: 0 0 10px rgba(0,255,159,0.6);
+}
+
+.cursor {
+  color: #00ff9f;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ================= BUTTON ================= */
 
 .btn,
 .btn-blue {
@@ -96,7 +120,6 @@ nav a:hover {
   text-decoration: none;
   font-weight: 500;
   transition: 0.3s;
-  display: inline-block;
 }
 
 .btn:hover,
@@ -106,16 +129,15 @@ nav a:hover {
   box-shadow: 0 0 15px rgba(0,255,159,0.7);
 }
 
-/* ================= QUICK ABOUT ================= */
+/* ================= QUICK SECTION ================= */
 
 .quick-section {
-  min-height: 100vh;
-  padding: 100px 20px;
+  padding: 100px 20px 40px 20px;
   text-align: center;
 }
 
 .section-title {
-  font-size: 48px;
+  font-size: 40px;
   color: #00ff9f;
   margin-bottom: 30px;
   text-shadow: 0 0 10px rgba(0,255,159,0.6);
@@ -124,13 +146,13 @@ nav a:hover {
 .quick-text {
   max-width: 800px;
   margin: 0 auto 40px auto;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.7;
 }
 
 .about-image {
   width: 100%;
-  max-width: 400px;
+  max-width: 350px;
   border-radius: 20px;
   margin: 30px auto;
   display: block;
@@ -147,13 +169,13 @@ nav a:hover {
 /* ================= FAQ ================= */
 
 .faq-section {
-  padding: 80px 20px;
+  padding: 60px 20px 40px 20px;
   text-align: center;
 }
 
 .faq-item {
   max-width: 800px;
-  margin: 40px auto;
+  margin: 30px auto;
   text-align: left;
 }
 
@@ -162,41 +184,9 @@ nav a:hover {
   margin-bottom: 10px;
 }
 
-.faq-item p {
-  line-height: 1.7;
-}
-
-/* ================= PORTFOLIO ================= */
-
-.page {
-  padding: 120px 60px;
-  text-align: center;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.card {
-  background: #001a14;
-  padding: 40px;
-  border-radius: 15px;
-  border: 1px solid #003d2e;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 15px rgba(0,255,159,0.4);
-}
-
 /* ================= FOOTER ================= */
 
 .footer {
-  background: #000;
   padding: 40px 60px;
   border-top: 1px solid #003d2e;
 }
@@ -204,11 +194,6 @@ nav a:hover {
 .footer-left h2 {
   color: #00ff9f;
   margin-bottom: 10px;
-}
-
-.footer-left p {
-  margin: 4px 0;
-  font-size: 14px;
 }
 
 .social-icons {
@@ -244,7 +229,7 @@ nav a:hover {
   z-index: -1;
 }
 
-/* ================= BOOT SCREEN ================= */
+/* ================= BOOT ================= */
 
 #bootScreen {
   position: fixed;
@@ -278,7 +263,6 @@ nav a:hover {
     top: 70px;
     right: 20px;
     background: #000;
-    width: 200px;
     padding: 20px;
     border: 1px solid #003d2e;
   }
@@ -291,12 +275,20 @@ nav a:hover {
     display: block;
   }
 
-  .hero,
-  .page {
-    padding: 80px 20px;
+  .hero {
+    padding: 40px 20px;
+  }
+
+  .hero-name,
+  .hero h1 {
+    font-size: 28px;
   }
 
   .section-title {
-    font-size: 32px;
+    font-size: 28px;
+  }
+
+  .footer {
+    padding: 20px;
   }
 }
