@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Abhishek Vallittayil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" type="image/png" href="assets/images/cyber.png">
@@ -39,7 +38,9 @@
 <section class="hero">
   <div class="hero-content">
 
-    <h2 class="hero-name">ABHISHEK VALLITTAYIL</h2>
+    <h2 class="hero-name">
+      <span class="typing-name"></span>
+    </h2>
 
     <h1>
       <span class="typing"></span>
@@ -136,27 +137,44 @@ document.addEventListener("DOMContentLoaded", function () {
           sessionStorage.setItem("booted", "true");
           startHeroTyping();
           startMatrix();
-        }, 1000);
-      }, 800);
+        }, 800);
+      }, 500);
     }
   }
 
   function startHeroTyping() {
-    const text = "Cybersecurity Researcher";
-    const typingElement = document.querySelector(".typing");
-    let index = 0;
 
-    typingElement.innerHTML = "";
+    const nameText = "ABHISHEK VALLITTAYIL";
+    const roleText = "Cybersecurity Researcher";
 
-    function typeEffect() {
-      if (index < text.length) {
-        typingElement.innerHTML += text.charAt(index);
-        index++;
-        setTimeout(typeEffect, 60);
+    const nameElement = document.querySelector(".typing-name");
+    const roleElement = document.querySelector(".typing");
+
+    let nameIndex = 0;
+    let roleIndex = 0;
+
+    nameElement.innerHTML = "";
+    roleElement.innerHTML = "";
+
+    function typeName() {
+      if (nameIndex < nameText.length) {
+        nameElement.innerHTML += nameText.charAt(nameIndex);
+        nameIndex++;
+        setTimeout(typeName, 40);
+      } else {
+        setTimeout(typeRole, 400);
       }
     }
 
-    typeEffect();
+    function typeRole() {
+      if (roleIndex < roleText.length) {
+        roleElement.innerHTML += roleText.charAt(roleIndex);
+        roleIndex++;
+        setTimeout(typeRole, 60);
+      }
+    }
+
+    typeName();
   }
 
   typeBoot();
