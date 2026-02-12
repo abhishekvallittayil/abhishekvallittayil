@@ -44,7 +44,7 @@
   <div class="about-buttons">
     <a href="#contact" class="btn-blue">Contact Me</a>
     <a href="portfolio.html" class="btn-blue">Learn More</a>
-    <a href="assets/resume/resume.docx"
+    <a href="assets/resume/Abhishek_Vallittayil_Resume.pdf"
        class="btn-blue"
        download>
        Download Resume
@@ -53,7 +53,7 @@
 
 </section>
 
-<!-- FAQs SECTION -->
+<!-- FAQ SECTION -->
 <section class="faq-section">
 
   <h1 class="section-title">FAQs</h1>
@@ -61,9 +61,8 @@
   <div class="faq-item">
     <h3>Why did you choose cybersecurity?</h3>
     <p>
-      I chose cybersecurity because I am deeply interested in understanding how systems work
-      and how attackers exploit weaknesses. I enjoy analyzing threats and building defenses
-      to protect digital assets.
+      I am deeply interested in understanding system architecture and how attackers exploit vulnerabilities.
+      Cybersecurity allows me to analyze threats and design defenses to protect critical digital assets.
     </p>
   </div>
 
@@ -78,9 +77,8 @@
   <div class="faq-item">
     <h3>What hands-on projects have you completed?</h3>
     <p>
-      I have built secure network labs using Cisco Packet Tracer, deployed SIEM monitoring
-      environments, configured honeypots in VirtualBox, and performed malware analysis
-      in isolated lab setups.
+      I have built secure network labs using Cisco Packet Tracer, deployed SIEM environments,
+      configured honeypots in VirtualBox, and performed malware analysis in isolated lab systems.
     </p>
   </div>
 
@@ -88,12 +86,13 @@
     <h3>Are you open to internships or entry-level roles?</h3>
     <p>
       Yes. I am actively seeking cybersecurity analyst or SOC roles where I can apply
-      my technical skills and continue growing in real-world environments.
+      my technical knowledge and continue developing real-world expertise.
     </p>
   </div>
 
 </section>
 
+<!-- FOOTER -->
 <footer class="footer" id="contact">
   <div class="footer-left">
     <h2>Contact</h2>
@@ -101,10 +100,10 @@
     <p>Phone: +1 (437) 860-6581</p>
 
     <div class="social-icons">
-      <a href="https://www.linkedin.com/in/abhishek-v-6935362a2/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://www.instagram.com/abhi.127001/" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.youtube.com/@AbhishekV-001" target="_blank"><i class="fab fa-youtube"></i></a>
-      <a href="https://discord.com/invite/DvZeUdcB" target="_blank"><i class="fab fa-discord"></i></a>
+      <a href="https://www.linkedin.com/in/abhishek-v-6935362a2/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://www.instagram.com/abhi.127001/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.youtube.com/@AbhishekV-001" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+      <a href="https://discord.com/invite/DvZeUdcB" target="_blank" rel="noopener"><i class="fab fa-discord"></i></a>
     </div>
 
     <p style="margin-top:15px; font-size:12px; color:#64748b;">
@@ -113,18 +112,21 @@
   </div>
 </footer>
 
+<!-- NAV TOGGLE -->
 <script>
 function toggleMenu() {
   document.querySelector("nav").classList.toggle("show");
 }
 </script>
 
+<!-- MATRIX BACKGROUND -->
 <script>
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
 
 const letters = "01";
 const fontSize = 14;
+
 let columns;
 let drops;
 
@@ -157,10 +159,12 @@ function draw() {
 function startMatrix() {
   resizeCanvas();
   window.addEventListener("resize", resizeCanvas);
+
   function animate() {
     draw();
     requestAnimationFrame(animate);
   }
+
   animate();
 }
 
@@ -169,4 +173,3 @@ startMatrix();
 
 </body>
 </html>
-
