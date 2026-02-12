@@ -4,10 +4,8 @@
   <meta charset="UTF-8">
   <title>About - Abhishek Vallittayil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="icon" type="image/png" href="assets/images/cyber.png">
 </head>
 
 <body>
@@ -28,149 +26,58 @@
   </nav>
 </header>
 
-<!-- QUICK KNOW ABOUT ME -->
 <section class="quick-section">
 
   <h1 class="section-title">Quick Know About Me</h1>
 
   <p class="quick-text">
-    I am passionate about protecting digital infrastructures and strengthening system security.
-    With hands-on lab experience in penetration testing, SIEM monitoring, and Linux hardening,
-    I continuously work on real-world cybersecurity simulations to sharpen my skills.
+    Passionate about cybersecurity and protecting digital infrastructure.
+    Experienced in SIEM monitoring, network security labs, and vulnerability assessment.
   </p>
 
-  <img src="assets/images/image.jpeg" alt="Cyber Lab" class="about-image">
+  <img src="assets/images/image.jpeg" class="about-image">
 
   <div class="about-buttons">
     <a href="#contact" class="btn-blue">Contact Me</a>
     <a href="portfolio.html" class="btn-blue">Learn More</a>
-    <a href="assets/resume/resume.docx"
-       class="btn-blue"
-       download>
-       Download Resume
-    </a>
+    <a href="assets/resume/resume.docx" class="btn-blue" download>Download Resume</a>
   </div>
 
 </section>
 
-<!-- FAQ SECTION -->
 <section class="faq-section">
 
   <h1 class="section-title">FAQs</h1>
 
   <div class="faq-item">
-    <h3>Why did you choose cybersecurity?</h3>
-    <p>
-      I am deeply interested in understanding system architecture and how attackers exploit vulnerabilities.
-      Cybersecurity allows me to analyze threats and design defenses to protect critical digital assets.
-    </p>
+    <h3>Why cybersecurity?</h3>
+    <p>I enjoy analyzing threats and designing defensive strategies.</p>
   </div>
 
   <div class="faq-item">
-    <h3>What areas of cybersecurity interest you most?</h3>
-    <p>
-      I am particularly interested in network security, threat detection and response,
-      vulnerability assessment, and healthcare data protection.
-    </p>
-  </div>
-
-  <div class="faq-item">
-    <h3>What hands-on projects have you completed?</h3>
-    <p>
-      I have built secure network labs using Cisco Packet Tracer, deployed SIEM environments,
-      configured honeypots in VirtualBox, and performed malware analysis in isolated lab systems.
-    </p>
-  </div>
-
-  <div class="faq-item">
-    <h3>Are you open to internships or entry-level roles?</h3>
-    <p>
-      Yes. I am actively seeking cybersecurity analyst or SOC roles where I can apply
-      my technical knowledge and continue developing real-world expertise.
-    </p>
+    <h3>What interests you most?</h3>
+    <p>Network security, threat detection, and healthcare data protection.</p>
   </div>
 
 </section>
 
-<!-- FOOTER -->
 <footer class="footer" id="contact">
   <div class="footer-left">
     <h2>Contact</h2>
     <p>Email: abhishek.127001@gmail.com</p>
     <p>Phone: +1 (437) 860-6581</p>
-
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/in/abhishek-v-6935362a2/" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
-      <a href="https://www.instagram.com/abhi.127001/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.youtube.com/@AbhishekV-001" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
-      <a href="https://discord.com/invite/DvZeUdcB" target="_blank" rel="noopener"><i class="fab fa-discord"></i></a>
-    </div>
-
-    <p style="margin-top:15px; font-size:12px; color:#64748b;">
-      © 2026 Abhishek. All rights reserved.
-    </p>
   </div>
 </footer>
 
-<!-- NAV TOGGLE -->
 <script>
 function toggleMenu() {
   document.querySelector("nav").classList.toggle("show");
 }
 </script>
 
-<!-- MATRIX BACKGROUND -->
 <script>
-const canvas = document.getElementById("matrixCanvas");
-const ctx = canvas.getContext("2d");
-
-const letters = "01";
-const fontSize = 14;
-
-let columns;
-let drops;
-
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  columns = canvas.width / fontSize;
-  drops = Array(Math.floor(columns)).fill(1);
-}
-
-function draw() {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  ctx.fillStyle = "rgba(0, 255, 159, 0.5)";
-  ctx.font = fontSize + "px monospace";
-
-  for (let i = 0; i < drops.length; i++) {
-    const text = letters.charAt(Math.floor(Math.random() * letters.length));
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.98) {
-      drops[i] = 0;
-    }
-
-    drops[i]++;
-  }
-}
-
-function startMatrix() {
-  resizeCanvas();
-  window.addEventListener("resize", resizeCanvas);
-
-  function animate() {
-    draw();
-    requestAnimationFrame(animate);
-  }
-
-  animate();
-}
-
 startMatrix();
 </script>
 
 </body>
 </html>
-
