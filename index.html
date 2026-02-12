@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Abhishek Vallittayil</title>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="css/style.css">
@@ -38,17 +38,21 @@
 </header>
 
 <section class="hero">
-  <div>
-    <!-- 🔥 YOUR NAME ADDED HERE -->
+  <div class="hero-content">
+
     <h2 class="hero-name">ABHISHEK VALLITTAYIL</h2>
 
-    <h1><span class="typing"></span></h1>
+    <h1>
+      <span class="typing"></span>
+      <span class="cursor">|</span>
+    </h1>
 
     <p>
       Certified in Network+, Security+, CEH, and Penetration Testing, I focus on securing infrastructures and identifying vulnerabilities. With a strong passion for Linux systems and cybersecurity, I am committed to protecting digital environments.
     </p>
 
     <a href="portfolio.html" class="btn">Explore My Works</a>
+
   </div>
 </section>
 
@@ -59,16 +63,16 @@
     <p>Phone: +1 (437) 860-6581</p>
 
     <div class="social-icons">
-      <a href="https://www.linkedin.com/in/abhishek-v-6935362a2/" target="_blank">
+      <a href="https://www.linkedin.com/in/abhishek-v-6935362a2/" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-linkedin-in"></i>
       </a>
-      <a href="https://www.instagram.com/abhi.127001/" target="_blank">
+      <a href="https://www.instagram.com/abhi.127001/" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-instagram"></i>
       </a>
-      <a href="https://www.youtube.com/@AbhishekV-001" target="_blank">
+      <a href="https://www.youtube.com/@AbhishekV-001" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-youtube"></i>
       </a>
-      <a href="https://discord.com/invite/DvZeUdcB" target="_blank">
+      <a href="https://discord.com/invite/DvZeUdcB" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-discord"></i>
       </a>
     </div>
@@ -160,7 +164,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-<!-- 🔥 UPDATED MATRIX SCRIPT -->
 <script>
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
@@ -179,12 +182,9 @@ function resizeCanvas() {
 }
 
 function draw() {
-
-  /* 🔥 DARKER OVERLAY FOR LESS TRANSPARENCY */
   ctx.fillStyle = "rgba(0, 0, 0, 0.15)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  /* 🔥 SOFTER MATRIX COLOR */
   ctx.fillStyle = "rgba(0, 255, 159, 0.6)";
   ctx.font = fontSize + "px monospace";
 
