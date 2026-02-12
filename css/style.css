@@ -1,4 +1,4 @@
-/* ================= GLOBAL ================= */
+/* RESET */
 
 * {
   box-sizing: border-box;
@@ -15,7 +15,6 @@ body {
   background: #000;
   color: #d1fae5;
   overflow-x: hidden;
-  line-height: 1.6;
 }
 
 /* ================= NAVBAR ================= */
@@ -44,8 +43,7 @@ nav {
 nav a {
   text-decoration: none;
   color: #cbd5e1;
-  font-weight: 500;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
 nav a:hover {
@@ -59,7 +57,55 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* ================= QUICK SECTION ================= */
+/* ================= HERO (INDEX PAGE) ================= */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.hero-name {
+  font-size: 55px;
+  color: #00ff9f;
+  text-shadow: 0 0 6px rgba(0,255,159,0.6);
+  margin-bottom: 5px;
+}
+
+.hero h1 {
+  font-size: 55px;
+  color: #00ff9f;
+  text-shadow: 0 0 8px rgba(0,255,159,0.7);
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 700px;
+  color: #ff003c;
+  text-shadow: 0 0 4px rgba(255,0,60,0.6);
+  margin-bottom: 30px;
+}
+
+/* BUTTON (GREEN INDEX) */
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #00ff9f;
+  color: #000;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #00cc7a;
+}
+
+/* ================= QUICK ABOUT SECTION ================= */
 
 .quick-section {
   padding: 120px 60px;
@@ -76,7 +122,7 @@ nav a:hover {
   max-width: 800px;
   margin: 0 auto 40px auto;
   font-size: 20px;
-  line-height: 1.8;
+  line-height: 1.7;
   color: #e2e8f0;
 }
 
@@ -85,7 +131,6 @@ nav a:hover {
   max-width: 700px;
   border-radius: 20px;
   margin-bottom: 40px;
-  box-shadow: 0 0 25px rgba(0,0,0,0.4);
 }
 
 .about-buttons {
@@ -95,7 +140,7 @@ nav a:hover {
   flex-wrap: wrap;
 }
 
-/* BUTTON */
+/* BLUE BUTTON (ABOUT PAGE) */
 
 .btn-blue {
   padding: 14px 28px;
@@ -104,15 +149,14 @@ nav a:hover {
   border-radius: 30px;
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: 0.3s;
 }
 
 .btn-blue:hover {
   background: #1e4dcc;
-  transform: translateY(-3px);
 }
 
-/* ================= FAQ SECTION ================= */
+/* ================= FAQ ================= */
 
 .faq-section {
   padding: 120px 60px;
@@ -123,15 +167,6 @@ nav a:hover {
   max-width: 800px;
   margin: 40px auto;
   text-align: left;
-  background: rgba(255,255,255,0.03);
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: 0.3s;
-}
-
-.faq-item:hover {
-  border-color: #2f6bff;
 }
 
 .faq-item h3 {
@@ -152,7 +187,6 @@ nav a:hover {
   background: #000;
   padding: 40px 60px;
   border-top: 1px solid #003d2e;
-  text-align: left;
 }
 
 .footer-left h2 {
@@ -182,7 +216,7 @@ nav a:hover {
   color: #00ff9f;
   border: 1px solid #003d2e;
   font-size: 16px;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
 .social-icons a:hover {
@@ -200,6 +234,27 @@ nav a:hover {
   height: 100%;
   z-index: -1;
   pointer-events: none;
+}
+
+/* ================= BOOT SCREEN ================= */
+
+#bootScreen {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 1s ease;
+}
+
+.boot-terminal {
+  font-family: monospace;
+  font-size: 22px;
+  color: #00ff9f;
+  text-align: center;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -230,25 +285,24 @@ nav a:hover {
     display: block;
   }
 
+  .hero,
   .quick-section,
   .faq-section {
     padding: 80px 20px;
   }
 
-  .section-title {
+  .hero-name,
+  .hero h1 {
     font-size: 36px;
   }
 
-  .quick-text,
-  .faq-item p {
+  .hero p,
+  .faq-item p,
+  .quick-text {
     font-size: 16px;
   }
 
-  .faq-item {
-    padding: 20px;
-  }
-
   .footer {
-    padding: 30px 20px;
+    padding: 20px;
   }
 }
