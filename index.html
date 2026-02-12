@@ -3,7 +3,6 @@
 <head>
   <title>Abhishek Vallittayil</title>
 
-  <!-- Mobile Responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="css/style.css">
@@ -13,17 +12,14 @@
 
 <body>
 
-<!-- MATRIX BACKGROUND -->
 <canvas id="matrixCanvas"></canvas>
 
-<!-- ================= BOOT SCREEN ================= -->
 <div id="bootScreen">
   <div class="boot-terminal">
     <div id="bootOutput"></div>
   </div>
 </div>
 
-<!-- ================= MAIN CONTENT ================= -->
 <div id="mainContent" style="display:none;">
 
 <header class="nav">
@@ -32,7 +28,6 @@
     <span>Abhishek Vallittayil</span>
   </div>
 
-  <!-- Hamburger -->
   <div class="hamburger" onclick="toggleMenu()">☰</div>
 
   <nav>
@@ -44,6 +39,9 @@
 
 <section class="hero">
   <div>
+    <!-- 🔥 YOUR NAME ADDED HERE -->
+    <h2 class="hero-name">ABHISHEK VALLITTAYIL</h2>
+
     <h1><span class="typing"></span></h1>
 
     <p>
@@ -75,7 +73,7 @@
       </a>
     </div>
 
-    <p style="margin-top:20px; font-size:14px; color:#64748b;">
+    <p style="margin-top:15px; font-size:12px; color:#64748b;">
       © 2026 Abhishek. All rights reserved.
     </p>
   </div>
@@ -83,14 +81,12 @@
 
 </div>
 
-<!-- ================= HAMBURGER SCRIPT ================= -->
 <script>
 function toggleMenu() {
   document.querySelector("nav").classList.toggle("show");
 }
 </script>
 
-<!-- ================= BOOT + HERO SCRIPT ================= -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -105,7 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "> Access Granted."
   ];
 
-  // Skip boot if already visited
   if (sessionStorage.getItem("booted")) {
     bootScreen.style.display = "none";
     mainContent.style.display = "block";
@@ -165,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-<!-- ================= MATRIX SCRIPT ================= -->
+<!-- 🔥 UPDATED MATRIX SCRIPT -->
 <script>
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
@@ -184,10 +179,13 @@ function resizeCanvas() {
 }
 
 function draw() {
-  ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+
+  /* 🔥 DARKER OVERLAY FOR LESS TRANSPARENCY */
+  ctx.fillStyle = "rgba(0, 0, 0, 0.15)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = "#00ff9f";
+  /* 🔥 SOFTER MATRIX COLOR */
+  ctx.fillStyle = "rgba(0, 255, 159, 0.6)";
   ctx.font = fontSize + "px monospace";
 
   for (let i = 0; i < drops.length; i++) {
