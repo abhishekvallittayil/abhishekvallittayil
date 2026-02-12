@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Works</title>
+  <meta charset="UTF-8">
+  <title>Works - Abhishek Vallittayil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="assets/images/cyber.png">
 </head>
 
 <body>
 
+<canvas id="matrixCanvas"></canvas>
+
 <header class="nav">
   <div class="logo">
-    <img src="assets/images/cyber.png">
+    <img src="assets/images/cyber.png" alt="Logo">
   </div>
 
   <div class="hamburger" onclick="toggleMenu()">☰</div>
@@ -22,20 +28,114 @@
   </nav>
 </header>
 
-<section class="page">
+<!-- ================= PROJECT SECTION ================= -->
+
+<section class="portfolio-section">
+
   <h1 class="section-title">My Projects</h1>
 
-  <div class="grid">
-    <div class="card"><h3>Network Lab</h3></div>
-    <div class="card"><h3>SIEM Monitoring</h3></div>
-    <div class="card"><h3>Honeypot Lab</h3></div>
+  <div class="portfolio-grid">
+
+    <div class="project-card">
+      <h3>🔐 Network Security Lab</h3>
+      <p>
+        Built secure network topology using Cisco Packet Tracer.
+        Implemented VLANs, ACLs, and firewall rules for segmentation.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3>📊 SIEM Monitoring</h3>
+      <p>
+        Deployed SIEM lab using Azure Sentinel.
+        Configured log analytics and threat detection rules.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3>🕵 Honeypot Environment</h3>
+      <p>
+        Configured honeypot in VirtualBox to analyze attacker behavior
+        and monitor malicious activity.
+      </p>
+    </div>
+
+    <div class="project-card">
+      <h3>🧪 Malware Analysis</h3>
+      <p>
+        Performed static and dynamic malware analysis
+        inside isolated lab environment.
+      </p>
+    </div>
+
   </div>
+
 </section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+  <div class="footer-left">
+    <h2>Contact</h2>
+    <p>Email: abhishek.127001@gmail.com</p>
+    <p>Phone: +1 (437) 860-6581</p>
+
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-discord"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
 
 <script>
 function toggleMenu() {
   document.querySelector("nav").classList.toggle("show");
 }
+</script>
+
+<script>
+const canvas = document.getElementById("matrixCanvas");
+const ctx = canvas.getContext("2d");
+const letters = "01";
+const fontSize = 14;
+let columns, drops;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  columns = canvas.width / fontSize;
+  drops = Array(Math.floor(columns)).fill(1);
+}
+
+function draw() {
+  ctx.fillStyle = "rgba(0,0,0,0.15)";
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  ctx.fillStyle = "#00ff9f";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const text = letters[Math.floor(Math.random()*letters.length)];
+    ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+
+    if (drops[i]*fontSize > canvas.height && Math.random() > 0.975)
+      drops[i] = 0;
+
+    drops[i]++;
+  }
+}
+
+function startMatrix() {
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+  setInterval(draw, 50);
+}
+
+startMatrix();
 </script>
 
 </body>
