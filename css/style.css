@@ -1,4 +1,4 @@
-/* RESET */
+/* ================= RESET ================= */
 
 * {
   box-sizing: border-box;
@@ -88,7 +88,7 @@ nav a:hover {
   margin-bottom: 30px;
 }
 
-/* BUTTON (GREEN INDEX) */
+/* ================= GREEN BUTTON (INDEX) ================= */
 
 .btn {
   display: inline-block;
@@ -108,19 +108,25 @@ nav a:hover {
 /* ================= QUICK ABOUT SECTION ================= */
 
 .quick-section {
-  padding: 100px 60px 60px 60px; /* less bottom space */
+  min-height: 100vh;
+  padding: 100px 20px 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .section-title {
   font-size: 48px;
-  color: #00ff9f; /* hacker green */
+  color: #00ff9f;
   margin-bottom: 30px;
   text-shadow: 0 0 10px rgba(0,255,159,0.6);
 }
 
 .quick-text {
   max-width: 800px;
-  margin: 0 auto 40px auto;
+  margin-bottom: 40px;
   font-size: 20px;
   line-height: 1.7;
   color: #e2e8f0;
@@ -128,21 +134,22 @@ nav a:hover {
 
 .about-image {
   width: 100%;
-  max-width: 450px;      /* smaller image */
+  max-width: 400px; /* reduced size */
   border-radius: 20px;
   margin: 30px auto;
   display: block;
-  box-shadow: 0 0 25px rgba(0,255,159,0.2);  /* hacker glow */
+  box-shadow: 0 0 20px rgba(0,255,159,0.3);
 }
+
+/* ================= HACKER BUTTONS ================= */
 
 .about-buttons {
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
+  margin-top: 20px;
 }
-
-/* BLUE BUTTON (ABOUT PAGE) */
 
 .btn-blue {
   padding: 14px 30px;
@@ -161,10 +168,10 @@ nav a:hover {
   box-shadow: 0 0 15px rgba(0,255,159,0.7);
 }
 
-/* ================= FAQ ================= */
+/* ================= FAQ SECTION ================= */
 
 .faq-section {
-  padding: 60px 60px 100px 60px; /* less top gap */
+  padding: 60px 20px 100px 20px;
   text-align: center;
 }
 
@@ -177,7 +184,7 @@ nav a:hover {
 .faq-item h3 {
   font-size: 22px;
   margin-bottom: 15px;
-  color: #ffffff;
+  color: #00ff9f;
 }
 
 .faq-item p {
@@ -297,14 +304,19 @@ nav a:hover {
   }
 
   .hero-name,
-  .hero h1 {
-    font-size: 36px;
+  .hero h1,
+  .section-title {
+    font-size: 32px;
   }
 
   .hero p,
   .faq-item p,
   .quick-text {
     font-size: 16px;
+  }
+
+  .about-image {
+    max-width: 280px;
   }
 
   .footer {
