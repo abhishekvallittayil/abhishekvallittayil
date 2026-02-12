@@ -1,3 +1,5 @@
+/* ================= GLOBAL ================= */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -13,9 +15,10 @@ body {
   background: #000;
   color: #d1fae5;
   overflow-x: hidden;
+  line-height: 1.6;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 
 .nav {
   display: flex;
@@ -41,7 +44,8 @@ nav {
 nav a {
   text-decoration: none;
   color: #cbd5e1;
-  transition: 0.3s;
+  font-weight: 500;
+  transition: 0.3s ease;
 }
 
 nav a:hover {
@@ -55,7 +59,7 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* QUICK SECTION */
+/* ================= QUICK SECTION ================= */
 
 .quick-section {
   padding: 120px 60px;
@@ -72,7 +76,7 @@ nav a:hover {
   max-width: 800px;
   margin: 0 auto 40px auto;
   font-size: 20px;
-  line-height: 1.7;
+  line-height: 1.8;
   color: #e2e8f0;
 }
 
@@ -81,6 +85,7 @@ nav a:hover {
   max-width: 700px;
   border-radius: 20px;
   margin-bottom: 40px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.4);
 }
 
 .about-buttons {
@@ -90,6 +95,8 @@ nav a:hover {
   flex-wrap: wrap;
 }
 
+/* BUTTON */
+
 .btn-blue {
   padding: 14px 28px;
   background: #2f6bff;
@@ -97,14 +104,15 @@ nav a:hover {
   border-radius: 30px;
   text-decoration: none;
   font-weight: 500;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .btn-blue:hover {
   background: #1e4dcc;
+  transform: translateY(-3px);
 }
 
-/* FAQ */
+/* ================= FAQ SECTION ================= */
 
 .faq-section {
   padding: 120px 60px;
@@ -115,6 +123,15 @@ nav a:hover {
   max-width: 800px;
   margin: 40px auto;
   text-align: left;
+  background: rgba(255,255,255,0.03);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: 0.3s;
+}
+
+.faq-item:hover {
+  border-color: #2f6bff;
 }
 
 .faq-item h3 {
@@ -129,12 +146,13 @@ nav a:hover {
   color: #cbd5e1;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 .footer {
   background: #000;
   padding: 40px 60px;
   border-top: 1px solid #003d2e;
+  text-align: left;
 }
 
 .footer-left h2 {
@@ -164,7 +182,7 @@ nav a:hover {
   color: #00ff9f;
   border: 1px solid #003d2e;
   font-size: 16px;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .social-icons a:hover {
@@ -172,7 +190,7 @@ nav a:hover {
   transform: translateY(-3px);
 }
 
-/* MATRIX */
+/* ================= MATRIX BACKGROUND ================= */
 
 #matrixCanvas {
   position: fixed;
@@ -182,4 +200,55 @@ nav a:hover {
   height: 100%;
   z-index: -1;
   pointer-events: none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+  .nav {
+    padding: 20px;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #000;
+    width: 200px;
+    padding: 20px;
+    border: 1px solid #003d2e;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .quick-section,
+  .faq-section {
+    padding: 80px 20px;
+  }
+
+  .section-title {
+    font-size: 36px;
+  }
+
+  .quick-text,
+  .faq-item p {
+    font-size: 16px;
+  }
+
+  .faq-item {
+    padding: 20px;
+  }
+
+  .footer {
+    padding: 30px 20px;
+  }
 }
