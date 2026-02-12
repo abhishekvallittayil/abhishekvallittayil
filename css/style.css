@@ -32,7 +32,7 @@ body {
 
 .logo img {
   height: 35px;
-  filter: drop-shadow(0 0 4px rgba(0,255,159,0.6));
+  filter: drop-shadow(0 0 6px rgba(0,255,159,0.6));
 }
 
 nav {
@@ -57,7 +57,7 @@ nav a:hover {
   cursor: pointer;
 }
 
-/* ================= HERO (INDEX PAGE) ================= */
+/* ================= HERO ================= */
 
 .hero {
   min-height: 100vh;
@@ -69,51 +69,48 @@ nav a:hover {
 .hero-name {
   font-size: 55px;
   color: #00ff9f;
-  text-shadow: 0 0 6px rgba(0,255,159,0.6);
-  margin-bottom: 5px;
+  text-shadow: 0 0 8px rgba(0,255,159,0.7);
 }
 
 .hero h1 {
-  font-size: 55px;
+  font-size: 50px;
   color: #00ff9f;
-  text-shadow: 0 0 8px rgba(0,255,159,0.7);
   margin-bottom: 20px;
 }
 
 .hero p {
   font-size: 18px;
   max-width: 700px;
-  color: #ff003c;
-  text-shadow: 0 0 4px rgba(255,0,60,0.6);
   margin-bottom: 30px;
 }
 
-/* ================= GREEN BUTTON (INDEX) ================= */
+/* ================= BUTTONS ================= */
 
-.btn {
+.btn,
+.btn-blue {
+  padding: 14px 30px;
+  background: #001a14;
+  color: #00ff9f;
+  border: 1px solid #00ff9f;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
   display: inline-block;
-  padding: 12px 28px;
+}
+
+.btn:hover,
+.btn-blue:hover {
   background: #00ff9f;
   color: #000;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(0,255,159,0.7);
 }
 
-.btn:hover {
-  background: #00cc7a;
-}
-
-/* ================= QUICK ABOUT SECTION ================= */
+/* ================= QUICK ABOUT ================= */
 
 .quick-section {
   min-height: 100vh;
-  padding: 100px 20px 60px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 100px 20px;
   text-align: center;
 }
 
@@ -126,52 +123,31 @@ nav a:hover {
 
 .quick-text {
   max-width: 800px;
-  margin-bottom: 40px;
+  margin: 0 auto 40px auto;
   font-size: 20px;
   line-height: 1.7;
-  color: #e2e8f0;
 }
 
 .about-image {
   width: 100%;
-  max-width: 400px; /* reduced size */
+  max-width: 400px;
   border-radius: 20px;
   margin: 30px auto;
   display: block;
   box-shadow: 0 0 20px rgba(0,255,159,0.3);
 }
 
-/* ================= HACKER BUTTONS ================= */
-
 .about-buttons {
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
-  margin-top: 20px;
 }
 
-.btn-blue {
-  padding: 14px 30px;
-  background: #001a14;
-  color: #00ff9f;
-  border: 1px solid #00ff9f;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.btn-blue:hover {
-  background: #00ff9f;
-  color: #000;
-  box-shadow: 0 0 15px rgba(0,255,159,0.7);
-}
-
-/* ================= FAQ SECTION ================= */
+/* ================= FAQ ================= */
 
 .faq-section {
-  padding: 60px 20px 100px 20px;
+  padding: 80px 20px;
   text-align: center;
 }
 
@@ -182,15 +158,39 @@ nav a:hover {
 }
 
 .faq-item h3 {
-  font-size: 22px;
-  margin-bottom: 15px;
   color: #00ff9f;
+  margin-bottom: 10px;
 }
 
 .faq-item p {
-  font-size: 18px;
   line-height: 1.7;
-  color: #cbd5e1;
+}
+
+/* ================= PORTFOLIO ================= */
+
+.page {
+  padding: 120px 60px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card {
+  background: #001a14;
+  padding: 40px;
+  border-radius: 15px;
+  border: 1px solid #003d2e;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(0,255,159,0.4);
 }
 
 /* ================= FOOTER ================= */
@@ -207,7 +207,6 @@ nav a:hover {
 }
 
 .footer-left p {
-  color: #94a3b8;
   margin: 4px 0;
   font-size: 14px;
 }
@@ -227,16 +226,14 @@ nav a:hover {
   background: #001a14;
   color: #00ff9f;
   border: 1px solid #003d2e;
-  font-size: 16px;
   transition: 0.3s;
 }
 
 .social-icons a:hover {
   box-shadow: 0 0 8px rgba(0,255,159,0.6);
-  transform: translateY(-3px);
 }
 
-/* ================= MATRIX BACKGROUND ================= */
+/* ================= MATRIX ================= */
 
 #matrixCanvas {
   position: fixed;
@@ -245,7 +242,6 @@ nav a:hover {
   width: 100%;
   height: 100%;
   z-index: -1;
-  pointer-events: none;
 }
 
 /* ================= BOOT SCREEN ================= */
@@ -259,14 +255,12 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  transition: opacity 1s ease;
 }
 
 .boot-terminal {
   font-family: monospace;
   font-size: 22px;
   color: #00ff9f;
-  text-align: center;
 }
 
 /* ================= RESPONSIVE ================= */
@@ -298,28 +292,11 @@ nav a:hover {
   }
 
   .hero,
-  .quick-section,
-  .faq-section {
+  .page {
     padding: 80px 20px;
   }
 
-  .hero-name,
-  .hero h1,
   .section-title {
     font-size: 32px;
-  }
-
-  .hero p,
-  .faq-item p,
-  .quick-text {
-    font-size: 16px;
-  }
-
-  .about-image {
-    max-width: 280px;
-  }
-
-  .footer {
-    padding: 20px;
   }
 }
