@@ -196,9 +196,19 @@ nav a:hover {
   text-align: left;
 }
 
+.faq-item h3::before {
+  content: ">"; 
+  color: #00ff9f;
+  margin-right: 12px;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(0, 255, 159, 0.8);
+}
+
 .faq-item h3 {
   color: #00ff9f;
   margin-bottom: 10px;
+  display: flex;            /* Added for bullet alignment */
+  align-items: flex-start;  /* Keeps the ">" at the top if text wraps */
 }
 
 /* ================= FOOTER ================= */
