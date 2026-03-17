@@ -63,10 +63,11 @@ nav a:hover {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;     /* horizontal centering */
   text-align: center;      /* center text inside */
-  padding-top: 5vh; /* moves content slightly down from top, tweak as needed */
+  padding: 20px; 
+  transform: translateY(-7%); /* move slightly up from exact center */
 }
 
 .hero-name {
