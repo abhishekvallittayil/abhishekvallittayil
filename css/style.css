@@ -67,13 +67,15 @@ nav a:hover {
   align-items: center;     /* horizontal centering */
   text-align: center;      /* center text inside */
   padding: 20px; 
-  transform: translateY(-7%); /* move slightly up from exact center */
 }
 
 .hero-name {
   font-size: 30px;
   color: #00ff9f;
   text-shadow: 0 0 15px rgba(0,255,159,0.8);
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 .hero h1 {
@@ -81,13 +83,20 @@ nav a:hover {
   color: #00ff9f;
   text-shadow: 0 0 12px rgba(0,255,159,0.7);
   margin-bottom: 20px;
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 .hero p {
   font-size: 16px;
-  max-width: 90%;
+  max-width: 800px;         /* Limits width so it doesn't stretch too far on wide screens */
+  width: 100%;              /* Ensures it takes up the allowed space to center correctly */
   color: #cbd5e1;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+  margin-left: auto;        /* Combined with margin-right, this centers the block */
+  margin-right: auto;
+  line-height: 1.6;
 }
 
 /* Typing Glow */
