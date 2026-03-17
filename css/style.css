@@ -89,14 +89,17 @@ nav a:hover {
 }
 
 .hero p {
-  font-size: 16px;
+  font-size: 1.2rem;
   max-width: 800px;         /* Limits width so it doesn't stretch too far on wide screens */
   width: 100%;              /* Ensures it takes up the allowed space to center correctly */
-  color: #cbd5e1;
-  margin-bottom: 20px;
+  color: #e2e8f0;
+  margin-bottom: 25px;
   margin-left: auto;        /* Combined with margin-right, this centers the block */
   margin-right: auto;
-  line-height: 1.6;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.4); 
+  padding: 10px 20px;
+  border-radius: 8px;
 }
 
 /* Typing Glow */
