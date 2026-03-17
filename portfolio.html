@@ -36,22 +36,22 @@
 
   <div class="portfolio-grid">
 
-  <div class="project-card" onclick="openModal('Cybersecurity capstone')">
+  <div class="project-card" onclick="openModal('capstone')">
   <h3>🔐 Cybersecurity Capstone project</h3>
   <p>Click to view details</p>
 </div>
 
-<div class="project-card" onclick="openModal('LiveLongx')">
+<div class="project-card" onclick="openModal('livelongx')">
   <h3>📊 LiveLongX - Data Driven Health & Wellness Platform</h3>
   <p>Click to view details</p>
 </div>
 
-<div class="project-card" onclick="openModal('Penetration testing')">
+<div class="project-card" onclick="openModal('penetration1')">
   <h3>Penetration testing</h3>
   <p>Click to view details</p>
 </div>
 
-<div class="project-card" onclick="openModal('Traning')">
+<div class="project-card" onclick="openModal('training')">
   <h3>🕵 Training resources for privacy breach</h3>
   <p>Click to view details</p>
 </div>
@@ -140,7 +140,7 @@ function openModal(project) {
   const modal = document.getElementById("projectModal");
   const body = document.getElementById("modalBody");
 
-  if (project === "Cybersecurity capstone") {
+  if (project === "capstone") {
     body.innerHTML = `
       <h2>🔐 Cybersecurity Capstone project</h2>
 
@@ -166,21 +166,21 @@ function openModal(project) {
     `;
   }
 
-  if (project === "LiveLongx") {
+  if (project === "livelongx") {
     body.innerHTML = `
       <h2>📊 LiveLongX - Data Driven Health & Wellness Platform<</h2>
       <p>Deployed Azure Sentinel and configured threat detection.</p>
     `;
   }
 
-  if (project === "Penetration testing") {
+  if (project === "penetration1") {
     body.innerHTML = `
       <h2>🕵 Penetration testing</h2>
       <p>Monitored attacker behavior using a controlled lab setup.</p>
     `;
   }
 
-  if (project === "Traning") {
+  if (project === "training") {
     body.innerHTML = `
       <h2>🧪 Training resources for privacy breach</h2>
       <p>Performed static and dynamic malware analysis safely.</p>
