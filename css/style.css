@@ -66,7 +66,7 @@ nav a:hover {
   justify-content: flex-start;
   align-items: center;     /* horizontal centering */
   text-align: center;      /* center text inside */
-  padding-top: 15vh; /* moves content slightly down from top, tweak as needed */
+  padding-top: 5vh; /* moves content slightly down from top, tweak as needed */
 }
 
 .hero-name {
