@@ -144,39 +144,40 @@ function openModal(project) {
     body.innerHTML = `
       <h1>Cybersecurity Capstone: Secure Enterprise Domain Infrastructure</h1>
       <h3>Sault College of Applied Arts & Technology | Feb 2025 – Apr 2025</h3>
-
+<br>
       <h3>Project Objective</h3>
       <p>To design and deploy a hardened Windows Server-based enterprise network featuring centralized identity management, secure remote access, and multi-layered service isolation.</p>
-
+<br>
       <h3>Technical Implementation</h3>
-      <ul>
-      <li>Identity & Core Services: Architected a Windows Server domain environment utilizing Active Directory Domain Services (AD DS) and DNS for centralized authentication and name resolution.</li>
+      <ul style="line-height: 1.8;">
+      <li><strong>Identity & Core Services:</strong> Architected a Windows Server domain environment utilizing Active Directory Domain Services (AD DS) and DNS for centralized authentication and name resolution.</li>
 
-      <li>Network Backbone: Engineered an enterprise-style network (10.5.180.0/24) with domain-joined Windows 10 endpoints, ensuring consistent policy enforcement via Group Policy Objects (GPOs).</li>
+      <li><strong>Network Backbone:</strong> Engineered an enterprise-style network (10.5.180.0/24) with domain-joined Windows 10 endpoints, ensuring consistent policy enforcement via Group Policy Objects (GPOs).</li>
 
-<li>Secure Remote Access: Implemented dual-protocol VPN solutions:</li>
+<li><strong>Secure Remote Access:</strong> Implemented dual-protocol VPN solutions:
+<ol style="margin-top: 10px; margin-left: 20px;">
+    <li><strong>L2TP/IPsec:</strong>Configured with UDP ports 500/4500 for high-security encrypted tunneling.</li>
 
-    <li>L2TP/IPsec: Configured with UDP ports 500/4500 for high-security encrypted tunneling.</li>
-
-    <li>PPTP: Optimized for specific user groups with Active Directory-backed authentication.</li>
-
-    <li>Web & File Security: Deployed IIS with HTTPS/TLS for secure web traffic, alongside FTP and NFS services for managed file sharing.</li>
+    <li><strong>PPTP:</strong> Optimized for specific user groups with Active Directory-backed authentication.</li>
+</ol>
+</li>
+    <li><strong>Web & File Security:</strong> Deployed IIS with HTTPS/TLS for secure web traffic, alongside FTP and NFS services for managed file sharing.</li>
     </ul>
-
+<br>
       <h3>Security Hardening & Vulnerability Mitigation</h3>
       
       <ul>
-      <li>Traffic Control: Configured Windows Firewall and custom ACLs to enforce strict port management, including filtering for ports like 8080, 135, 445, and 2049.</li>
-      <li>Vulnerability Assessment: Conducted audits on AD and NFS services, identifying risks such as insecure configurations and excessive permissions.</li>
-      <li>Remediation: Applied Least Privilege access controls, hardened service protocols, and implemented network segmentation to reduce the attack surface and prevent unauthorized lateral movement.</li>
+      <li><strong>Traffic Control:</strong> Configured Windows Firewall and custom ACLs to enforce strict port management, including filtering for ports like 8080, 135, 445, and 2049.</li>
+      <li><strong>Vulnerability Assessment:</strong> Conducted audits on AD and NFS services, identifying risks such as insecure configurations and excessive permissions.</li>
+      <li><strong>Remediation:</strong> Applied Least Privilege access controls, hardened service protocols, and implemented network segmentation to reduce the attack surface and prevent unauthorized lateral movement.</li>
     <ul>
-
+<br>
       <h3>Tools & Technologies</h3>
       
       <ul>
-      <li>Operating Systems: Windows Server, Windows 10.</li>
-      <li>Security & Networking: Active Directory, VPN (PPTP, L2TP/IPsec), Firewall/ACLs, IIS (HTTPS), DNS, NFS, FTP.</li>
-      <li>Methodologies: Vulnerability Assessment, Least Privilege Access, Service Isolation, Network Hardening.</li>
+      <li><strong>Operating Systems:</strong> Windows Server, Windows 10.</li>
+      <li><strong>Security & Networking:</strong> Active Directory, VPN (PPTP, L2TP/IPsec), Firewall/ACLs, IIS (HTTPS), DNS, NFS, FTP.</li>
+      <li><strong>Methodologies:</strong> Vulnerability Assessment, Least Privilege Access, Service Isolation, Network Hardening.</li>
       </ul>
       
     `;
