@@ -324,8 +324,8 @@ nav a:hover {
 /* ================= PORTFOLIO ================= */
 
 .portfolio-section {
-  min-height: 100vh;
-  padding: 100px 20px;
+  min-height: auto;
+  padding: 60px 20px;
   text-align: center;
 }
 
