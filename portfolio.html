@@ -47,12 +47,12 @@
 </div>
 
 <div class="project-card" onclick="openModal('penetration1')">
-  <h3> Penetration testing</h3>
+  <h3> Penetration Testing: Web Application & Network Assessment</h3>
   <p>Click to view details</p>
 </div>
 
-<div class="project-card" onclick="openModal('training')">
-  <h3> Training resources for privacy breach</h3>
+<div class="project-card" onclick="openModal('nfs-security')">
+  <h3> Secure Network File System Implementation on Windows Server</h3>
   <p>Click to view details</p>
 </div>
 
@@ -222,17 +222,91 @@ if (project === "livelongx") {
     `;
   }
 
-  if (project === "penetration1") {
+if (project === "penetration1") {
     body.innerHTML = `
-      <h2>🕵 Penetration testing</h2>
-      <p>Monitored attacker behavior using a controlled lab setup.</p>
+      <h1>🕵 Penetration Testing: Web Application & Network Assessment</h1>
+      <h3>CyberSec Academy Consulting | Apr 2025</h3>
+
+      <br>
+
+      <h3>Project Objective</h3>
+      <p style="line-height: 1.8;">To conduct a gray-box penetration test on Acme Corp's web infrastructure to identify, exploit, and document security vulnerabilities that could lead to unauthorized access or data exfiltration[cite: 9, 10].</p>
+
+      <br>
+
+      <h3>Key Findings & Vulnerabilities</h3>
+      <ul style="line-height: 1.8;">
+        <li><strong>Remote Code Execution (Critical):</strong> Identified and confirmed <strong>Log4Shell (CVE-2021-44228)</strong> in Apache Log4j and RCE in the <strong>PHPUnit framework (CVE-2017-9841)</strong>, both allowing for full server compromise[cite: 61, 66, 90, 94].</li>
+
+        <li><strong>Path Traversal (Medium):</strong> Exploited <strong>CVE-2021-41773</strong> in Apache HTTP Server 2.4.49 to gain unauthorized access to sensitive system files[cite: 76, 80, 81].</li>
+
+        <li><strong>Privilege Escalation (Medium):</strong> Validated the potential for lateral movement via <strong>Zerologon (CVE-2020-1472)</strong>, allowing for domain controller impersonation and internal network takeover[cite: 104, 108, 109].</li>
+      </ul>
+
+      <br>
+
+      <h3>Methodology & Workflow</h3>
+      <ol style="line-height: 1.8; margin-left: 20px;">
+        <li><strong>Reconnaissance & Scanning:</strong> Used <code>Nmap</code> and <code>Nikto</code> to map the attack surface and identify open ports/services[cite: 49, 54, 55].</li>
+        <li><strong>Vulnerability Analysis:</strong> Performed manual code reviews and automated intercepting with <code>Burp Suite Professional</code> and <code>OWASP ZAP</code>[cite: 50, 136, 137].</li>
+        <li><strong>Exploitation:</strong> Leveraged <code>Metasploit Framework</code> and <code>Impacket</code> to confirm the impact of identified flaws[cite: 51, 138, 139].</li>
+      </ol>
+
+      <br>
+
+      <h3>Remediation Recommendations</h3>
+      <ul style="line-height: 1.8;">
+        <li><strong>Patch Management:</strong> Immediate upgrade of Log4j, PHPUnit, and Apache HTTP Server to the latest secure versions[cite: 17, 125].</li>
+        <li><strong>Input Hardening:</strong> Implementation of strict input validation and output encoding to mitigate injection and traversal attacks[cite: 18, 126].</li>
+        <li><strong>Network Isolation:</strong> Application of network segmentation to contain potential breaches and limit lateral movement[cite: 115, 128].</li>
+      </ul>
+
+      <br>
+
+      <h3>Tools & Technologies</h3>
+      <p><strong>Frameworks:</strong> Metasploit, Impacket | <strong>Interceptors:</strong> Burp Suite Pro, OWASP ZAP | <strong>Scanners:</strong> Nmap, Nikto, Gobuster, Dirb [cite: 133-142]</p>
     `;
   }
 
-  if (project === "training") {
+if (project === "nfs-security") {
     body.innerHTML = `
-      <h2>🧪 Training resources for privacy breach</h2>
-      <p>Performed static and dynamic malware analysis safely.</p>
+      <h1>📂 Network File System (NFS): Secure Implementation & Hardening</h1>
+      <h3>Sault College | Cybersecurity Capstone 2025</h3>
+
+      <br>
+
+      <h3>Project Objective</h3>
+      <p style="line-height: 1.8;">To deploy a cross-platform NFS architecture between Windows Server 2022 and Windows 10, focusing on mitigating the inherent security risks of clear-text file sharing through multi-layered defense-in-depth strategies[cite: 178, 268].</p>
+
+      <br>
+
+      <h3>Implemented Security Measures</h3>
+      <ul style="line-height: 1.8;">
+        <li><strong>Secure Communication (VPN Encryption):</strong> Configured <strong>Remote Access (RAS)</strong> with <strong>PPTP</strong> to encapsulate NFS traffic within an encrypted tunnel, protecting data in transit from interception[cite: 173, 270].</li>
+
+        <li><strong>Access Control (IP-Based Permissions):</strong> Hardened the NFS share by disabling "All Machines" access and implementing a strict <strong>Whitelist</strong> policy, restricting Read/Write privileges only to authorized client IPs[cite: 175, 273].</li>
+
+        <li><strong>Continuous Monitoring (Activity Logging):</strong> Enabled advanced diagnostic logging in <strong>Event Viewer</strong> to track and audit real-time operations:
+          <ol style="margin-top: 10px; margin-left: 20px;">
+            <li>Mount and Unmount requests[cite: 246].</li>
+            <li>File Read/Write and Create/Delete operations[cite: 246, 272].</li>
+            <li>Unauthorized access attempts[cite: 246].</li>
+          </ol>
+        </li>
+      </ul>
+
+      <br>
+
+      <h3>Technical Workflow</h3>
+      <p style="line-height: 1.8;"><strong>1. Server Setup:</strong> Provisioned the "Server for NFS" role and established a secure directory path at <code>C:\\nfs_share</code>[cite: 194, 198].<br>
+      <strong>2. Identity Management:</strong> Configured <strong>Dial-in</strong> permissions within Active Directory to authorize specific users for VPN-backed NFS access[cite: 227].<br>
+      <strong>3. Validation:</strong> Verified successful mounting and secure file operations from the Windows 10 client via the <code>mount</code> and <code>showmount</code> commands[cite: 189, 190, 210].</p>
+
+      <br>
+
+      <h3>Tools & Technologies</h3>
+      <p><strong>Server:</strong> Windows Server 2022 | <strong>Security:</strong> VPN (PPTP), IP Filtering, Event Viewer[cite: 172, 173, 175].<br>
+      <strong>Protocol:</strong> NFS (Port 2049), RPC, Kerberos v5 (krb5i, krb5p)[cite: 180, 201, 202].</p>
     `;
   }
 
