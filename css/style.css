@@ -325,8 +325,9 @@ nav a:hover {
 
 .portfolio-section {
   min-height: auto;
-  padding: 60px 20px;
+  padding: 80px 20px 40px;
   text-align: center;
+  margin-top: -40px;
 }
 
 .portfolio-grid {
