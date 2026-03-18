@@ -324,10 +324,9 @@ nav a:hover {
 /* ================= PORTFOLIO ================= */
 
 .portfolio-section {
-  min-height: auto;
-  padding: 80px 20px 40px;
+  min-height: auto;   /* CHANGE this */
+  padding: 60px 20px; /* reduce spacing */
   text-align: center;
-  margin-top: -40px;
 }
 
 .portfolio-grid {
