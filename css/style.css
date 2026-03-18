@@ -324,9 +324,13 @@ nav a:hover {
 /* ================= PORTFOLIO ================= */
 
 .portfolio-section {
-  min-height: auto;   /* CHANGE this */
-  padding: 60px 20px; /* reduce spacing */
+  min-height: 70vh;   /* 👈 keeps good height but not too big */
+  padding: 80px 20px;
   text-align: center;
+}
+
+.portfolio-section + .portfolio-section {
+  margin-top: 40px;  /* space between Projects & Certifications */
 }
 
 .portfolio-grid {
