@@ -433,21 +433,24 @@ function drawMatrix(){
 resizeCanvas();window.addEventListener('resize',resizeCanvas);setInterval(drawMatrix,50);
 
 // ===== BOOT =====
-const bootLines=[
-  'Starting Arch Linux...',
-  '[ OK ] Reached target Local File Systems',
-  '[ OK ] Started Network Time Synchronization',
-  '[ OK ] Started OpenSSH Daemon',
-  '[ OK ] Reached target Multi-User System',
-  'Loading abhishek@portfolio session...',
-  '[ OK ] Access Granted — Welcome!'
-];
+const isMobileDevice = window.innerWidth <= 768;
+const bootLines = isMobileDevice
+  ? ['Loading Abhishek Portfolio...', 'Please wait...']
+  : [
+    'Starting Arch Linux...',
+    '[ OK ] Reached target Local File Systems',
+    '[ OK ] Started Network Time Synchronization',
+    '[ OK ] Started OpenSSH Daemon',
+    '[ OK ] Reached target Multi-User System',
+    'Loading abhishek@portfolio session...',
+    '[ OK ] Access Granted — Welcome!'
+  ];
 let bi=0,bj=0;
 const bootOut=document.getElementById('bootOutput');
 function typeBoot(){
   if(bi<bootLines.length){
-    if(bj<bootLines[bi].length){bootOut.innerHTML+=bootLines[bi][bj++];setTimeout(typeBoot,18);}
-    else{bootOut.innerHTML+='<br>';bi++;bj=0;setTimeout(typeBoot,220);}
+    if(bj<bootLines[bi].length){bootOut.innerHTML+=bootLines[bi][bj++];setTimeout(typeBoot, isMobileDevice ? 30 : 18);}
+    else{bootOut.innerHTML+='<br>';bi++;bj=0;setTimeout(typeBoot, isMobileDevice ? 400 : 220);}
   }else{
     setTimeout(()=>{
       document.getElementById('bootScreen').style.opacity='0';
@@ -775,13 +778,16 @@ function handleSearch(val) {
   });
 }
 
-// Close search bar results if clicked outside (do not close apps)
+// Close search bar results / handle background taps
 document.addEventListener('click', (e) => {
+  // Dismiss search results when tapping outside
   if (!e.target.closest('.android-search-bar')) {
     const r = document.getElementById('android-search-results');
     if (r) r.classList.remove('active');
   }
-  // Close apps if clicking on the bare android-container background (not on any dock/widget/app)
+  // Never interfere if the modal is open or an app just opened
+  if (_modalJustOpened || document.getElementById('projectModal').classList.contains('is-open')) return;
+  // Close apps only when tapping bare android wallpaper background
   if (
     !_appJustOpened &&
     !e.target.closest('.android-app-window') &&
@@ -789,6 +795,7 @@ document.addEventListener('click', (e) => {
     !e.target.closest('.android-widget') &&
     !e.target.closest('.android-search-bar') &&
     !e.target.closest('.android-status-bar') &&
+    !e.target.closest('.modal') &&
     e.target.closest('#android-container')
   ) {
     closeAllAndroidApps();
@@ -857,12 +864,17 @@ const projectData={
   }
 };
 
+let _modalJustOpened = false;
 function openModal(id){
-  const d=projectData[id];if(!d)return;
+  const d=projectData[id]; if(!d) return;
+  _modalJustOpened = true;
+  setTimeout(() => { _modalJustOpened = false; }, 100);
   document.getElementById('modalBody').innerHTML=`<h1>${d.title}</h1><h3 style="color:#5fc4f0;margin-bottom:12px;">${d.sub}</h3>${d.body}`;
   document.getElementById('projectModal').classList.add('is-open');
 }
-function closeModal(){document.getElementById('projectModal').classList.remove('is-open');}
+function closeModal(){
+  document.getElementById('projectModal').classList.remove('is-open');
+}
 
 // Window resize handler to switch views seamlessly
 window.addEventListener('resize', () => {
