@@ -83,12 +83,19 @@
 
 <!-- BOOT SCREEN -->
 <div id="bootScreen">
-  <div class="boot-logo">ARCH LINUX</div>
+  <div class="boot-logo" id="boot-logo-text">ARCH LINUX</div>
   <div class="boot-terminal">
     <div id="bootOutput"></div>
     <div class="boot-cursor-line"><span class="boot-blink">█</span></div>
   </div>
 </div>
+
+<script>
+  // Set boot logo text based on device immediately before render
+  if (window.innerWidth <= 768) {
+    document.getElementById('boot-logo-text').textContent = 'ABHISHEK PORTFOLIO';
+  }
+</script>
 
 <!-- ================= DESKTOP VIEW (MIN-WIDTH: 769px) ================= -->
 <div id="desktop">
