@@ -291,7 +291,7 @@
   </div>
 
   <!-- Android bottom navigation bar with gesture bar -->
-  <div class="android-nav-bar" onclick="closeAllAndroidApps(); event.stopPropagation();">
+  <div class="android-nav-bar">
     <div class="android-nav-pill"></div>
   </div>
 </div>
@@ -631,44 +631,48 @@ document.getElementById('desktop').addEventListener('click',function(e){if(!e.ta
 
 
 // ================= ANDROID CONTROLLER =================
+let _appJustOpened = false;
+
 function openAndroidApp(appId) {
-  // Close other apps instantly without transitions to avoid async collisions
+  // Flag to prevent the document click listener from immediately closing the app
+  _appJustOpened = true;
+  setTimeout(() => { _appJustOpened = false; }, 50);
+
+  // Hide all other app windows immediately (no transition delay)
   document.querySelectorAll('.android-app-window').forEach(app => {
-    if(app.id !== 'app-' + appId) {
+    if (app.id !== 'app-' + appId) {
       app.classList.remove('active');
       app.style.display = 'none';
     }
   });
-  
+
   const app = document.getElementById('app-' + appId);
-  if(!app) return;
+  if (!app) return;
   app.style.display = 'flex';
-  setTimeout(() => app.classList.add('active'), 10);
-  
-  if(appId === 'home') {
+  // Small delay so display:flex is painted before transition kicks in
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      app.classList.add('active');
+    });
+  });
+
+  if (appId === 'home') {
     startMobileTyping();
   }
 }
 
 function closeAndroidApp(appId) {
   const app = document.getElementById('app-' + appId);
-  if(!app) return;
+  if (!app) return;
   app.classList.remove('active');
-  setTimeout(() => {
-    if(!app.classList.contains('active')) {
-      app.style.display = 'none';
-    }
-  }, 300);
+  setTimeout(() => { app.style.display = 'none'; }, 320);
 }
 
 function closeAllAndroidApps() {
+  if (_appJustOpened) return; // Ignore if an app was just opened
   document.querySelectorAll('.android-app-window').forEach(app => {
     app.classList.remove('active');
-    setTimeout(() => {
-      if(!app.classList.contains('active')) {
-        app.style.display = 'none';
-      }
-    }, 300);
+    setTimeout(() => { app.style.display = 'none'; }, 320);
   });
 }
 
@@ -770,10 +774,23 @@ function handleSearch(val) {
   });
 }
 
-// Close search bar results if clicked outside
+// Close search bar results if clicked outside (do not close apps)
 document.addEventListener('click', (e) => {
-  if(!e.target.closest('.android-search-bar')) {
-    document.getElementById('android-search-results').classList.remove('active');
+  if (!e.target.closest('.android-search-bar')) {
+    const r = document.getElementById('android-search-results');
+    if (r) r.classList.remove('active');
+  }
+  // Close apps if clicking on the bare android-container background (not on any dock/widget/app)
+  if (
+    !_appJustOpened &&
+    !e.target.closest('.android-app-window') &&
+    !e.target.closest('.android-dock') &&
+    !e.target.closest('.android-widget') &&
+    !e.target.closest('.android-search-bar') &&
+    !e.target.closest('.android-status-bar') &&
+    e.target.closest('#android-container')
+  ) {
+    closeAllAndroidApps();
   }
 });
 
