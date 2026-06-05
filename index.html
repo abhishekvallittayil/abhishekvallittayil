@@ -632,7 +632,14 @@ document.getElementById('desktop').addEventListener('click',function(e){if(!e.ta
 
 // ================= ANDROID CONTROLLER =================
 function openAndroidApp(appId) {
-  closeAllAndroidApps();
+  // Close other apps instantly without transitions to avoid async collisions
+  document.querySelectorAll('.android-app-window').forEach(app => {
+    if(app.id !== 'app-' + appId) {
+      app.classList.remove('active');
+      app.style.display = 'none';
+    }
+  });
+  
   const app = document.getElementById('app-' + appId);
   if(!app) return;
   app.style.display = 'flex';
@@ -647,13 +654,21 @@ function closeAndroidApp(appId) {
   const app = document.getElementById('app-' + appId);
   if(!app) return;
   app.classList.remove('active');
-  setTimeout(() => app.style.display = 'none', 300);
+  setTimeout(() => {
+    if(!app.classList.contains('active')) {
+      app.style.display = 'none';
+    }
+  }, 300);
 }
 
 function closeAllAndroidApps() {
   document.querySelectorAll('.android-app-window').forEach(app => {
     app.classList.remove('active');
-    setTimeout(() => app.style.display = 'none', 300);
+    setTimeout(() => {
+      if(!app.classList.contains('active')) {
+        app.style.display = 'none';
+      }
+    }, 300);
   });
 }
 
