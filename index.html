@@ -265,31 +265,26 @@
       </div>
 
       <!-- Apps Dock -->
-      <div class="android-dock">
-        <!-- 1. Dialer / Termux (Home) -->
+      <div class="android-dock" style="justify-content: space-around;">
+        <!-- 1. Home -->
         <div class="android-app-icon" onclick="openAndroidApp('home')">
-          <div class="android-app-circle"><i class="fas fa-terminal"></i></div>
-          <span class="android-app-label">Termux</span>
+          <div class="android-app-circle"><i class="fas fa-home"></i></div>
+          <span class="android-app-label">Home</span>
         </div>
-        <!-- 2. Chat / Messages (Q&A Chatbot) -->
-        <div class="android-app-icon" onclick="openAndroidApp('chat')">
-          <div class="android-app-circle"><i class="fas fa-comment-dots"></i></div>
-          <span class="android-app-label">Messages</span>
-        </div>
-        <!-- 3. Hacker Head/Avatar (About Me) -->
+        <!-- 2. About -->
         <div class="android-app-icon" onclick="openAndroidApp('about')">
           <div class="android-app-circle"><i class="fas fa-user-secret"></i></div>
-          <span class="android-app-label">Identity</span>
+          <span class="android-app-label">About</span>
         </div>
-        <!-- 4. Projects (Works) -->
+        <!-- 3. Works -->
         <div class="android-app-icon" onclick="openAndroidApp('works')">
           <div class="android-app-circle"><i class="fas fa-briefcase"></i></div>
-          <span class="android-app-label">Gallery</span>
+          <span class="android-app-label">Works</span>
         </div>
-        <!-- 5. Gmail (Mailto) -->
-        <div class="android-app-icon" onclick="window.location.href='mailto:abhishek.127001@gmail.com'">
+        <!-- 4. Contact -->
+        <div class="android-app-icon" onclick="openAndroidApp('contact')">
           <div class="android-app-circle"><i class="fas fa-envelope"></i></div>
-          <span class="android-app-label">Gmail</span>
+          <span class="android-app-label">Contact</span>
         </div>
       </div>
     </div>
@@ -303,11 +298,11 @@
 
 <!-- ================= MOBILE APP OVERLAYS ================= -->
 
-<!-- APP: HOME (TERMUX TERMINAL) -->
+<!-- APP: HOME (WELCOME SCREEN) -->
 <div class="android-app-window" id="app-home">
   <div class="android-app-header">
     <div class="aah-back" onclick="closeAndroidApp('home')"><i class="fas fa-chevron-left"></i></div>
-    <span class="aah-title">Termux</span>
+    <span class="aah-title">Home</span>
     <div class="aah-close" onclick="closeAndroidApp('home')">&times;</div>
   </div>
   <div class="android-app-body">
@@ -320,7 +315,7 @@
       <p class="home-bio" style="font-size:13.5px; margin-bottom:12px;">I am a Certified Ethical Hacker (CEH) and Security+ professional with hands-on experience in cybersecurity, penetration testing, vulnerability assessment, and Linux system security.</p>
       <p class="home-bio" style="font-size:13.5px;">Based in Canada and open to opportunities in cybersecurity, networking, risk, and IT security across the country.</p>
       <div class="home-buttons" style="margin-top:20px;">
-        <a href="#" class="btn-desk btn-primary" onclick="openAndroidApp('works');return false;" style="font-size:11.5px; padding:9px 18px;"><i class="fas fa-briefcase"></i> Projects</a>
+        <a href="#" class="btn-desk btn-primary" onclick="openAndroidApp('works');return false;" style="font-size:11.5px; padding:9px 18px;"><i class="fas fa-briefcase"></i> Works</a>
         <a href="#" class="btn-desk btn-outline" onclick="openAndroidApp('about');return false;" style="font-size:11.5px; padding:9px 18px;"><i class="fas fa-user"></i> About</a>
       </div>
     </div>
@@ -331,7 +326,7 @@
 <div class="android-app-window" id="app-about">
   <div class="android-app-header">
     <div class="aah-back" onclick="closeAndroidApp('about')"><i class="fas fa-chevron-left"></i></div>
-    <span class="aah-title">Identity</span>
+    <span class="aah-title">About</span>
     <div class="aah-close" onclick="closeAndroidApp('about')">&times;</div>
   </div>
   <div class="android-app-body">
@@ -354,39 +349,18 @@
         <div><div class="faq-q" style="font-size:12px;">Tools & technologies?</div><div class="faq-a" style="font-size:12px;">Linux, Windows Server, AD, DNS, VPNs, firewalls, Nmap, Metasploit, Burp Suite, OWASP ZAP, Nikto.</div></div>
       </div>
       <div class="about-action-btns" style="margin-top: 20px; justify-content: center;">
-        <a href="mailto:abhishek.127001@gmail.com" class="btn-desk btn-outline" style="font-size:11.5px; padding:9px 18px;"><i class="fas fa-envelope"></i> Contact</a>
-        <a href="assets/resume/resume.docx" download class="btn-desk btn-primary" style="font-size:11.5px; padding:9px 18px;"><i class="fas fa-download"></i> Resume</a>
+        <a href="#" class="btn-desk btn-primary" onclick="openAndroidApp('contact');return false;" style="font-size:11.5px; padding:9px 18px;"><i class="fas fa-envelope"></i> Contact</a>
+        <a href="assets/resume/resume.docx" download class="btn-desk btn-outline" style="font-size:11.5px; padding:9px 18px;"><i class="fas fa-download"></i> Resume</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- APP: CHAT / MESSAGES -->
-<div class="android-app-window" id="app-chat">
-  <div class="android-app-header">
-    <div class="aah-back" onclick="closeAndroidApp('chat')"><i class="fas fa-chevron-left"></i></div>
-    <span class="aah-title">Messages</span>
-    <div class="aah-close" onclick="closeAndroidApp('chat')">&times;</div>
-  </div>
-  <div class="chat-container">
-    <div class="chat-messages" id="chat-messages">
-      <div class="chat-msg bot">Hi! I am Abhishek's chatbot assistant. Ask me anything about his skills, background, or certification projects!</div>
-      <div class="chat-typing" id="chat-typing">Abhishek is typing...</div>
-    </div>
-    <div class="chat-suggested">
-      <button class="chat-btn" onclick="sendChatQuery('What is your main expertise?')">What is your main expertise?</button>
-      <button class="chat-btn" onclick="sendChatQuery('Tell me about your Capstone project.')">Tell me about your Capstone project.</button>
-      <button class="chat-btn" onclick="sendChatQuery('What certifications do you have?')">What certifications do you have?</button>
-      <button class="chat-btn" onclick="sendChatQuery('How can I contact you?')">How can I contact you?</button>
-    </div>
-  </div>
-</div>
-
-<!-- APP: WORKS (GALLERY) -->
+<!-- APP: WORKS (PROJECTS & CERTS) -->
 <div class="android-app-window" id="app-works">
   <div class="android-app-header">
     <div class="aah-back" onclick="closeAndroidApp('works')"><i class="fas fa-chevron-left"></i></div>
-    <span class="aah-title">Gallery</span>
+    <span class="aah-title">Works</span>
     <div class="aah-close" onclick="closeAndroidApp('works')">&times;</div>
   </div>
   <div class="android-app-body">
@@ -402,6 +376,36 @@
       <div class="cert-grid" style="grid-template-columns: 1fr; gap: 12px;">
         <div class="cert-card" style="padding:16px;"><h3><i class="fas fa-shield-alt"></i> CEH</h3><p style="font-size:11px; margin-bottom:8px;">Certified Ethical Hacker — EC-Council</p><a href="assets/certs/ceh.pdf" target="_blank" class="cert-btn" style="padding: 5px 12px; font-size:11px;"><i class="fas fa-eye"></i> View</a></div>
         <div class="cert-card" style="padding:16px;"><h3><i class="fas fa-shield-alt"></i> CPT</h3><p style="font-size:11px; margin-bottom:8px;">Certified Penetration Tester</p><a href="assets/certs/cpt.jpg" target="_blank" class="cert-btn" style="padding: 5px 12px; font-size:11px;"><i class="fas fa-eye"></i> View</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- APP: CONTACT (CHATBOT + DETAILS) -->
+<div class="android-app-window" id="app-contact">
+  <div class="android-app-header">
+    <div class="aah-back" onclick="closeAndroidApp('contact')"><i class="fas fa-chevron-left"></i></div>
+    <span class="aah-title">Contact</span>
+    <div class="aah-close" onclick="closeAndroidApp('contact')">&times;</div>
+  </div>
+  <div class="android-app-body" style="display: flex; flex-direction: column; height: calc(100% - 58px);">
+    <div class="about-inner" style="padding: 16px; flex-shrink: 0; border-bottom: 1px solid rgba(0, 255, 159, 0.15); background: rgba(0, 16, 8, 0.5);">
+      <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+        <a href="mailto:abhishek.127001@gmail.com" class="btn-desk btn-primary" style="font-size:11.5px; padding:8px 16px; border-radius: 20px;"><i class="fas fa-envelope"></i> Email</a>
+        <a href="tel:+14378606581" class="btn-desk btn-outline" style="font-size:11.5px; padding:8px 16px; border-radius: 20px;"><i class="fas fa-phone-alt"></i> Call</a>
+        <a href="assets/resume/resume.docx" download class="btn-desk btn-outline" style="font-size:11.5px; padding:8px 16px; border-radius: 20px;"><i class="fas fa-download"></i> Resume</a>
+      </div>
+    </div>
+    <div class="chat-container" style="flex: 1;">
+      <div class="chat-messages" id="chat-messages">
+        <div class="chat-msg bot">Hi! I am Abhishek's contact assistant. Ask me anything about his skills, background, or capstone projects!</div>
+        <div class="chat-typing" id="chat-typing">Abhishek is typing...</div>
+      </div>
+      <div class="chat-suggested">
+        <button class="chat-btn" onclick="sendChatQuery('What is your main expertise?')">Expertise</button>
+        <button class="chat-btn" onclick="sendChatQuery('Tell me about your Capstone project.')">Capstone</button>
+        <button class="chat-btn" onclick="sendChatQuery('What certifications do you have?')">Certs</button>
+        <button class="chat-btn" onclick="sendChatQuery('How can I contact you?')">Contact Info</button>
       </div>
     </div>
   </div>
@@ -548,6 +552,7 @@ function openWindow(id){
   addTab(id);updateTab(id,false);
 }
 
+// ===== WINDOW CLOSE =====
 function closeWindow(id){
   const w=document.getElementById('win-'+id);
   w.classList.remove('is-open','maximized');
@@ -743,7 +748,7 @@ function handleSearch(val) {
       } else if(item.type === 'certification') {
         openAndroidApp('works');
       } else if(item.type === 'contact') {
-        openAndroidApp('about');
+        openAndroidApp('contact');
       }
     };
     resultsContainer.appendChild(el);
