@@ -267,22 +267,22 @@
       <!-- Apps Dock -->
       <div class="android-dock" style="justify-content: space-around;">
         <!-- 1. Home -->
-        <div class="android-app-icon" onclick="openAndroidApp('home')">
+        <div class="android-app-icon" onclick="openAndroidApp('home'); event.stopPropagation();">
           <div class="android-app-circle"><i class="fas fa-home"></i></div>
           <span class="android-app-label">Home</span>
         </div>
         <!-- 2. About -->
-        <div class="android-app-icon" onclick="openAndroidApp('about')">
+        <div class="android-app-icon" onclick="openAndroidApp('about'); event.stopPropagation();">
           <div class="android-app-circle"><i class="fas fa-user-secret"></i></div>
           <span class="android-app-label">About</span>
         </div>
         <!-- 3. Works -->
-        <div class="android-app-icon" onclick="openAndroidApp('works')">
+        <div class="android-app-icon" onclick="openAndroidApp('works'); event.stopPropagation();">
           <div class="android-app-circle"><i class="fas fa-briefcase"></i></div>
           <span class="android-app-label">Works</span>
         </div>
         <!-- 4. Contact -->
-        <div class="android-app-icon" onclick="openAndroidApp('contact')">
+        <div class="android-app-icon" onclick="openAndroidApp('contact'); event.stopPropagation();">
           <div class="android-app-circle"><i class="fas fa-envelope"></i></div>
           <span class="android-app-label">Contact</span>
         </div>
@@ -291,7 +291,7 @@
   </div>
 
   <!-- Android bottom navigation bar with gesture bar -->
-  <div class="android-nav-bar" onclick="closeAllAndroidApps()">
+  <div class="android-nav-bar" onclick="closeAllAndroidApps(); event.stopPropagation();">
     <div class="android-nav-pill"></div>
   </div>
 </div>
