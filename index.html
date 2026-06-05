@@ -115,6 +115,14 @@
       <div class="icon-wrap"><i class="fas fa-folder"></i><i class="fas fa-briefcase icon-badge"></i></div>
       <span class="icon-label">Works</span>
     </div>
+    <div class="desktop-icon" id="icon-email" ondblclick="openWindow('email')" onclick="selectIcon('email')">
+      <div class="icon-wrap" style="background:linear-gradient(135deg,rgba(0,120,255,0.25),rgba(0,60,180,0.15));border-color:rgba(0,160,255,0.5);"><i class="fas fa-envelope" style="color:#00b4ff;font-size:28px;"></i></div>
+      <span class="icon-label">Mail</span>
+    </div>
+    <div class="desktop-icon" id="icon-mobile" ondblclick="openWindow('mobile')" onclick="selectIcon('mobile')">
+      <div class="icon-wrap" style="background:linear-gradient(135deg,rgba(0,200,180,0.2),rgba(0,100,200,0.15));border-color:rgba(0,220,200,0.45);"><i class="fas fa-mobile-alt" style="color:#00e5cc;font-size:28px;"></i></div>
+      <span class="icon-label">Mobile</span>
+    </div>
   </div>
 
   <!-- WINDOW: HOME -->
@@ -211,6 +219,90 @@
     </div>
   </div>
 
+
+  <!-- WINDOW: EMAIL / CONTACT -->
+  <div class="window" id="win-email" style="width:520px;height:460px;">
+    <div class="window-titlebar" onmousedown="startDrag(event,'win-email')">
+      <div class="window-controls">
+        <span class="wc wc-close" onclick="closeWindow('email')"></span>
+        <span class="wc wc-min" onclick="minimizeWindow('email')"></span>
+        <span class="wc wc-max" onclick="maximizeWindow('email')"></span>
+      </div>
+      <div class="win-title"><i class="fas fa-envelope"></i>mail — abhishek@portfolio</div>
+    </div>
+    <div class="window-body" style="padding:28px 32px;display:flex;flex-direction:column;gap:20px;">
+      <div style="display:flex;align-items:center;gap:16px;padding-bottom:16px;border-bottom:1px solid rgba(0,180,255,0.15);">
+        <div style="width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,rgba(0,120,255,0.3),rgba(0,60,180,0.2));border:2px solid rgba(0,180,255,0.4);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <i class="fas fa-user" style="color:#00b4ff;font-size:22px;"></i>
+        </div>
+        <div>
+          <div style="color:#c8e8ff;font-size:15px;font-weight:700;">Abhishek Vallittayil</div>
+          <div style="color:#4a7a9a;font-size:12px;margin-top:2px;">Cybersecurity Graduate · Open to opportunities</div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <a href="mailto:abhishek.127001@gmail.com" style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:rgba(0,100,255,0.08);border:1px solid rgba(0,180,255,0.25);border-radius:12px;color:#00b4ff;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,120,255,0.18)'" onmouseout="this.style.background='rgba(0,100,255,0.08)'">
+          <i class="fas fa-envelope" style="font-size:18px;width:24px;text-align:center;"></i>
+          <div><div style="font-size:13px;font-weight:600;">Send Email</div><div style="font-size:11px;color:#4a7a9a;margin-top:2px;">abhishek.127001@gmail.com</div></div>
+          <i class="fas fa-chevron-right" style="margin-left:auto;font-size:11px;color:#4a7a9a;"></i>
+        </a>
+        <a href="tel:+14378606581" style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:rgba(0,200,180,0.06);border:1px solid rgba(0,200,180,0.2);border-radius:12px;color:#00e5cc;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,200,180,0.15)'" onmouseout="this.style.background='rgba(0,200,180,0.06)'">
+          <i class="fas fa-phone-alt" style="font-size:18px;width:24px;text-align:center;"></i>
+          <div><div style="font-size:13px;font-weight:600;">Call Me</div><div style="font-size:11px;color:#4a7a9a;margin-top:2px;">+1 (437) 860-6581</div></div>
+          <i class="fas fa-chevron-right" style="margin-left:auto;font-size:11px;color:#4a7a9a;"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/abhishekvallittayil" target="_blank" style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:rgba(0,80,200,0.08);border:1px solid rgba(0,120,255,0.2);border-radius:12px;color:#5b9fff;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,80,200,0.18)'" onmouseout="this.style.background='rgba(0,80,200,0.08)'">
+          <i class="fab fa-linkedin" style="font-size:18px;width:24px;text-align:center;"></i>
+          <div><div style="font-size:13px;font-weight:600;">LinkedIn</div><div style="font-size:11px;color:#4a7a9a;margin-top:2px;">abhishekvallittayil</div></div>
+          <i class="fas fa-chevron-right" style="margin-left:auto;font-size:11px;color:#4a7a9a;"></i>
+        </a>
+        <a href="assets/resume/resume.docx" download style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:rgba(255,160,0,0.06);border:1px solid rgba(255,160,0,0.2);border-radius:12px;color:#ffb347;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(255,160,0,0.15)'" onmouseout="this.style.background='rgba(255,160,0,0.06)'">
+          <i class="fas fa-download" style="font-size:18px;width:24px;text-align:center;"></i>
+          <div><div style="font-size:13px;font-weight:600;">Download Resume</div><div style="font-size:11px;color:#4a7a9a;margin-top:2px;">resume.docx — latest version</div></div>
+          <i class="fas fa-chevron-right" style="margin-left:auto;font-size:11px;color:#4a7a9a;"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WINDOW: MOBILE PREVIEW -->
+  <div class="window" id="win-mobile" style="width:380px;height:520px;">
+    <div class="window-titlebar" onmousedown="startDrag(event,'win-mobile')">
+      <div class="window-controls">
+        <span class="wc wc-close" onclick="closeWindow('mobile')"></span>
+        <span class="wc wc-min" onclick="minimizeWindow('mobile')"></span>
+        <span class="wc wc-max" onclick="maximizeWindow('mobile')"></span>
+      </div>
+      <div class="win-title"><i class="fas fa-mobile-alt"></i>mobile — abhishek@portfolio</div>
+    </div>
+    <div class="window-body" style="padding:24px;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;">
+      <div style="color:#c8e8ff;font-size:14px;font-weight:600;letter-spacing:1px;">📱 MOBILE VERSION</div>
+      <div style="width:160px;height:260px;border-radius:28px;border:3px solid rgba(0,180,255,0.4);background:rgba(0,10,30,0.6);box-shadow:0 0 30px rgba(0,180,255,0.2),inset 0 0 20px rgba(0,5,20,0.5);display:flex;flex-direction:column;overflow:hidden;position:relative;">
+        <div style="height:12px;background:rgba(0,5,20,0.8);display:flex;align-items:center;padding:0 10px;justify-content:space-between;">
+          <span style="font-size:6px;color:#00b4ff;">09:41</span>
+          <span style="font-size:6px;color:#00b4ff;">LTE ▮▮▮</span>
+        </div>
+        <div style="flex:1;background:#00050f url('assets/images/wallpaper.png') center/contain no-repeat;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:8px;gap:5px;">
+          <div style="background:rgba(0,10,30,0.6);border:1px solid rgba(0,180,255,0.2);border-radius:8px;padding:5px 8px;backdrop-filter:blur(8px);">
+            <div style="font-size:6px;color:#00b4ff;font-weight:600;">G &nbsp; Search portfolio...</div>
+          </div>
+          <div style="background:rgba(0,10,30,0.55);border:1px solid rgba(0,180,255,0.15);border-radius:8px;padding:6px;backdrop-filter:blur(8px);display:flex;justify-content:space-around;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:16px;height:16px;border-radius:50%;background:rgba(0,120,255,0.3);border:1px solid rgba(0,180,255,0.4);display:flex;align-items:center;justify-content:center;"><i class="fas fa-home" style="font-size:7px;color:#00b4ff;"></i></div><span style="font-size:5px;color:#00b4ff;">Home</span></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:16px;height:16px;border-radius:50%;background:rgba(0,120,255,0.3);border:1px solid rgba(0,180,255,0.4);display:flex;align-items:center;justify-content:center;"><i class="fas fa-user" style="font-size:7px;color:#00b4ff;"></i></div><span style="font-size:5px;color:#00b4ff;">About</span></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:16px;height:16px;border-radius:50%;background:rgba(0,120,255,0.3);border:1px solid rgba(0,180,255,0.4);display:flex;align-items:center;justify-content:center;"><i class="fas fa-briefcase" style="font-size:7px;color:#00b4ff;"></i></div><span style="font-size:5px;color:#00b4ff;">Works</span></div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><div style="width:16px;height:16px;border-radius:50%;background:rgba(0,120,255,0.3);border:1px solid rgba(0,180,255,0.4);display:flex;align-items:center;justify-content:center;"><i class="fas fa-envelope" style="font-size:7px;color:#00b4ff;"></i></div><span style="font-size:5px;color:#00b4ff;">Contact</span></div>
+          </div>
+        </div>
+        <div style="height:6px;background:rgba(0,5,20,0.8);display:flex;align-items:center;justify-content:center;">
+          <div style="width:30px;height:2px;border-radius:2px;background:rgba(0,180,255,0.4);"></div>
+        </div>
+      </div>
+      <div style="color:#4a7a9a;font-size:12px;line-height:1.6;">Open on your phone to experience<br>the Android-style mobile UI!</div>
+      <a href="https://abhishek127001.com" target="_blank" style="display:flex;align-items:center;gap:8px;padding:10px 20px;background:rgba(0,180,255,0.1);border:1px solid rgba(0,180,255,0.35);border-radius:20px;color:#00b4ff;text-decoration:none;font-size:12px;font-weight:600;transition:all 0.2s;" onmouseover="this.style.background='rgba(0,180,255,0.2)'" onmouseout="this.style.background='rgba(0,180,255,0.1)'">
+        <i class="fas fa-external-link-alt"></i> Open Mobile Site
+      </a>
+    </div>
+  </div>
 
   <!-- TASKBAR -->
   <div class="taskbar">
