@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Abhishek Vallittayil | Cybersecurity Analyst &amp; IT Infrastructure</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abhishek Vallittayil — Cybersecurity Analyst, Ethical Hacker, CEH & CPT certified. Based in Canada. Open to opportunities.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="assets/images/cyber.png">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <div class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+  <a href="index.html" onclick="toggleMobileNav()">Home</a>
+  <a href="work.html" onclick="toggleMobileNav()">Work</a>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="home">
+  <div class="hero-inner">
+
+    <!-- LEFT -->
+    <div class="hero-left">
+      <div class="avail-badge">Available for Work</div>
+
+      <h1 class="hero-heading">
+        Hi, I'm <span class="orange">Abhishek</span>
+      </h1>
+
+      <p class="hero-role">
+        <strong>Cybersecurity Analyst, Ethical Hacker &amp; IT Infrastructure Specialist.</strong>
+        I secure enterprise systems, uncover vulnerabilities, and keep networks running — methodically and thoroughly.
+      </p>
+
+      <p class="hero-bio">
+        CEH &amp; CPT certified with hands-on experience in penetration testing, Active Directory
+        administration, enterprise infrastructure, and network security. Based in Canada and open to
+        Cybersecurity, IT Support, and System Administration roles nationwide.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="work.html" class="btn-primary">
+          <i class="fas fa-briefcase"></i> View my work
+          <i class="fas fa-arrow-right" style="font-size:11px;"></i>
+        </a>
+        <a href="contact.html" class="btn-ghost">
+          <i class="fas fa-envelope"></i> Get in touch
+        </a>
+      </div>
+
+      <!-- STATS -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">5+</span>
+          <span class="stat-label">Projects done</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">7y</span>
+          <span class="stat-label">IT &amp; Tech</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="hero-right">
+      <div class="hero-photo-wrap">
+        <img src="assets/images/image.jpeg" alt="Abhishek Vallittayil" class="hero-photo">
+        <span class="open-badge">Open to projects</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FEATURED HIGHLIGHTS ===== -->
+<section id="featured" style="background: var(--bg2); border-top: 1px solid var(--border); padding: 80px 5%;">
+  <div class="section-inner">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 16px;">
+      <div>
+        <span class="section-tag">Featured</span>
+        <h2 class="section-title" style="margin-bottom: 0;">Selected Highlights</h2>
+      </div>
+      <a href="work.html" class="btn-ghost" style="padding: 10px 22px; font-size: 13px;">
+        View all projects <i class="fas fa-arrow-right" style="font-size: 10px;"></i>
+      </a>
+    </div>
+
+    <div class="works-grid">
+      <!-- Card 1 -->
+      <div class="proj-card" onclick="window.location.href='work.html'">
+        <div class="proj-icon"><i class="fas fa-server"></i></div>
+        <h3>Enterprise Security Capstone</h3>
+        <p>Deployed and hardened a full Windows Server domain — Active Directory, Group Policy, L2TP/IPsec VPN, IIS, and NFS with vulnerability assessment.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Active Directory</span>
+          <span class="proj-tag">Group Policy</span>
+          <span class="proj-tag">Windows Server</span>
+        </div>
+        <div class="proj-arrow">Explore project <i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="proj-card" onclick="window.location.href='work.html'">
+        <div class="proj-icon"><i class="fas fa-heart-pulse"></i></div>
+        <h3>DeepStride Health Platform</h3>
+        <p>Wearable IoT technology capturing real-time biometrics, heart rate, temperature, and IMU motion data, paired with a hardened live web dashboard.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">IoT &amp; Wearables</span>
+          <span class="proj-tag">Biometrics</span>
+          <span class="proj-tag">deepstride.ca</span>
+        </div>
+        <div class="proj-arrow">Explore project <i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>&copy; 2026 Abhishek Vallittayil. All rights reserved.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.proj-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  revealObserver.observe(el);
+});
+</script>
+</body>
+</html>

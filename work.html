@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Work — Abhishek Vallittayil | Projects &amp; Case Studies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore cybersecurity, IoT health wearables, penetration testing, and enterprise infrastructure projects by Abhishek Vallittayil.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="assets/images/cyber.png">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <div class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+  <a href="index.html" onclick="toggleMobileNav()">Home</a>
+  <a href="work.html" onclick="toggleMobileNav()">Work</a>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
+</div>
+
+<!-- ===== WORK SECTION ===== -->
+<section id="work" class="page-section">
+  <div class="section-inner">
+    <span class="section-tag">Portfolio</span>
+    <h1 class="section-title">My Work &amp; Projects</h1>
+    <p class="section-subtitle">
+      A selection of enterprise security infrastructure, wearable health platforms, and penetration testing assessments I've built or led — click any card for the full breakdown.
+    </p>
+
+    <div class="works-grid">
+
+      <!-- Card 1 -->
+      <div class="proj-card" onclick="openModal('capstone')">
+        <div class="proj-icon"><i class="fas fa-server"></i></div>
+        <h3>Enterprise Security Capstone</h3>
+        <p>Deployed and hardened a full Windows Server domain — Active Directory, Group Policy, L2TP/IPsec VPN, IIS, and NFS with vulnerability assessment and remediation.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Active Directory</span>
+          <span class="proj-tag">Group Policy</span>
+          <span class="proj-tag">Windows Server</span>
+          <span class="proj-tag">VPN / IIS</span>
+        </div>
+        <div class="proj-arrow">View details <i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <!-- Card 2: DeepStride -->
+      <div class="proj-card" onclick="openModal('deepstride')">
+        <div class="proj-icon"><i class="fas fa-heart-pulse"></i></div>
+        <h3>DeepStride Health Platform</h3>
+        <p>Wearable IoT technology capturing real-time biometrics, heart rate, temperature, and IMU motion data, paired with a hardened live web dashboard.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">IoT &amp; Wearables</span>
+          <span class="proj-tag">Biometrics</span>
+          <span class="proj-tag">Web Security</span>
+          <span class="proj-tag">deepstride.ca</span>
+        </div>
+        <div class="proj-arrow">View details <i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="proj-card" onclick="openModal('penetration1')">
+        <div class="proj-icon"><i class="fas fa-bug"></i></div>
+        <h3>Penetration Testing</h3>
+        <p>Gray-box web &amp; network assessment — exploited Log4Shell, PHPUnit RCE, path traversal and privilege escalation CVEs.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Metasploit</span>
+          <span class="proj-tag">Burp Suite</span>
+          <span class="proj-tag">Nmap</span>
+          <span class="proj-tag">OWASP ZAP</span>
+        </div>
+        <div class="proj-arrow">View details <i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="proj-card" onclick="openModal('nfs-security')">
+        <div class="proj-icon"><i class="fas fa-hdd"></i></div>
+        <h3>Secure NFS Implementation</h3>
+        <p>Cross-platform NFS architecture secured with VPN encryption, IP whitelisting, and Event Viewer monitoring.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">NFS</span>
+          <span class="proj-tag">PPTP VPN</span>
+          <span class="proj-tag">Kerberos</span>
+          <span class="proj-tag">IP Filtering</span>
+        </div>
+        <div class="proj-arrow">View details <i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="proj-card" onclick="openModal('livelongx')">
+        <div class="proj-icon"><i class="fas fa-heartbeat"></i></div>
+        <h3>LiveLongX Platform</h3>
+        <p>Data-driven health &amp; wellness web platform with personalized recommendations, BMI calculator, and community features.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Wix</span>
+          <span class="proj-tag">Health Informatics</span>
+          <span class="proj-tag">UX/UI</span>
+        </div>
+        <div class="proj-arrow">View details <i class="fas fa-arrow-right"></i></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>&copy; 2026 Abhishek Vallittayil. All rights reserved.</p>
+</footer>
+
+<!-- ===== PROJECT MODAL ===== -->
+<div class="modal-overlay" id="projectModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeModal()">&times;</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+// Navbar background on scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile Nav toggle
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+// Scroll Reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.proj-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  revealObserver.observe(el);
+});
+
+// Project Modal Database
+const projectData = {
+  capstone: {
+    title: 'Cybersecurity Capstone: Secure Enterprise Domain Infrastructure',
+    sub:   'Sault College | Feb 2025 – Apr 2025',
+    body: `
+      <h3>Project Objective</h3>
+      <p>Design and deploy a hardened Windows Server enterprise network with centralized identity management, secure remote access, and multi-layered service isolation.</p>
+      <h3>Technical Implementation</h3>
+      <ul>
+        <li><strong>AD DS &amp; DNS:</strong> Centralized authentication and name resolution.</li>
+        <li><strong>Network:</strong> 10.5.180.0/24 with domain-joined Win10 endpoints and GPO enforcement.</li>
+        <li><strong>VPN:</strong> L2TP/IPsec (UDP 500/4500) and PPTP with AD-backed auth.</li>
+        <li><strong>Web &amp; File:</strong> IIS with HTTPS/TLS, FTP and NFS services.</li>
+      </ul>
+      <h3>Security Hardening</h3>
+      <ul>
+        <li>Windows Firewall + ACLs filtering ports 8080, 135, 445, 2049.</li>
+        <li>Vulnerability audits on AD and NFS; remediated excessive permissions.</li>
+        <li>Least Privilege, network segmentation, reduced attack surface.</li>
+      </ul>
+      <h3>Tools</h3>
+      <p>Windows Server, Windows 10, Active Directory, VPN (PPTP/L2TP), IIS, DNS, NFS, FTP.</p>
+      <a href="assets/docs/company.jpg" download class="modal-dl-btn"><i class="fas fa-download"></i> Architecture Diagram</a>
+    `
+  },
+  deepstride: {
+    title: 'DeepStride: Wearable Health Technology & Biometric Web Dashboard',
+    sub:   'Wearable IoT & Health Informatics | https://deepstride.ca',
+    body: `
+      <h3>Project Overview</h3>
+      <p>DeepStride is an advanced wearable health technology initiative created to collect, process, and display real-time biometric and physiological data in an intuitive, accessible interface.</p>
+      
+      <h3>Biometric &amp; Sensor Telemetry</h3>
+      <ul>
+        <li><strong>Real-Time Vital Tracking:</strong> Continuous monitoring of physiological signals including heart rate, skin/ambient temperature, and daily activity metrics.</li>
+        <li><strong>Movement &amp; IMU Signals:</strong> Incorporates Inertial Measurement Unit (IMU) sensors to detect kinematic movement, motion dynamics, and posture patterns.</li>
+        <li><strong>Live Web Dashboard:</strong> A dedicated, real-time web portal engineered to visualize complex telemetry data into actionable, easy-to-understand metrics.</li>
+        <li><strong>Health &amp; Performance Insights:</strong> Empowers users to understand their physiological strain, recovery metrics, and general wellness trends.</li>
+      </ul>
+
+      <h3>Cybersecurity &amp; Security Testing</h3>
+      <ul>
+        <li><strong>Threat Modeling &amp; Risk Identification:</strong> Evaluated potential risks associated with IoT telemetry pipelines and wearable data transmission.</li>
+        <li><strong>Data Protection &amp; Privacy:</strong> Implemented strict data privacy considerations to safeguard sensitive user biometrics from unauthorized interception or leakage.</li>
+        <li><strong>Platform Security Testing:</strong> Conducted application security assessments to identify vulnerabilities, harden endpoints, and bolster the overall safety of the web dashboard.</li>
+      </ul>
+
+      <h3>Technologies &amp; Disciplines</h3>
+      <p>Wearable IoT Hardware, Biometric Sensors (Heart Rate, Temperature, IMU), Web Application Development, Real-Time Data Streaming, Cybersecurity Assessment &amp; Hardening.</p>
+
+      <a href="https://deepstride.ca/" target="_blank" class="modal-live-btn" style="margin-left:0;margin-top:20px;display:inline-flex;"><i class="fas fa-external-link-alt"></i> Visit Live Platform (deepstride.ca)</a>
+    `
+  },
+  livelongx: {
+    title: 'LiveLongX: Data-Driven Health & Wellness Platform',
+    sub:   'Self-Initiated Project | Sep 2025 – Oct 2025',
+    body: `
+      <h3>Project Objective</h3>
+      <p>Promote preventive care through a self-service digital platform analyzing user habits and providing data-informed wellness recommendations.</p>
+      <h3>Core Features</h3>
+      <ul>
+        <li><strong>Health Assessment:</strong> Logic-based questionnaire for lifestyle habits and risk evaluation.</li>
+        <li><strong>Data Feedback:</strong> Personalized suggestions from user inputs.</li>
+        <li><strong>BMI Calculator:</strong> Interactive health metrics tool.</li>
+        <li><strong>Community:</strong> Children's charity section for social responsibility.</li>
+      </ul>
+      <h3>Tools</h3>
+      <p>Wix Professional | Health Informatics &amp; Data Assessment | UX/UI Design</p>
+      <a href="https://24011682.wixsite.com/livelongx" target="_blank" class="modal-live-btn"><i class="fas fa-external-link-alt"></i> Visit Live Site</a>
+    `
+  },
+  penetration1: {
+    title: 'Penetration Testing: Web Application & Network Assessment',
+    sub:   'CyberSec Academy Consulting | Apr 2025',
+    body: `
+      <h3>Project Objective</h3>
+      <p>Gray-box penetration test on Acme Corp's web infrastructure to identify, exploit, and document security vulnerabilities.</p>
+      <h3>Key Findings</h3>
+      <ul>
+        <li><strong>RCE (Critical):</strong> Log4Shell (CVE-2021-44228) in Apache Log4j and PHPUnit RCE (CVE-2017-9841).</li>
+        <li><strong>Path Traversal (Medium):</strong> CVE-2021-41773 in Apache HTTP Server 2.4.49.</li>
+        <li><strong>Privilege Escalation (Medium):</strong> Zerologon (CVE-2020-1472) for domain controller impersonation.</li>
+      </ul>
+      <h3>Methodology</h3>
+      <ol>
+        <li>Recon: <code>Nmap</code> &amp; <code>Nikto</code> for attack surface mapping.</li>
+        <li>Analysis: Manual review + <code>Burp Suite Pro</code> &amp; <code>OWASP ZAP</code>.</li>
+        <li>Exploitation: <code>Metasploit</code> &amp; <code>Impacket</code> for impact confirmation.</li>
+      </ol>
+      <h3>Tools</h3>
+      <p>Metasploit, Impacket, Burp Suite Pro, OWASP ZAP, Nmap, Nikto, Gobuster, Dirb</p>
+      <a href="assets/docs/pt1.docx" download class="modal-dl-btn"><i class="fas fa-download"></i> Full Report (DOCX)</a>
+    `
+  },
+  'nfs-security': {
+    title: 'Network File System (NFS): Secure Implementation & Hardening',
+    sub:   'Sault College | Cybersecurity Capstone 2025',
+    body: `
+      <h3>Project Objective</h3>
+      <p>Deploy a cross-platform NFS architecture between Windows Server 2022 and Windows 10, mitigating clear-text file sharing risks through defense-in-depth strategies.</p>
+      <h3>Security Measures</h3>
+      <ul>
+        <li><strong>VPN Encryption:</strong> RAS with PPTP encapsulating NFS traffic in encrypted tunnel.</li>
+        <li><strong>IP Whitelisting:</strong> Disabled "All Machines" access; whitelisted client IPs.</li>
+        <li><strong>Monitoring:</strong> Event Viewer diagnostic logging for mount/unmount, file ops, unauthorized access.</li>
+      </ul>
+      <h3>Workflow</h3>
+      <p><strong>1. Server Setup:</strong> "Server for NFS" role; directory at <code>C:\\nfs_share</code>.<br>
+      <strong>2. Identity:</strong> Dial-in AD permissions for VPN-backed NFS access.<br>
+      <strong>3. Validation:</strong> <code>mount</code> &amp; <code>showmount</code> commands confirmed secure mounting.</p>
+      <h3>Tools</h3>
+      <p>Windows Server 2022, VPN (PPTP), IP Filtering, Event Viewer, NFS (Port 2049), Kerberos v5</p>
+      <a href="assets/docs/nfs.docx" download class="modal-dl-btn"><i class="fas fa-download"></i> Full Report (DOCX)</a>
+    `
+  }
+};
+
+let _modalOpen = false;
+
+function openModal(id) {
+  const d = projectData[id];
+  if (!d) return;
+  _modalOpen = true;
+  document.getElementById('modalBody').innerHTML = `
+    <h1>${d.title}</h1>
+    <div class="modal-sub">${d.sub}</div>
+    ${d.body}
+  `;
+  document.getElementById('projectModal').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('projectModal').classList.remove('is-open');
+  document.body.style.overflow = '';
+  setTimeout(() => { _modalOpen = false; }, 100);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
+</body>
+</html>
