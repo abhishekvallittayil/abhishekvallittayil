@@ -49,7 +49,21 @@
 
     <div class="works-grid">
 
-      <!-- Card 1 -->
+      <!-- Card 1: Active Directory & PowerShell Automation Lab -->
+      <div class="proj-card" onclick="openModal('ad-automation')">
+        <div class="proj-icon"><i class="fas fa-network-wired"></i></div>
+        <h3>Active Directory &amp; PowerShell Automation Lab</h3>
+        <p>Built a Windows Server 2022 Domain Controller in VirtualBox, automated bulk user provisioning with custom PowerShell scripts, and managed Windows 11 domain workstations.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Active Directory</span>
+          <span class="proj-tag">PowerShell Scripting</span>
+          <span class="proj-tag">Windows Server 2022</span>
+          <span class="proj-tag">Windows 11 Client</span>
+        </div>
+        <div class="proj-arrow">View details <i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <!-- Card 2 -->
       <div class="proj-card" onclick="openModal('capstone')">
         <div class="proj-icon"><i class="fas fa-server"></i></div>
         <h3>Enterprise Security Capstone</h3>
@@ -63,7 +77,7 @@
         <div class="proj-arrow">View details <i class="fas fa-arrow-right"></i></div>
       </div>
 
-      <!-- Card 2: DeepStride -->
+      <!-- Card 3: DeepStride -->
       <div class="proj-card" onclick="openModal('deepstride')">
         <div class="proj-icon"><i class="fas fa-heart-pulse"></i></div>
         <h3>DeepStride Health Platform</h3>
@@ -77,7 +91,7 @@
         <div class="proj-arrow">View details <i class="fas fa-arrow-right"></i></div>
       </div>
 
-      <!-- Card 3 -->
+      <!-- Card 4 -->
       <div class="proj-card" onclick="openModal('penetration1')">
         <div class="proj-icon"><i class="fas fa-bug"></i></div>
         <h3>Penetration Testing</h3>
@@ -91,7 +105,7 @@
         <div class="proj-arrow">View details <i class="fas fa-arrow-right"></i></div>
       </div>
 
-      <!-- Card 4 -->
+      <!-- Card 5 -->
       <div class="proj-card" onclick="openModal('nfs-security')">
         <div class="proj-icon"><i class="fas fa-hdd"></i></div>
         <h3>Secure NFS Implementation</h3>
@@ -105,7 +119,7 @@
         <div class="proj-arrow">View details <i class="fas fa-arrow-right"></i></div>
       </div>
 
-      <!-- Card 5 -->
+      <!-- Card 6 -->
       <div class="proj-card" onclick="openModal('livelongx')">
         <div class="proj-icon"><i class="fas fa-heartbeat"></i></div>
         <h3>LiveLongX Platform</h3>
@@ -168,6 +182,46 @@ document.querySelectorAll('.proj-card').forEach(el => {
 
 // Project Modal Database
 const projectData = {
+  'ad-automation': {
+    title: 'Active Directory & PowerShell Automation Lab',
+    sub:   'VirtualBox Enterprise Lab | Windows Server 2022 & Windows 11',
+    body: `
+      <h3>Project Objective</h3>
+      <p>Architected and configured a production-style Windows Server 2022 enterprise domain environment (<code>deepstride.local</code>) in Oracle VirtualBox. The lab showcases core infrastructure setup (DNS, DHCP, Active Directory Domain Services), custom Organizational Unit (OU) design, bulk user provisioning automation via PowerShell scripting, and enterprise workstation domain joins.</p>
+
+      <h3>Key Technical Highlights</h3>
+      <ul>
+        <li><strong>Active Directory &amp; Identity Management:</strong> Deployed a Windows Server 2022 Domain Controller (<code>DC01</code>) on the <code>deepstride.local</code> domain. Configured DNS and DHCP scopes, establishing centralized identity, name resolution, and dynamic IP allocation.</li>
+        <li><strong>Automation &amp; Scripting:</strong> Engineered a robust PowerShell automation script (<code>CreateUsers.ps1</code>) utilizing <code>Import-Csv</code> and <code>New-ADUser</code> to bulk provision employee records from CSV data. Standardized UPNs (<code>username@deepstride.local</code>), sAMAccountNames (<code>firstInitial + lastName</code>), departmental placement, and enforced secure default passwords with mandatory reset on first logon.</li>
+        <li><strong>Workstation Support &amp; Policy:</strong> Joined Windows 11 Enterprise workstations (<code>WIN11-WORKSTATION</code>) to the domain. Verified client-server trust, DHCP lease assignment, DNS resolution, and managed domain accounts (such as <code>DEEPSTRIDE\\dmiller</code>).</li>
+      </ul>
+
+      <h3>Hands-on Verification &amp; Screenshots</h3>
+
+      <div class="modal-img-wrap">
+        <img src="assets/images/ad_powershell_automation.png" alt="PowerShell Automation Script Running">
+        <div class="modal-img-caption"><strong>1. PowerShell Automation:</strong> Script running on DC01 reading <code>C:\\lab\\more_users.csv</code> and successfully provisioning users into Active Directory with green confirmation logs.</div>
+      </div>
+
+      <div class="modal-img-wrap">
+        <img src="assets/images/ad_ou_users.png" alt="Active Directory Users & Computers OU Structure">
+        <div class="modal-img-caption"><strong>2. OU Hierarchy &amp; Users:</strong> Active Directory Users and Computers (<code>dsa.msc</code>) showing custom <code>company_employees</code> OU, departmental sub-OUs (<code>HR_Department</code>, <code>IT_Department</code>), and populated user accounts.</div>
+      </div>
+
+      <div class="modal-img-wrap">
+        <img src="assets/images/ad_user_properties_account.png" alt="User Properties Account Tab">
+        <div class="modal-img-caption"><strong>3. Account Attributes &amp; Policies:</strong> David Miller account properties demonstrating UPN configuration (<code>dmiller@deepstride.local</code>) and 'User must change password at next logon' security enforcement.</div>
+      </div>
+
+      <div class="modal-img-wrap">
+        <img src="assets/images/ad_workstation_domain_join.png" alt="Windows 11 Workstation Domain Join & ipconfig">
+        <div class="modal-img-caption"><strong>4. Client Workstation Join:</strong> Windows 11 workstation (<code>WIN11-WORKSTATION</code>) logged in as <code>DEEPSTRIDE\\dmiller</code> with <code>ipconfig /all</code> validating domain suffix (<code>deepstride.local</code>), DHCP, and DNS.</div>
+      </div>
+
+      <h3>Tools &amp; Technologies</h3>
+      <p>Windows Server 2022, Active Directory Domain Services (AD DS), PowerShell Scripting, Oracle VirtualBox, Windows 11 Enterprise, DNS, DHCP, Group Policy (GPO), Identity &amp; Access Management (IAM).</p>
+    `
+  },
   capstone: {
     title: 'Cybersecurity Capstone: Secure Enterprise Domain Infrastructure',
     sub:   'Sault College | Feb 2025 – Apr 2025',
