@@ -200,58 +200,66 @@ const projectData = {
     title: 'Enterprise Threat Detection & EDR Telemetry Lab',
     sub:   'VirtualBox Isolated Lab | Wazuh SIEM/XDR, Windows 11 Sysmon & Kali Linux',
     body: `
-      <h3>Project Overview &amp; Architecture</h3>
-      <p>Engineered an enterprise-grade Security Operations Center (SOC) detection lab within Oracle VirtualBox to simulate real-world cyber attacks, capture granular endpoint telemetry, and build custom SIEM detection rules. The lab architecture establishes a full telemetry pipeline:</p>
+      <h3>Project Overview &amp; Threat Detection Architecture</h3>
+      <p>Engineered an enterprise-grade Security Operations Center (SOC) detection lab within Oracle VirtualBox to simulate real-world cyber attacks, capture granular endpoint telemetry, and build custom SIEM detection rules. The lab architecture establishes a multi-node threat detection pipeline:</p>
       <ul>
-        <li><strong>Wazuh Central Manager (Ubuntu 24.04 Server):</strong> Installed Wazuh v4.8.2 all-in-one indexer, analysis engine, and web dashboard, serving as the central SIEM/XDR correlation platform.</li>
-        <li><strong>Windows 11 Enterprise Endpoint (WIN-LAB-01 @ 192.168.10.9):</strong> Monitored victim workstation running Wazuh Agent v4.8.2 and Microsoft Sysinternals Sysmon for deep kernel-level telemetry.</li>
-        <li><strong>Kali Linux Attacker Machine:</strong> Adversary system conducting network reconnaissance, port scanning, and simulated attack traffic against enterprise assets.</li>
-        <li><strong>Isolated Virtual Networking:</strong> Private host-only networking subnet emulating a corporate network while preventing unauthorized external leakage.</li>
+        <li><strong>Wazuh Central Manager (Ubuntu 24.04 Server @ 192.168.10.7):</strong> Centralized SIEM/XDR indexing cluster, analysis daemon (<code>wazuh-analysisd</code>), and security dashboard.</li>
+        <li><strong>Windows 11 Enterprise Endpoint (WIN-LAB-01 @ 192.168.10.9):</strong> Monitored victim workstation running Wazuh Agent v4.8.2 and Microsoft Sysinternals Sysmon for kernel-level process and network telemetry.</li>
+        <li><strong>Kali Linux Attacker Machine (@ 192.168.10.8):</strong> Adversary platform executing Nmap reconnaissance sweeps, service probing, and port scans.</li>
+        <li><strong>Isolated Virtual Networking:</strong> Private host-only subnet (<code>192.168.10.0/24</code>) isolating attack traffic and emulating a corporate intranet.</li>
       </ul>
 
       <h3>SIEM Log Analysis &amp; Network Protocol Inspection</h3>
       <ul>
-        <li><strong>Network Protocol Analysis:</strong> Analyzed multi-layer protocols including <strong>TCP/IP</strong> (probing and dropped packet inspection), <strong>DNS</strong> resolution, <strong>HTTP/HTTPS</strong> telemetry, <strong>DHCP</strong> lease binding, and <strong>SMB/SMTP</strong> baseline communications.</li>
-        <li><strong>Event Pipeline Engineering:</strong> Connected endpoint activity through Windows Event Channels and Sysmon into the Wazuh agent (port 1514) to the Wazuh analysis engine (port 1515/443).</li>
-        <li><strong>Sysmon Process Telemetry:</strong> Configured Microsoft Sysmon to capture Process Creation (Event ID 1), tracking <code>Image</code>, <code>CommandLine</code>, <code>User</code>, <code>ParentImage</code>, and <code>ProcessGuid</code> for parent-child process tree inspection.</li>
+        <li><strong>Multi-Layer Protocol Inspection:</strong> Monitored and analyzed network communication across <strong>TCP/IP</strong> (probing, SYN drops, and handshake resets), <strong>DNS</strong> lookups, <strong>DHCP</strong> lease binding, and <strong>SMB/RPC</strong> service endpoints (Ports 135, 139, 445).</li>
+        <li><strong>Telemetry Pipeline:</strong> Streamed Windows Defender Firewall logs (<code>pfirewall.log</code>) and Sysmon Event Channels via the local agent over encrypted TCP port 1514 to the Wazuh analysis cluster.</li>
+        <li><strong>Sysmon Process Tree Auditing:</strong> Configured Sysmon Event ID 1 (Process Creation) to capture <code>CommandLine</code>, parent process paths, user security identifiers (SIDs), and SHA-256 cryptographic hashes for forensic triage.</li>
       </ul>
 
-      <h3>Custom Detection Rule Engineering</h3>
-      <ul>
-        <li><strong>Custom Rule 100110 (Dropped TCP Scan Detection):</strong> Authored a custom XML detection rule in <code>/var/ossec/etc/rules/lab_firewall_rules.xml</code> with PCRE2 regex (<code>\\sDROP\\s+TCP\\s</code>) at Level 5 to catch unauthorized TCP SYN/Connect port scanning from adversaries.</li>
-        <li><strong>Custom Rule 100100 (Marked Process Execution Detection):</strong> Implemented EDR rules targeting specific execution patterns and suspicious command-line markers (<code>LAB-EDR-TEST</code>) to validate end-to-end telemetry ingestion.</li>
-        <li><strong>Incident Detection &amp; Triage:</strong> Conducted Nmap reconnaissance scans from Kali Linux, instantly triggering custom firewall alerts and Sysmon telemetry in the Wazuh Threat Hunting dashboard.</li>
-      </ul>
-
-      <h3>Hands-on Verification &amp; Lab Screenshots</h3>
+      <h3>Hands-on Evidence &amp; Lab Screenshots</h3>
 
       <div class="modal-img-wrap">
-        <img src="assets/images/wazuh_agent_active.png" alt="Wazuh SIEM Dashboard Active Windows 11 Agent">
-        <div class="modal-img-caption"><strong>1. Wazuh SIEM Dashboard:</strong> Active Windows 11 Pro agent (<code>WIN-LAB-01</code>, IP: <code>192.168.10.9</code>, Wazuh v4.8.2) successfully enrolled and reporting 100% telemetry coverage.</div>
+        <img src="assets/images/wazuh_nmap_threat_alert.png" alt="Kali Linux Nmap Attack and Wazuh Real-Time Threat Alerts">
+        <div class="modal-img-caption"><strong>1. Real-Time Attack Detection:</strong> (Left) Kali Linux attacker executing TCP port scan <code>nmap -sT -Pn -p 135,139,445,33389 192.168.10.9</code>. (Right) Wazuh Threat Hunting dashboard instantly firing 18 alert hits on custom Rule ID <code>100110</code> (Level 5: <em>Lab: Windows Firewall dropped TCP traffic</em>).</div>
       </div>
 
       <div class="modal-img-wrap">
-        <img src="assets/images/wazuh_firewall_rule.png" alt="Custom Detection Rule in Nano">
-        <div class="modal-img-caption"><strong>2. Custom Detection Rule Engineering:</strong> Created Rule ID <code>100110</code> in <code>/var/ossec/etc/rules/lab_firewall_rules.xml</code> using PCRE2 regex to detect dropped TCP probe traffic generated by Nmap scans.</div>
+        <img src="assets/images/wazuh_firewall_telemetry_expanded.png" alt="Expanded Wazuh SIEM JSON Log Analysis">
+        <div class="modal-img-caption"><strong>2. Granular SIEM Log Analysis:</strong> Full document inspection showing attacker source IP <code>192.168.10.8:44048</code> targeting victim <code>192.168.10.9:139</code> (NetBIOS), decoded via <code>windows-firewall</code> with action <code>DROP</code> from <code>C:\\Windows\\System32\\LogFiles\\Firewall\\pfirewall.log</code>.</div>
       </div>
 
       <div class="modal-img-wrap">
-        <img src="assets/images/wazuh_server_install.png" alt="Wazuh Manager Automated Installation on Ubuntu">
-        <div class="modal-img-caption"><strong>3. Wazuh Server Deployment:</strong> Deploying Wazuh 4.8.2 all-in-one assistant on Ubuntu 24.04 (<code>deepstride_server</code>) with automated web interface and indexer initialization.</div>
+        <img src="assets/images/wazuh_sysmon_process_alert.png" alt="Sysmon Event ID 1 Process Detection Alert">
+        <div class="modal-img-caption"><strong>3. Sysmon EDR Telemetry &amp; Process Detection:</strong> Wazuh Threat Hunting dashboard alerting on custom Rule ID <code>100100</code> (<em>Lab test: marked process execution detected</em>) when PowerShell executed <code>cmd.exe /c "echo LAB-EDR-TEST"</code>, capturing full command-line context and SHA-256 process hashes.</div>
       </div>
 
       <div class="modal-img-wrap">
-        <img src="assets/images/wazuh_kali_install.png" alt="Kali Linux Attacker Machine Installation">
-        <div class="modal-img-caption"><strong>4. Adversary Simulation (Kali Linux):</strong> Provisioning the Kali Linux attacker VM in VirtualBox to generate controlled Nmap scans and security assessment traffic.</div>
+        <img src="assets/images/wazuh_custom_firewall_rule.png" alt="Custom Firewall Rule 100110 in Nano">
+        <div class="modal-img-caption"><strong>4. Firewall Detection Rule Engineering:</strong> Authored custom XML detection rule <code>100110</code> in <code>/var/ossec/etc/rules/lab_firewall_rules.xml</code> with PCRE2 regex <code>\\sDROP\\s+TCP\\s</code> to capture dropped inbound TCP scan packets.</div>
       </div>
 
       <div class="modal-img-wrap">
-        <img src="assets/images/wazuh_win11_install.png" alt="Windows 11 Target Endpoint Deployment">
-        <div class="modal-img-caption"><strong>5. Target Endpoint Deployment:</strong> Installing the Windows 11 Pro client machine configured with Microsoft Sysmon and Wazuh endpoint agent for telemetry collection.</div>
+        <img src="assets/images/wazuh_custom_sysmon_rule.png" alt="Custom Sysmon Rule 100100 in Nano">
+        <div class="modal-img-caption"><strong>5. Sysmon Detection Rule Engineering:</strong> Authored custom XML detection rule <code>100100</code> targeting parent group <code>sysmon_event1</code> with PCRE2 regex pattern matching on <code>win.eventdata.commandLine</code> for tokenized execution detection.</div>
+      </div>
+
+      <div class="modal-img-wrap">
+        <img src="assets/images/wazuh_firewall_config_sync.png" alt="PowerShell Firewall Logging Configuration and Rule Test">
+        <div class="modal-img-caption"><strong>6. Endpoint Logging &amp; Rule Syntax Validation:</strong> (Left) PowerShell command <code>Set-NetFirewallProfile -LogBlocked True -LogAllowed True</code> enabling granular logging. (Right) Ubuntu terminal running <code>wazuh-analysisd -t</code> testing and validating custom rule logic prior to service restart.</div>
+      </div>
+
+      <div class="modal-img-wrap">
+        <img src="assets/images/wazuh_agent_overview.png" alt="Wazuh SIEM Active Endpoint Coverage">
+        <div class="modal-img-caption"><strong>7. Endpoint Inventory &amp; Health:</strong> Wazuh SIEM console verifying active enrollment of <code>WIN-LAB-01</code> (IP: <code>192.168.10.9</code>, Microsoft Windows 11 Pro build 10.0.26200, Agent v4.8.2) with 100.00% active telemetry coverage.</div>
+      </div>
+
+      <div class="modal-img-wrap">
+        <img src="assets/images/wazuh_agent_powershell_enroll.png" alt="PowerShell Agent Enrollment and Latency Verification">
+        <div class="modal-img-caption"><strong>8. Agent Enrollment &amp; Network Health:</strong> Silent MSI installation via PowerShell, service initialization (<code>NET START WazuhSvc</code>), and low-latency network handshake verification (<code>Test-NetConnection</code> RTT: 2 ms).</div>
       </div>
 
       <h3>Tools &amp; Core Competencies</h3>
-      <p>Wazuh 4.8.2 (SIEM &amp; XDR), Microsoft Sysmon (Sysinternals), Kali Linux, Nmap, Windows 11 Pro, Ubuntu 24.04 Server, Oracle VirtualBox, PCRE2 Regex Rule Engineering, TCP/IP &amp; DNS Protocol Inspection, Threat Hunting, MITRE ATT&amp;CK Mapping.</p>
+      <p>Wazuh 4.8.2 (SIEM &amp; XDR), Microsoft Sysmon (Sysinternals), Kali Linux, Nmap, Windows 11 Pro, Ubuntu 24.04 Server, Oracle VirtualBox, PCRE2 Regex Detection Engineering, TCP/IP, DNS &amp; SMB Protocol Inspection, SIEM Log Analysis, Incident Detection &amp; Triage.</p>
     `
   },
   'ad-automation': {
