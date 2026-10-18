@@ -62,11 +62,47 @@
   <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
 </div>
 
-<!-- ===== CYBER VIDEOS SECTION ===== -->
+<!-- ===== DEFENSIVE SECURITY SECTION ===== -->
 <section id="videos" class="page-section">
   <div class="section-inner">
-    <span class="section-tag">Offensive Security</span>
+    <span class="section-tag" style="color:#38bdf8;">Defensive Security</span>
     <h1 class="section-title">Cyber Videos</h1>
+    <p class="section-subtitle">
+      Incident response, alert triage, and Security Operations Center walkthroughs — defending from the inside out.
+    </p>
+
+    <div class="works-grid">
+
+      <!-- Card 1: Junior Security Analyst Intro -->
+      <div class="proj-card reveal-card" onclick="openVideoModal('soc-analyst-intro')">
+        <div class="yt-embed-wrap" onclick="event.stopPropagation()">
+          <iframe
+            src="https://www.youtube.com/embed/QKk2urmmETc?autoplay=0&controls=1&rel=0&modestbranding=1&fs=1"
+            title="Junior Security Analyst Intro — TryHackMe SOC Room"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            allowfullscreen loading="lazy">
+          </iframe>
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tag">TryHackMe</span>
+          <span class="proj-tag">Blue Team</span>
+          <span class="proj-tag">SOC</span>
+          <span class="proj-tag">Incident Response</span>
+        </div>
+        <h3>Junior Security Analyst Intro — TryHackMe SOC Room</h3>
+        <p>Explores what a junior SOC analyst does day-to-day: investigating alerts, identifying a malicious IP, escalating suspicious activity, and blocking the threat using the lab's firewall.</p>
+        <div class="proj-arrow">View walkthrough &amp; tools <i class="fas fa-arrow-right"></i></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== OFFENSIVE SECURITY SECTION ===== -->
+<section id="offensive-videos" class="page-section" style="background:var(--bg2);border-top:1px solid var(--border);">
+  <div class="section-inner">
+    <span class="section-tag">Offensive Security</span>
+    <h2 class="section-title">Ethical Hacking &amp; Exploitation</h2>
     <p class="section-subtitle">
       Hands-on ethical hacking demonstrations, vulnerable machine exploitation labs, and vertical privilege escalation walkthroughs — click any card for the full breakdown.
     </p>
@@ -74,7 +110,7 @@
     <!-- Offensive Security Videos -->
     <div class="works-grid">
 
-      <!-- Card 1: VulnHub Escalate_Linux: 1 -->
+      <!-- Card 2: VulnHub Escalate_Linux: 1 -->
       <div class="proj-card reveal-card" onclick="openVideoModal('escalate-linux-1')">
         <div class="yt-embed-wrap" onclick="event.stopPropagation()">
           <iframe
@@ -94,7 +130,7 @@
         <div class="proj-arrow">View walkthrough &amp; tools <i class="fas fa-arrow-right"></i></div>
       </div>
 
-      <!-- Card 2: mKingdom room on TryHackMe -->
+      <!-- Card 3: mKingdom room on TryHackMe -->
       <div class="proj-card reveal-card" onclick="openVideoModal('mkingdom-room')">
         <div class="yt-embed-wrap" onclick="event.stopPropagation()">
           <iframe
@@ -110,42 +146,6 @@
         </div>
         <h3>mKingdom room on TryHackMe</h3>
         <p>Exploration of the TryHackMe mKingdom room, covering enumeration, web attacks, file upload, reverse shells, and privilege escalation.</p>
-        <div class="proj-arrow">View walkthrough &amp; tools <i class="fas fa-arrow-right"></i></div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== DEFENSIVE SECURITY SECTION ===== -->
-<section id="defensive-videos" class="page-section" style="background:var(--bg2);border-top:1px solid var(--border);">
-  <div class="section-inner">
-    <span class="section-tag" style="color:#38bdf8;">Defensive Security</span>
-    <h2 class="section-title">Blue Team &amp; SOC</h2>
-    <p class="section-subtitle">
-      Incident response, alert triage, and Security Operations Center walkthroughs — defending from the inside out.
-    </p>
-
-    <div class="works-grid">
-
-      <!-- Card 3: Junior Security Analyst Intro -->
-      <div class="proj-card reveal-card" onclick="openVideoModal('soc-analyst-intro')">
-        <div class="yt-embed-wrap" onclick="event.stopPropagation()">
-          <iframe
-            src="https://www.youtube.com/embed/QKk2urmmETc?autoplay=0&controls=1&rel=0&modestbranding=1&fs=1"
-            title="Junior Security Analyst Intro — TryHackMe SOC Room"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-            allowfullscreen loading="lazy">
-          </iframe>
-        </div>
-        <div class="proj-tags">
-          <span class="proj-tag">TryHackMe</span>
-          <span class="proj-tag">Blue Team</span>
-          <span class="proj-tag">SOC</span>
-          <span class="proj-tag">Incident Response</span>
-        </div>
-        <h3>Junior Security Analyst Intro — TryHackMe SOC Room</h3>
-        <p>Explores what a junior SOC analyst does day-to-day: investigating alerts, identifying a malicious IP, escalating suspicious activity, and blocking the threat using the lab's firewall.</p>
         <div class="proj-arrow">View walkthrough &amp; tools <i class="fas fa-arrow-right"></i></div>
       </div>
 
