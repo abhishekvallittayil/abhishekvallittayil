@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Videos &amp; Walkthroughs — Abhishek Vallittayil | Ethical Hacking Demonstrations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cybersecurity lab walkthroughs, ethical hacking demonstrations, and Linux privilege escalation videos by Abhishek Vallittayil.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="assets/images/cyber.png">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar" id="navbar">
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html">Work</a></li>
+    <li><a href="videos.html" class="active">Videos</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <div class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
+  <a href="index.html" onclick="toggleMobileNav()">Home</a>
+  <a href="work.html" onclick="toggleMobileNav()">Work</a>
+  <a href="videos.html" onclick="toggleMobileNav()">Videos</a>
+  <a href="about.html" onclick="toggleMobileNav()">About</a>
+  <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
+</div>
+
+<!-- ===== VIDEOS & WALKTHROUGHS SECTION ===== -->
+<section id="videos" class="page-section">
+  <div class="section-inner">
+    <span class="section-tag">Cyber Videos</span>
+    <h1 class="section-title">Videos &amp; Walkthroughs</h1>
+    <p class="section-subtitle">
+      Hands-on ethical hacking demonstrations, vulnerable machine exploitation labs, and systematic privilege escalation walkthroughs.
+    </p>
+
+    <!-- Category Filters -->
+    <div class="video-filter-bar">
+      <button class="video-filter-btn" onclick="filterCategory('all', this)">
+        <i class="fas fa-layer-group"></i> All Videos
+      </button>
+      <button class="video-filter-btn active" onclick="filterCategory('hacking', this)">
+        <i class="fas fa-terminal"></i> Hacking Videos
+      </button>
+      <button class="video-filter-btn" onclick="filterCategory('privesc', this)">
+        <i class="fas fa-shield-virus"></i> Privilege Escalation
+      </button>
+      <button class="video-filter-btn" onclick="filterCategory('recon', this)">
+        <i class="fas fa-radar"></i> Network &amp; Recon
+      </button>
+    </div>
+
+    <!-- Featured Walkthrough Card -->
+    <div class="walkthrough-card-featured walkthrough-entry" data-category="hacking">
+      <div class="walkthrough-header">
+        <div class="walkthrough-badge-row">
+          <span class="wt-badge"><i class="fas fa-server"></i> VulnHub Machine</span>
+          <span class="wt-badge"><i class="fab fa-linux"></i> Linux Security</span>
+          <span class="wt-badge"><i class="fas fa-bug"></i> Command Injection</span>
+          <span class="wt-badge"><i class="fas fa-key"></i> Vertical PrivEsc</span>
+        </div>
+        <h2 class="walkthrough-title">VulnHub Escalate_Linux: 1 — From Reconnaissance to Root</h2>
+      </div>
+
+      <!-- Video Player Section (Placed above the written walkthrough) -->
+      <div class="video-player-section">
+        <div class="video-source-controls">
+          <div style="font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px;">
+            <i class="fas fa-circle-play" style="color: var(--orange);"></i> Video Walkthrough Player
+          </div>
+          <div class="source-toggle-group">
+            <button class="source-toggle-btn active" id="btnSourceYt" onclick="switchVideoSource('youtube')">
+              <i class="fab fa-youtube"></i> YouTube Stream
+            </button>
+            <button class="source-toggle-btn" id="btnSourceLocal" onclick="switchVideoSource('local')">
+              <i class="fas fa-file-video"></i> Direct MP4 Player
+            </button>
+          </div>
+        </div>
+
+        <div class="video-responsive-wrap">
+          <!-- YouTube Responsive Embed -->
+          <iframe id="youtubePlayer"
+                  src="https://www.youtube-nocookie.com/embed/JOsJgPFJk70?rel=0" 
+                  title="VulnHub Escalate_Linux: 1 — From Reconnaissance to Root" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                  allowfullscreen>
+          </iframe>
+
+          <!-- Direct HTML5 Video Player (Local MP4) -->
+          <video id="localVideoPlayer" controls preload="metadata" style="display: none;">
+            <source src="assets/video/Escalate 1.mp4" type="video/mp4">
+            Your browser does not support HTML5 video playback.
+          </video>
+        </div>
+      </div>
+
+      <!-- Context Note -->
+      <div class="context-note-box">
+        <i class="fas fa-shield-halved context-note-icon"></i>
+        <div class="context-note-text">
+          &ldquo;This walkthrough was performed in an intentionally vulnerable VulnHub lab for educational practice.&rdquo;
+        </div>
+      </div>
+
+      <!-- Main Learning Objective -->
+      <div class="objective-box">
+        <h4><i class="fas fa-bullseye"></i> Main Learning Objective</h4>
+        <p>Understand how web vulnerabilities and Linux permission misconfigurations can be combined to gain full control of a vulnerable machine. Practise systematic enumeration and explain the security impact of each finding.</p>
+      </div>
+
+      <!-- Description -->
+      <h3 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 12px;">Walkthrough Summary</h3>
+      <p class="walkthrough-desc-text">
+        In this walkthrough, I practise ethical hacking on VulnHub’s intentionally vulnerable Escalate_Linux: 1 machine. I work through network discovery, web enumeration, command injection, initial access, Linux enumeration, and vertical privilege escalation to obtain root access.
+      </p>
+
+      <!-- Tools and techniques demonstrated -->
+      <div class="tools-section-title">
+        <i class="fas fa-toolbox"></i> Tools &amp; Techniques Demonstrated
+      </div>
+
+      <div class="tools-grid">
+        <div class="tool-card-item">
+          <div class="tool-card-header">
+            <i class="fas fa-network-wired"></i>
+            <span class="tool-card-name">Netdiscover</span>
+          </div>
+          <p class="tool-card-desc">Discover the target machine on the local network.</p>
+        </div>
+
+        <div class="tool-card-item">
+          <div class="tool-card-header">
+            <i class="fas fa-terminal"></i>
+            <span class="tool-card-name">ifconfig</span>
+          </div>
+          <p class="tool-card-desc">Check my machine’s network configuration and IP address.</p>
+        </div>
+
+        <div class="tool-card-item">
+          <div class="tool-card-header">
+            <i class="fas fa-radar"></i>
+            <span class="tool-card-name">Nmap</span>
+          </div>
+          <p class="tool-card-desc">Identify open ports and running services.</p>
+        </div>
+
+        <div class="tool-card-item">
+          <div class="tool-card-header">
+            <i class="fas fa-code"></i>
+            <span class="tool-card-name">HTML Source Inspection</span>
+          </div>
+          <p class="tool-card-desc">Examine the website’s code for useful information.</p>
+        </div>
+
+        <div class="tool-card-item">
+          <div class="tool-card-header">
+            <i class="fas fa-folder-tree"></i>
+            <span class="tool-card-name">Dirb</span>
+          </div>
+          <p class="tool-card-desc">Discover hidden web directories and files.</p>
+        </div>
+
+        <div class="tool-card-item">
+          <div class="tool-card-header">
+            <i class="fas fa-shield-virus"></i>
+            <span class="tool-card-name">Command Injection Testing</span>
+          </div>
+          <p class="tool-card-desc">Identify and demonstrate a vulnerable web input.</p>
+        </div>
+
+        <div class="tool-card-item">
+          <div class="tool-card-header">
+            <i class="fas fa-crosshairs"></i>
+            <span class="tool-card-name">Metasploit</span>
+          </div>
+          <p class="tool-card-desc">Establish an initial shell on the target.</p>
+        </div>
+
+        <div class="tool-card-item">
+          <div class="tool-card-header">
+            <i class="fas fa-unlock-keyhole"></i>
+            <span class="tool-card-name">Burp Suite</span>
+          </div>
+          <p class="tool-card-desc">Decode encoded content encountered during testing.</p>
+        </div>
+
+        <div class="tool-card-item">
+          <div class="tool-card-header">
+            <i class="fab fa-python"></i>
+            <span class="tool-card-name">Python</span>
+          </div>
+          <p class="tool-card-desc">Upgrade the initial shell to an interactive terminal.</p>
+        </div>
+
+        <div class="tool-card-item">
+          <div class="tool-card-header">
+            <i class="fab fa-linux"></i>
+            <span class="tool-card-name">Linux Commands</span>
+          </div>
+          <p class="tool-card-desc">Locate files and examine permissions.</p>
+        </div>
+
+        <div class="tool-card-item">
+          <div class="tool-card-header">
+            <i class="fas fa-user-ninja"></i>
+            <span class="tool-card-name">Vertical Privilege Escalation</span>
+          </div>
+          <p class="tool-card-desc">Progress from a low-privileged account to root.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Future Walkthroughs Section (Allows additional walkthroughs to be added later) -->
+    <div style="margin-top: 50px;">
+      <h3 style="font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 8px;">
+        <i class="fas fa-film" style="color: var(--orange); margin-right: 8px;"></i> Additional Walkthroughs
+      </h3>
+      <p style="font-size: 14px; color: var(--muted); margin-bottom: 24px;">
+        More lab recordings and offensive security demonstrations currently in production.
+      </p>
+
+      <div class="upcoming-grid">
+        <div class="upcoming-card">
+          <span class="upcoming-badge"><i class="fas fa-clock"></i> In Production</span>
+          <h4 style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px;">Active Directory Domain Escalation</h4>
+          <p style="font-size: 13px; color: var(--muted); line-height: 1.6;">
+            Demonstrating Kerberoasting, AS-REP roasting, and Group Policy enumeration in an enterprise Windows Server 2022 domain.
+          </p>
+        </div>
+
+        <div class="upcoming-card">
+          <span class="upcoming-badge"><i class="fas fa-clock"></i> In Production</span>
+          <h4 style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px;">Wazuh SIEM Detection &amp; Rule Tuning</h4>
+          <p style="font-size: 13px; color: var(--muted); line-height: 1.6;">
+            Step-by-step video walkthrough configuring custom PCRE2 rules and analyzing Sysmon Event ID 1 process trees against live Nmap attacks.
+          </p>
+        </div>
+
+        <div class="upcoming-card">
+          <span class="upcoming-badge"><i class="fas fa-clock"></i> In Production</span>
+          <h4 style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px;">OWASP Top 10 Web Exploitation</h4>
+          <p style="font-size: 13px; color: var(--muted); line-height: 1.6;">
+            Deep-dive into SQL injection, SSRF, and cross-site scripting (XSS) discovery with Burp Suite Professional.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>&copy; 2026 Abhishek Vallittayil. All rights reserved.</p>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+// Video Player Source Toggle (YouTube vs Local MP4)
+function switchVideoSource(source) {
+  const ytFrame = document.getElementById('youtubePlayer');
+  const localVideo = document.getElementById('localVideoPlayer');
+  const btnYt = document.getElementById('btnSourceYt');
+  const btnLocal = document.getElementById('btnSourceLocal');
+
+  if (source === 'youtube') {
+    localVideo.pause();
+    localVideo.style.display = 'none';
+    ytFrame.style.display = 'block';
+    btnYt.classList.add('active');
+    btnLocal.classList.remove('active');
+  } else {
+    // Switch to local MP4
+    ytFrame.style.display = 'none';
+    localVideo.style.display = 'block';
+    btnLocal.classList.add('active');
+    btnYt.classList.remove('active');
+  }
+}
+
+// Category Filter Handling
+function filterCategory(category, btn) {
+  document.querySelectorAll('.video-filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const entries = document.querySelectorAll('.walkthrough-entry');
+  entries.forEach(entry => {
+    if (category === 'all' || entry.dataset.category === category || (category === 'privesc' && entry.innerText.includes('Privilege Escalation'))) {
+      entry.style.display = 'block';
+    } else {
+      entry.style.display = 'none';
+    }
+  });
+}
+</script>
+</body>
+</html>
