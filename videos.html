@@ -16,7 +16,7 @@
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="work.html">Work</a></li>
-    <li><a href="videos.html" class="active">Videos</a></li>
+    <li><a href="videos.html" class="active">Cyber Videos</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
@@ -35,7 +35,7 @@
   <button class="mobile-nav-close" onclick="toggleMobileNav()">&times;</button>
   <a href="index.html" onclick="toggleMobileNav()">Home</a>
   <a href="work.html" onclick="toggleMobileNav()">Work</a>
-  <a href="videos.html" onclick="toggleMobileNav()">Videos</a>
+  <a href="videos.html" onclick="toggleMobileNav()">Cyber Videos</a>
   <a href="about.html" onclick="toggleMobileNav()">About</a>
   <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
 </div>
@@ -77,36 +77,21 @@
         <h2 class="walkthrough-title">VulnHub Escalate_Linux: 1 — From Reconnaissance to Root</h2>
       </div>
 
-      <!-- Video Player Section (Placed above the written walkthrough) -->
+      <!-- Video Player Section (Compact Direct MP4 Player) -->
       <div class="video-player-section">
-        <div class="video-source-controls">
-          <div style="font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 8px;">
-            <i class="fas fa-circle-play" style="color: var(--orange);"></i> Video Walkthrough Player
+        <div class="video-player-compact-wrap">
+          <div class="video-responsive-wrap">
+            <video id="cyberVideo" controls playsinline preload="metadata">
+              <source src="assets/video/Escalate 1.mp4" type="video/mp4">
+              Your browser does not support HTML5 video playback.
+            </video>
           </div>
-          <div class="source-toggle-group">
-            <button class="source-toggle-btn active" id="btnSourceYt" onclick="switchVideoSource('youtube')">
-              <i class="fab fa-youtube"></i> YouTube Stream
-            </button>
-            <button class="source-toggle-btn" id="btnSourceLocal" onclick="switchVideoSource('local')">
-              <i class="fas fa-file-video"></i> Direct MP4 Player
+          <div class="video-toolbar-compact">
+            <span class="video-status-tag"><i class="fas fa-play-circle"></i> Direct MP4 Player</span>
+            <button type="button" class="btn-fullscreen-toggle" onclick="toggleFullScreen()" title="Full Screen">
+              <i class="fas fa-expand"></i> Full Screen
             </button>
           </div>
-        </div>
-
-        <div class="video-responsive-wrap">
-          <!-- YouTube Responsive Embed -->
-          <iframe id="youtubePlayer"
-                  src="https://www.youtube-nocookie.com/embed/JOsJgPFJk70?rel=0" 
-                  title="VulnHub Escalate_Linux: 1 — From Reconnaissance to Root" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  allowfullscreen>
-          </iframe>
-
-          <!-- Direct HTML5 Video Player (Local MP4) -->
-          <video id="localVideoPlayer" controls preload="metadata" style="display: none;">
-            <source src="assets/video/Escalate 1.mp4" type="video/mp4">
-            Your browser does not support HTML5 video playback.
-          </video>
         </div>
       </div>
 
@@ -281,25 +266,24 @@ function toggleMobileNav() {
   document.getElementById('mobileNav').classList.toggle('open');
 }
 
-// Video Player Source Toggle (YouTube vs Local MP4)
-function switchVideoSource(source) {
-  const ytFrame = document.getElementById('youtubePlayer');
-  const localVideo = document.getElementById('localVideoPlayer');
-  const btnYt = document.getElementById('btnSourceYt');
-  const btnLocal = document.getElementById('btnSourceLocal');
-
-  if (source === 'youtube') {
-    localVideo.pause();
-    localVideo.style.display = 'none';
-    ytFrame.style.display = 'block';
-    btnYt.classList.add('active');
-    btnLocal.classList.remove('active');
+// Fullscreen Toggle for Video Player
+function toggleFullScreen() {
+  const video = document.getElementById('cyberVideo');
+  if (!video) return;
+  if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.webkitRequestFullscreen) {
+      video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) {
+      video.msRequestFullscreen();
+    }
   } else {
-    // Switch to local MP4
-    ytFrame.style.display = 'none';
-    localVideo.style.display = 'block';
-    btnLocal.classList.add('active');
-    btnYt.classList.remove('active');
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
   }
 }
 
