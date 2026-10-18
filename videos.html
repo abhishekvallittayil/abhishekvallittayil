@@ -72,6 +72,22 @@
 
         <div class="proj-arrow">View walkthrough &amp; tools <i class="fas fa-arrow-right"></i></div>
       </div>
+      <!-- Card 2: mKingdom room on TryHackMe -->
+      <div class="proj-card" onclick="openVideoModal('mkingdom-room')">
+        <div class="video-card-thumb-wrap" onclick="event.stopPropagation()">
+          <video id="cardVideo2" controls playsinline preload="metadata">
+            <source src="assets/video/mKingdom room on TryHackMe.mp4" type="video/mp4">
+            Your browser does not support HTML5 video playback.
+          </video>
+        </div>
+        <div class="proj-tags">
+          <span class="proj-tag">TryHackMe</span>
+          <span class="proj-tag">Web Exploitation</span>
+        </div>
+        <h3>mKingdom room on TryHackMe</h3>
+        <p>Exploration of the TryHackMe mKingdom room, covering enumeration, web attacks, file upload, reverse shells, and privilege escalation.</p>
+        <div class="proj-arrow">View walkthrough &amp; tools <i class="fas fa-arrow-right"></i></div>
+      </div>
 
     </div>
   </div>
@@ -108,7 +124,40 @@ const revealObserver = new IntersectionObserver((entries) => {
       entry.target.style.opacity = '1';
       entry.target.style.transform = 'translateY(0)';
       revealObserver.unobserve(entry.target);
+    },
+    'mkingdom-room': {
+      title: 'mKingdom room on TryHackMe',
+      sub: 'TryHackMe Lab | Web Exploitation & Reverse Shells',
+      body: `
+        <!-- Context Note -->
+        <div class="context-note-box"><i class="fas fa-shield-halved context-note-icon"></i><div class="context-note-text">&ldquo;This walkthrough demonstrates enumeration, file upload vulnerabilities, and reverse shell techniques on TryHackMe.&rdquo;</div></div>
+
+        <!-- Main Learning Objective -->
+        <div class="objective-box"><h4><i class="fas fa-bullseye"></i> Main Learning Objective</h4><p>Understand how to discover services, exploit file upload, obtain a reverse shell, and perform privilege escalation on a Linux target.</p></div>
+
+        <!-- Description -->
+        <h3>Walkthrough Summary</h3>
+        <p>In this lab we enumerate the target with Nmap, fuzz directories with ffuf, discover default credentials, upload a malicious PHP shell, upgrade it using a Python script, and leverage tools like wget, linpeas.sh, cron, bash and netcat for further exploitation.</p>
+
+        <!-- Tools & Techniques Demonstrated -->
+        <h3>Tools &amp; Techniques Demonstrated</h3>
+        <div class="tools-grid">
+          <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-radar"></i><span class="tool-card-name">Nmap</span></div><p class="tool-card-desc">Port scanning and service enumeration.</p></div>
+          <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-search"></i><span class="tool-card-name">ffuf</span></div><p class="tool-card-desc">Directory and file fuzzing.</p></div>
+          <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-key"></i><span class="tool-card-name">Default Passwords</span></div><p class="tool-card-desc">Identify common default credentials.</p></div>
+          <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-upload"></i><span class="tool-card-name">PHP File Upload</span></div><p class="tool-card-desc">Upload malicious PHP to obtain a reverse shell.</p></div>
+          <div class="tool-card-item"><div class="tool-card-header"><i class="fab fa-python"></i><span class="tool-card-name">Python Upgrade Shell</span></div><p class="tool-card-desc">Upgrade the PHP shell to an interactive Python shell.</p></div>
+          <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-download"></i><span class="tool-card-name">wget</span></div><p class="tool-card-desc">Download additional payloads on the target.</p></div>
+          <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-bug"></i><span class="tool-card-name">linpeas.sh</span></div><p class="tool-card-desc">Automated Linux privilege escalation checks.</p></div>
+          <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-server"></i><span class="tool-card-name">Python HTTP Server</span></div><p class="tool-card-desc">Serve files for upload/download during the attack.</p></div>
+          <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-clock"></i><span class="tool-card-name">Cron Job Abuse</span></div><p class="tool-card-desc">Identify and exploit vulnerable cron jobs.</p></div>
+          <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-code"></i><span class="tool-card-name">Bash Reverse Shell</span></div><p class="tool-card-desc">Craft a Bash reverse shell payload.</p></div>
+          <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-network-wired"></i><span class="tool-card-name">netcat</span></div><p class="tool-card-desc">Use netcat for listening and connecting shells.</p></div>
+          <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-terminal"></i><span class="tool-card-name">head command</span></div><p class="tool-card-desc">Inspect file beginnings, useful for script analysis.</p></div>
+        </div>
+      `
     }
+
   });
 }, { threshold: 0.12 });
 
