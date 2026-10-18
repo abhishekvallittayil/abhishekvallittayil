@@ -8,6 +8,28 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" type="image/png" href="assets/images/cyber.png">
+  <style>
+    /* Responsive YouTube embed wrapper */
+    .yt-embed-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #000;
+      margin-bottom: 0;
+    }
+    .yt-embed-wrap iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
 
@@ -52,12 +74,17 @@
     <div class="works-grid">
 
       <!-- Card 1: VulnHub Escalate_Linux: 1 -->
-      <div class="proj-card" onclick="openVideoModal('escalate-linux-1')">
-        <div class="video-card-thumb-wrap" onclick="event.stopPropagation()">
-          <video id="cardVideo1" controls playsinline preload="metadata">
-            <source src="assets/video/Escalate 1.mp4" type="video/mp4">
-            Your browser does not support HTML5 video playback.
-          </video>
+      <div class="proj-card reveal-card" onclick="openVideoModal('escalate-linux-1')">
+
+        <!-- YouTube embed (stops propagation so clicking player doesn't open modal) -->
+        <div class="yt-embed-wrap" onclick="event.stopPropagation()">
+          <iframe
+            src="https://www.youtube.com/embed/JOsJgPFJk70?autoplay=0&controls=1&rel=0&modestbranding=1&fs=1"
+            title="VulnHub Escalate_Linux: 1 — From Reconnaissance to Root"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
         </div>
 
         <div class="proj-tags">
@@ -74,19 +101,27 @@
       </div>
 
       <!-- Card 2: mKingdom room on TryHackMe -->
-      <div class="proj-card" onclick="openVideoModal('mkingdom-room')">
-        <div class="video-card-thumb-wrap" onclick="event.stopPropagation()">
-          <video id="cardVideo2" controls playsinline preload="metadata">
-            <source src="assets/video/mKingdom room on TryHackMe.mp4" type="video/mp4">
-            Your browser does not support HTML5 video playback.
-          </video>
+      <div class="proj-card reveal-card" onclick="openVideoModal('mkingdom-room')">
+
+        <div class="yt-embed-wrap" onclick="event.stopPropagation()">
+          <iframe
+            src="https://www.youtube.com/embed/7ctwBtuqxW4?autoplay=0&controls=1&rel=0&modestbranding=1&fs=1"
+            title="mKingdom room on TryHackMe"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
         </div>
+
         <div class="proj-tags">
           <span class="proj-tag">TryHackMe</span>
           <span class="proj-tag">Web Exploitation</span>
         </div>
+
         <h3>mKingdom room on TryHackMe</h3>
+
         <p>Exploration of the TryHackMe mKingdom room, covering enumeration, web attacks, file upload, reverse shells, and privilege escalation.</p>
+
         <div class="proj-arrow">View walkthrough &amp; tools <i class="fas fa-arrow-right"></i></div>
       </div>
 
@@ -127,9 +162,9 @@ const revealObserver = new IntersectionObserver((entries) => {
       revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.08 });
 
-document.querySelectorAll('.proj-card').forEach(el => {
+document.querySelectorAll('.reveal-card').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(24px)';
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -164,90 +199,47 @@ const videoData = {
       <h3>Tools &amp; Techniques Demonstrated</h3>
       <div class="tools-grid">
         <div class="tool-card-item">
-          <div class="tool-card-header">
-            <i class="fas fa-network-wired"></i>
-            <span class="tool-card-name">Netdiscover</span>
-          </div>
+          <div class="tool-card-header"><i class="fas fa-network-wired"></i><span class="tool-card-name">Netdiscover</span></div>
           <p class="tool-card-desc">Discover the target machine on the local network.</p>
         </div>
-
         <div class="tool-card-item">
-          <div class="tool-card-header">
-            <i class="fas fa-terminal"></i>
-            <span class="tool-card-name">ifconfig</span>
-          </div>
+          <div class="tool-card-header"><i class="fas fa-terminal"></i><span class="tool-card-name">ifconfig</span></div>
           <p class="tool-card-desc">Check my machine's network configuration and IP address.</p>
         </div>
-
         <div class="tool-card-item">
-          <div class="tool-card-header">
-            <i class="fas fa-radar"></i>
-            <span class="tool-card-name">Nmap</span>
-          </div>
+          <div class="tool-card-header"><i class="fas fa-radar"></i><span class="tool-card-name">Nmap</span></div>
           <p class="tool-card-desc">Identify open ports and running services.</p>
         </div>
-
         <div class="tool-card-item">
-          <div class="tool-card-header">
-            <i class="fas fa-code"></i>
-            <span class="tool-card-name">HTML Source Inspection</span>
-          </div>
+          <div class="tool-card-header"><i class="fas fa-code"></i><span class="tool-card-name">HTML Source Inspection</span></div>
           <p class="tool-card-desc">Examine the website's code for useful information.</p>
         </div>
-
         <div class="tool-card-item">
-          <div class="tool-card-header">
-            <i class="fas fa-folder-tree"></i>
-            <span class="tool-card-name">Dirb</span>
-          </div>
+          <div class="tool-card-header"><i class="fas fa-folder-tree"></i><span class="tool-card-name">Dirb</span></div>
           <p class="tool-card-desc">Discover hidden web directories and files.</p>
         </div>
-
         <div class="tool-card-item">
-          <div class="tool-card-header">
-            <i class="fas fa-shield-virus"></i>
-            <span class="tool-card-name">Command Injection Testing</span>
-          </div>
+          <div class="tool-card-header"><i class="fas fa-shield-virus"></i><span class="tool-card-name">Command Injection Testing</span></div>
           <p class="tool-card-desc">Identify and demonstrate a vulnerable web input.</p>
         </div>
-
         <div class="tool-card-item">
-          <div class="tool-card-header">
-            <i class="fas fa-crosshairs"></i>
-            <span class="tool-card-name">Metasploit</span>
-          </div>
+          <div class="tool-card-header"><i class="fas fa-crosshairs"></i><span class="tool-card-name">Metasploit</span></div>
           <p class="tool-card-desc">Establish an initial shell on the target.</p>
         </div>
-
         <div class="tool-card-item">
-          <div class="tool-card-header">
-            <i class="fas fa-unlock-keyhole"></i>
-            <span class="tool-card-name">Burp Suite</span>
-          </div>
+          <div class="tool-card-header"><i class="fas fa-unlock-keyhole"></i><span class="tool-card-name">Burp Suite</span></div>
           <p class="tool-card-desc">Decode encoded content encountered during testing.</p>
         </div>
-
         <div class="tool-card-item">
-          <div class="tool-card-header">
-            <i class="fab fa-python"></i>
-            <span class="tool-card-name">Python</span>
-          </div>
+          <div class="tool-card-header"><i class="fab fa-python"></i><span class="tool-card-name">Python</span></div>
           <p class="tool-card-desc">Upgrade the initial shell to an interactive terminal.</p>
         </div>
-
         <div class="tool-card-item">
-          <div class="tool-card-header">
-            <i class="fab fa-linux"></i>
-            <span class="tool-card-name">Linux Commands</span>
-          </div>
+          <div class="tool-card-header"><i class="fab fa-linux"></i><span class="tool-card-name">Linux Commands</span></div>
           <p class="tool-card-desc">Locate files and examine permissions.</p>
         </div>
-
         <div class="tool-card-item">
-          <div class="tool-card-header">
-            <i class="fas fa-user-ninja"></i>
-            <span class="tool-card-name">Vertical Privilege Escalation</span>
-          </div>
+          <div class="tool-card-header"><i class="fas fa-user-ninja"></i><span class="tool-card-name">Vertical Privilege Escalation</span></div>
           <p class="tool-card-desc">Progress from a low-privileged account to root.</p>
         </div>
       </div>
@@ -259,10 +251,16 @@ const videoData = {
     sub: 'TryHackMe Lab | Web Exploitation &amp; Reverse Shells',
     body: `
       <!-- Context Note -->
-      <div class="context-note-box"><i class="fas fa-shield-halved context-note-icon"></i><div class="context-note-text">&ldquo;This walkthrough demonstrates enumeration, file upload vulnerabilities, and reverse shell techniques on TryHackMe.&rdquo;</div></div>
+      <div class="context-note-box">
+        <i class="fas fa-shield-halved context-note-icon"></i>
+        <div class="context-note-text">&ldquo;This walkthrough demonstrates enumeration, file upload vulnerabilities, and reverse shell techniques on TryHackMe.&rdquo;</div>
+      </div>
 
       <!-- Main Learning Objective -->
-      <div class="objective-box"><h4><i class="fas fa-bullseye"></i> Main Learning Objective</h4><p>Understand how to discover services, exploit file upload, obtain a reverse shell, and perform privilege escalation on a Linux target.</p></div>
+      <div class="objective-box">
+        <h4><i class="fas fa-bullseye"></i> Main Learning Objective</h4>
+        <p>Understand how to discover services, exploit file upload, obtain a reverse shell, and perform privilege escalation on a Linux target.</p>
+      </div>
 
       <!-- Description -->
       <h3>Walkthrough Summary</h3>
