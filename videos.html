@@ -125,6 +125,33 @@
         <div class="proj-arrow">View walkthrough &amp; tools <i class="fas fa-arrow-right"></i></div>
       </div>
 
+      <!-- Card 3: Junior Security Analyst Intro — TryHackMe -->
+      <div class="proj-card reveal-card" onclick="openVideoModal('soc-analyst-intro')">
+
+        <div class="yt-embed-wrap" onclick="event.stopPropagation()">
+          <iframe
+            src="https://www.youtube.com/embed/QKk2urmmETc?autoplay=0&controls=1&rel=0&modestbranding=1&fs=1"
+            title="Junior Security Analyst Intro — TryHackMe SOC Room"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+
+        <div class="proj-tags">
+          <span class="proj-tag">TryHackMe</span>
+          <span class="proj-tag">Blue Team</span>
+          <span class="proj-tag">SOC</span>
+          <span class="proj-tag">Incident Response</span>
+        </div>
+
+        <h3>Junior Security Analyst Intro — TryHackMe SOC Room</h3>
+
+        <p>Explores what a junior SOC analyst does day-to-day: investigating alerts, identifying a malicious IP, escalating suspicious activity, and blocking the threat using the lab's firewall.</p>
+
+        <div class="proj-arrow">View walkthrough &amp; tools <i class="fas fa-arrow-right"></i></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -281,6 +308,41 @@ const videoData = {
         <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-code"></i><span class="tool-card-name">Bash Reverse Shell</span></div><p class="tool-card-desc">Craft a Bash reverse shell payload.</p></div>
         <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-network-wired"></i><span class="tool-card-name">netcat</span></div><p class="tool-card-desc">Use netcat for listening and connecting shells.</p></div>
         <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-terminal"></i><span class="tool-card-name">head command</span></div><p class="tool-card-desc">Inspect file beginnings, useful for script analysis.</p></div>
+      </div>
+    `
+  },
+
+  'soc-analyst-intro': {
+    title: 'Junior Security Analyst Intro — TryHackMe SOC Room',
+    sub: 'TryHackMe Lab | Blue Team, Defensive Security &amp; Incident Response',
+    body: `
+      <!-- Context Note -->
+      <div class="context-note-box">
+        <i class="fas fa-shield-halved context-note-icon"></i>
+        <div class="context-note-text">&ldquo;All activities take place in TryHackMe's simulated training environment for educational purposes.&rdquo;</div>
+      </div>
+
+      <!-- Main Learning Objective -->
+      <div class="objective-box">
+        <h4><i class="fas fa-bullseye"></i> Main Learning Objective</h4>
+        <p>Understand the day-to-day responsibilities of a junior SOC analyst — triaging alerts, investigating suspicious activity, identifying malicious IPs, and responding to incidents using a firewall.</p>
+      </div>
+
+      <!-- Description -->
+      <h3>Walkthrough Summary</h3>
+      <p>In this walkthrough I work through the Junior Security Analyst Intro room on TryHackMe and explore what a junior Security Operations Center (SOC) analyst does. I investigate security alerts, identify a malicious IP address, escalate suspicious activity, and block the IP using the lab's simulated firewall. A beginner-friendly introduction to defensive security and incident response.</p>
+      <p><a href="https://tryhackme.com/room/securityanalystintroda" target="_blank" style="color:var(--orange);text-decoration:none;font-weight:600;"><i class="fas fa-external-link-alt" style="font-size:12px;margin-right:6px;"></i>Try the room yourself on TryHackMe</a></p>
+
+      <!-- Tools & Techniques Demonstrated -->
+      <h3>Tools &amp; Techniques Demonstrated</h3>
+      <div class="tools-grid">
+        <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-tower-broadcast"></i><span class="tool-card-name">SOC Roles &amp; Tiers</span></div><p class="tool-card-desc">Understanding the structure of a Security Operations Center and Tier 1–3 analyst responsibilities.</p></div>
+        <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-bell"></i><span class="tool-card-name">Alert Triage</span></div><p class="tool-card-desc">Investigate and prioritise incoming security alerts in the SIEM dashboard.</p></div>
+        <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-magnifying-glass"></i><span class="tool-card-name">Malicious IP Investigation</span></div><p class="tool-card-desc">Identify and verify a suspicious IP address flagged in security alerts.</p></div>
+        <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-circle-arrow-up"></i><span class="tool-card-name">Escalation Procedure</span></div><p class="tool-card-desc">Follow the correct escalation path to report suspicious activity to senior analysts.</p></div>
+        <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-ban"></i><span class="tool-card-name">Firewall IP Blocking</span></div><p class="tool-card-desc">Block a confirmed malicious IP address using the lab's simulated firewall interface.</p></div>
+        <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-shield-halved"></i><span class="tool-card-name">Defensive Security</span></div><p class="tool-card-desc">Apply blue-team principles to detect and contain threats before damage occurs.</p></div>
+        <div class="tool-card-item"><div class="tool-card-header"><i class="fas fa-file-shield"></i><span class="tool-card-name">Incident Response</span></div><p class="tool-card-desc">Practise the initial steps of an incident response workflow in a controlled environment.</p></div>
       </div>
     `
   }
