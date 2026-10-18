@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Videos &amp; Walkthroughs — Abhishek Vallittayil | Ethical Hacking Demonstrations</title>
+  <title>Cyber Videos — Abhishek Vallittayil | Ethical Hacking Walkthroughs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Cybersecurity lab walkthroughs, ethical hacking demonstrations, and Linux privilege escalation videos by Abhishek Vallittayil.">
   <link rel="stylesheet" href="css/style.css">
@@ -40,40 +40,91 @@
   <a href="contact.html" onclick="toggleMobileNav()">Contact</a>
 </div>
 
-<!-- ===== VIDEOS & WALKTHROUGHS SECTION ===== -->
+<!-- ===== CYBER VIDEOS SECTION ===== -->
 <section id="videos" class="page-section">
   <div class="section-inner">
+    <span class="section-tag">Offensive Security</span>
+    <h1 class="section-title">Cyber Videos</h1>
+    <p class="section-subtitle">
+      Hands-on ethical hacking demonstrations, vulnerable machine exploitation labs, and vertical privilege escalation walkthroughs — click any card for the full breakdown.
+    </p>
 
-    <!-- Featured Walkthrough Card -->
-    <div class="walkthrough-card-featured">
-      <div class="walkthrough-header">
-        <div class="walkthrough-badge-row">
-          <span class="wt-badge"><i class="fas fa-server"></i> VulnHub Machine</span>
-          <span class="wt-badge"><i class="fab fa-linux"></i> Linux Security</span>
-          <span class="wt-badge"><i class="fas fa-bug"></i> Command Injection</span>
-          <span class="wt-badge"><i class="fas fa-key"></i> Vertical PrivEsc</span>
+    <div class="works-grid">
+
+      <!-- Card 1: VulnHub Escalate_Linux: 1 -->
+      <div class="proj-card" onclick="openVideoModal('escalate-linux-1')">
+        <div class="video-card-thumb-wrap" onclick="event.stopPropagation()">
+          <video id="cardVideo1" controls playsinline preload="metadata">
+            <source src="assets/video/Escalate 1.mp4" type="video/mp4">
+            Your browser does not support HTML5 video playback.
+          </video>
         </div>
-        <h1 class="walkthrough-title">VulnHub Escalate_Linux: 1 — From Reconnaissance to Root</h1>
+
+        <div class="proj-tags">
+          <span class="proj-tag">VulnHub</span>
+          <span class="proj-tag">Linux Security</span>
+          <span class="proj-tag">PrivEsc</span>
+        </div>
+
+        <h3>VulnHub Escalate_Linux: 1 — From Reconnaissance to Root</h3>
+
+        <p>In this walkthrough, I practise ethical hacking on VulnHub’s intentionally vulnerable Escalate_Linux: 1 machine. I work through network discovery, web enumeration, command injection, initial access, Linux enumeration, and vertical privilege escalation to obtain root access.</p>
+
+        <div class="proj-arrow">View walkthrough &amp; tools <i class="fas fa-arrow-right"></i></div>
       </div>
 
-      <!-- Video Player Section (Compact Direct MP4 Player) -->
-      <div class="video-player-section">
-        <div class="video-player-compact-wrap">
-          <div class="video-responsive-wrap">
-            <video id="cyberVideo" controls playsinline preload="metadata">
-              <source src="assets/video/Escalate 1.mp4" type="video/mp4">
-              Your browser does not support HTML5 video playback.
-            </video>
-          </div>
-          <div class="video-toolbar-compact">
-            <span class="video-status-tag"><i class="fas fa-play-circle"></i> Direct MP4 Player</span>
-            <button type="button" class="btn-fullscreen-toggle" onclick="toggleFullScreen()" title="Full Screen">
-              <i class="fas fa-expand"></i> Full Screen
-            </button>
-          </div>
-        </div>
-      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>&copy; 2026 Abhishek Vallittayil. All rights reserved.</p>
+</footer>
+
+<!-- ===== VIDEO WALKTHROUGH MODAL ===== -->
+<div class="modal-overlay" id="videoModal" onclick="if(event.target===this)closeVideoModal()">
+  <div class="modal-box">
+    <button class="modal-close-btn" onclick="closeVideoModal()">&times;</button>
+    <div id="videoModalBody"></div>
+  </div>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+// Scroll Reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.proj-card').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  revealObserver.observe(el);
+});
+
+// Video Walkthrough Database
+const videoData = {
+  'escalate-linux-1': {
+    title: 'VulnHub Escalate_Linux: 1 — From Reconnaissance to Root',
+    sub:   'VulnHub Lab | Network Recon, Web Exploitation & Vertical Privilege Escalation',
+    body: `
       <!-- Context Note -->
       <div class="context-note-box">
         <i class="fas fa-shield-halved context-note-icon"></i>
@@ -89,16 +140,11 @@
       </div>
 
       <!-- Description -->
-      <h3 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 12px;">Walkthrough Summary</h3>
-      <p class="walkthrough-desc-text">
-        In this walkthrough, I practise ethical hacking on VulnHub’s intentionally vulnerable Escalate_Linux: 1 machine. I work through network discovery, web enumeration, command injection, initial access, Linux enumeration, and vertical privilege escalation to obtain root access.
-      </p>
+      <h3>Walkthrough Summary</h3>
+      <p>In this walkthrough, I practise ethical hacking on VulnHub’s intentionally vulnerable Escalate_Linux: 1 machine. I work through network discovery, web enumeration, command injection, initial access, Linux enumeration, and vertical privilege escalation to obtain root access.</p>
 
       <!-- Tools and techniques demonstrated -->
-      <div class="tools-section-title">
-        <i class="fas fa-toolbox"></i> Tools &amp; Techniques Demonstrated
-      </div>
-
+      <h3>Tools &amp; Techniques Demonstrated</h3>
       <div class="tools-grid">
         <div class="tool-card-item">
           <div class="tool-card-header">
@@ -188,46 +234,34 @@
           <p class="tool-card-desc">Progress from a low-privileged account to root.</p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer>
-  <p>&copy; 2026 Abhishek Vallittayil. All rights reserved.</p>
-</footer>
-
-<!-- ===== JAVASCRIPT ===== -->
-<script>
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
-});
-
-function toggleMobileNav() {
-  document.getElementById('mobileNav').classList.toggle('open');
-}
-
-// Fullscreen Toggle for Video Player
-function toggleFullScreen() {
-  const video = document.getElementById('cyberVideo');
-  if (!video) return;
-  if (!document.fullscreenElement && !document.webkitFullscreenElement) {
-    if (video.requestFullscreen) {
-      video.requestFullscreen();
-    } else if (video.webkitRequestFullscreen) {
-      video.webkitRequestFullscreen();
-    } else if (video.msRequestFullscreen) {
-      video.msRequestFullscreen();
-    }
-  } else {
-    if (document.exitFullscreen) {
-      document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) {
-      document.webkitExitFullscreen();
-    }
+    `
   }
+};
+
+let _videoModalOpen = false;
+
+function openVideoModal(id) {
+  const d = videoData[id];
+  if (!d) return;
+  _videoModalOpen = true;
+  document.getElementById('videoModalBody').innerHTML = `
+    <h1>${d.title}</h1>
+    <div class="modal-sub">${d.sub}</div>
+    ${d.body}
+  `;
+  document.getElementById('videoModal').classList.add('is-open');
+  document.body.style.overflow = 'hidden';
 }
+
+function closeVideoModal() {
+  document.getElementById('videoModal').classList.remove('is-open');
+  document.body.style.overflow = '';
+  setTimeout(() => { _videoModalOpen = false; }, 100);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeVideoModal();
+});
 </script>
 </body>
 </html>
